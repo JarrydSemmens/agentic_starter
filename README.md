@@ -26,6 +26,18 @@ Once the context is in place, future work becomes much simpler. Instead of resta
 
 That keeps context windows cleaner, reduces drift, and lets the agent stay focused on the current task instead of repeatedly rebuilding project understanding from scratch.
 
+## Context Maintenance Expectations
+
+Expect to spend roughly half of your development time maintaining, correcting, and extending the project context in this repository. That is not overhead. It is the management layer that makes the rest of the workflow effective.
+
+The developer's role here is leadership and delegation. Define the work clearly, document the constraints, specify the tools and standards, break the problem into milestones and goals, and keep that context accurate as the project evolves.
+
+There are two equally bad failure modes. The first is treating the AI like a confused junior and hoping vague prompts will somehow produce precise work. The second is acting like an impatient manager who wants perfect output immediately but refuses to provide direction, acceptance criteria, or usable feedback. Both approaches fail for the same reason: the system can only execute well against clear intent.
+
+Good AI output requires good leadership. That means setting expectations, giving concrete instructions, revising the plan when reality changes, and investing in the documentation that future sessions will rely on. If that discipline feels excessive, this workflow is probably being used incorrectly.
+
+The mindset here is closer to deliberate engineering leadership than improvisational prompting. Books like `Radical Candor`, `Software Engineering at Google`, and `The Pragmatic Programmer` are more relevant to this workflow than arguments about clever prompting tricks.
+
 ## What This Template Provides
 
 - A documentation-first workflow centered on `Documentation/design.md`, `Documentation/milestones.md`, and `Documentation/goals*.md`
