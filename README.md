@@ -10,6 +10,30 @@ repo: "your-repo"
 
 It is designed to be forked or copied, then filled in with project-specific architecture, roadmap, goals, and implementation plans. The value of this repository is the documentation workflow and agent collaboration structure, not prebuilt application code.
 
+## HOW TO USE THE AGENTIC STARTER
+
+This works best if you have a great big messy monologue with an AI, or you have an existing design specification document.
+
+Often, I'll build up mine by using ChatGPT voice mode, or Gemini Voice mode while riding my bicycle to work. I'll describe what I want, the tech I'll use, approaches I want to investigate. I'll go on and on about how it helps, the expected outcome of the project and who will use it and why. I'll describe platforms, versions, unwanted patterns (like DI containers, or my hatred of python due to busted wheels) and all the other details about this project. I'll go on about colors, themes, how it's installed, if it's web tech in Node.js or a WPF app on dotnet 8.0 because it's LTS or anything else. I won't listen to the AI when dictating this stuff, since I just want it to listen. 
+
+At the end, I'll ask it to summarise everything into a design document, and put it into a canvas so I can download this rough spec as a markdown file.
+
+Then when I'm at my workstation with a fork or clone of this repo, I'll paste in that rough specification along with a prompt. The prompt will tell the agent in Windsurf\Cursor\Codex\Claude or whatever to populate all the non-specifics found in @design.md @milestones.md and @goals1.md with the project description I have given.
+
+I'll use an expensive model, like Claude Opus, or Codex 5.3 high reasoning. Mistakes at this level will pollute the project forever.
+
+Once all that is done, I'll read everything and correct things by hand. 
+
+This planning session sets up highly detailed context going forward. I'll spend about half my time on maintaining, updating and refining these context files while I work.
+
+The end result, is that I can have all this setup on my ROG Ally, and say in a fresh conversation:
+
+> Implement goal 3.4 as per @goals3.md.
+
+Then I stick the ROG in my backpack on low power mode, and bike ride home. When I get home, I'll have a feature done. Check it into git, and tell it to make another feature.
+
+My context windows don't get clogged, my AI stays focused, and I stay in the fresh and effective part of the context windows while being able to do something else productive while projects built with this clank away at doing work I want.
+
 ## What This Template Provides
 
 - A documentation-first workflow centered on `Documentation/design.md`, `Documentation/milestones.md`, and `Documentation/goals*.md`
