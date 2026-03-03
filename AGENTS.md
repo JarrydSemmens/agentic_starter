@@ -6,7 +6,7 @@ This repository uses a documentation-first workflow and a centralized shared-rul
 
 Before making changes, load context in this order:
 
-1. Review the shared rules index at `D:\Code Projects\windsurf_rules\index.md`.
+1. Review the shared rules index at `D:\Code Projects\windsurf_rules\index.md`. If the windsurf rules repo cannot be found at the default location, try here: `C:\Projects\windsurf_rules`. The layout of the repositories is different on various workstations, and this location is valid on portable workstations. If you still cannot find it, go up on folder from the root directory of this project and look for `windsurf_rules`, it's usually there.
 2. From that index, load only the rule files relevant to this repository and the current task.
 3. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
 4. Review `Documentation/design.md`. This is always required baseline context.
