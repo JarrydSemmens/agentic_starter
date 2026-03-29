@@ -12,9 +12,10 @@ Before making changes, load context in this order:
 2. From that index, load only the rule files relevant to this repository and the current task.
 3. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
 4. Review `Documentation/design.md`. This is always required baseline context.
-5. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
-6. Review the relevant goals file for the feature being discussed or implemented.
-7. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+5. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
+6. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
+7. Review the relevant goals file for the feature being discussed or implemented.
+8. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
 
 ### 0.2: Shared Rules Policy
 
@@ -29,8 +30,25 @@ Before making changes, load context in this order:
 - Follow the spec-driven workflow defined in `Documentation/agenticworkflow.md`.
 - Treat `Documentation/design.md` as always-required context.
 - Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
-- Do not make git commits or alter repository history.
-- You are forbidden from ever making a git pull, push or commit. The penalty is severe, painful and immediate.
+- Do not execute pull, push, or commit operations in any VCS.
+- You may stage all tracked current changes only when explicitly requested.
+- When staging is requested, draft the commit message using `Documentation/commit_log_template.md`.
+- In Git workflows, commit message text is not part of staged state; provide drafted message text for the user to apply in their client.
+
+## 0.4: Product and assembly versioning
+
+All first-party assemblies in the solution share a four-part numeric identity **W.X.Y.Z** (exposed as `AssemblyVersion` / `FileVersion` and the MSBuild `Version` property where applicable).
+
+| Part | Meaning |
+| --- | --- |
+| **W** | **Major release** - increments only for a significant product release the organization treats as major (for example a 1.0 GA). **0** means no major release has been shipped yet. |
+| **X** | **Milestone** - the current milestone number from [Documentation/milestones.md](Documentation/milestones.md), or the highest milestone the team is actively working against. |
+| **Y** | **Highest completed goal** - within that milestone, the largest goal index that is complete. Example: Milestone 2 with Goals 2.1-2.6 complete and 2.7 not started yields **Y = 6**. When a new milestone begins, reset **Y** to **0** until the first goal in that milestone is completed, then advance as goals complete. |
+| **Z** | **Reserved** - default **0**. May later be used for a build or commit ordinal (for example CI setting the fourth part from pipeline build number). Until automation exists, keep **Z** at **0**. |
+
+**Example:** Pre-1.0 work on Milestone 2 with Goal 2.6 as the latest completed goal uses **0.2.6.0**.
+
+**Maintenance:** When you complete a goal or change milestone scope, update version properties in every `*.csproj` under `Source/` so all libraries stay aligned. Keep this section aligned with the table above.
 
 ---
 
