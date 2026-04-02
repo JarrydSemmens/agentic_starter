@@ -1,21 +1,24 @@
 ---
-name: write-commit
-description: Writes a standardised commit log following a template. Used after a task is completed to put a commit log into the chat for the user to copy into their repository software of choice.
+name: write-commit-log
+description: >-
+  Writes a standardised commit log from a fixed template for the user to copy into any VCS (git, Perforce, Mercurial, SVN, etc.). Use when the user asks for a commit message, changelog entry, or summary for version control; after completing a task or feature; when they want copy-paste wording for a check-in; or when they say commit log, commit message, or what to put in the commit.
 ---
 
-# Write Commit
+# Write commit log
 
-Write a commit log, that follows the template log template defined in references\commit_log_template.md and output that commit log to the user in the conversation.
+Write a commit log that follows the template in [references/commit_log_template.md](references/commit_log_template.md) and output it in the chat so the user can copy it easily.
 
-## When to Use
+## When to use
 
-- Use this skill when you have completed a task and are summarizing what you did in the conversation with the user.
-- This skill is helpful for providing detailed and succinct commit logs that are standardised and agnostic to the repository software.
-- This skill improves agentic safety by encouraging the user to perform the final commit step.
+- After completing work and summarising what changed.
+- When the user explicitly wants commit or check-in wording.
+- Keeps the final commit step with the human (agentic safety).
 
 ## Instructions
 
-- Review what you have done.
-- Open references\commit_log_template.md and read it all.
-- Follow the template instructions when writing a commit log.
-- Output the log to the user in the chat so they may read and copy it to their clipboard easily.
+- Review what was done in the conversation and in the codebase.
+- Read [references/commit_log_template.md](references/commit_log_template.md) in full.
+- Follow the template for heading, body lines, optional `NOTE:`, scoped commits (docs/tests only), and the quality bar.
+- If the work is clearly **several independent change sets** (unrelated fixes, separate features, or commits that should not be squashed), output **multiple** commit logs: each with its own heading and body, separated in chat (for example with a short label like “Commit 1 / Commit 2” or horizontal rules) so the user can paste them as separate check-ins.
+- Otherwise output a **single** commit log.
+- Output plain text in chat; no need for a code block unless it improves readability for multiple logs.

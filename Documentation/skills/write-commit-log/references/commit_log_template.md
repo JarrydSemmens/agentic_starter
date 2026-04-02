@@ -43,6 +43,23 @@ Rules:
 - `X.Y` follows the goal hierarchy.
 - Keep the summary concise and intent-focused.
 
+### Docs-only, tests-only, or non-feature work
+
+Same heading rules as above; the summary should state the **primary** outcome, not “misc updates”.
+
+Examples:
+
+```text
+[XXX-123] - Document local build and env setup in README
+[GOAL 1.2] - Add regression tests for edge cases in the parser
+[XXX-456] - Adjust CI workflow for new test project
+```
+
+Rules:
+
+- Prefer `~ Updated:` / `~ Added:` for docs; `~ Added:` / `~ Changed:` for tests or CI as appropriate.
+- If production code did not change, say so in the body (first line is enough) so reviewers know scope.
+
 ## Body Line Format
 
 Use one major change per line:
