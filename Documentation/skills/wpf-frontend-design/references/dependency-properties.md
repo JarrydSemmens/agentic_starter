@@ -1,3 +1,8 @@
+---
+name: dependency-properties
+version: 1.1
+---
+
 # Dependency Properties
 
 ## Use This Reference When
@@ -7,59 +12,99 @@
 - Participating in styling, animation, templating, or value inheritance
 - Adding control capabilities that should feel native to WPF
 
-## Senior WPF Stance
+## Veteran Expert Stance
 
-Dependency properties are not just a WPF formality. They are the contract that lets a control participate naturally in the XAML property system.
+Dependency properties are the backbone of WPF's rich property system. They store values in the framework's property store rather than as ordinary fields, which enables binding, styling, animation, value precedence, inheritance, and templating behavior without forcing every control instance to carry heavyweight field state.
 
 Use a dependency property when the value should support one or more of these:
 
-- Binding
-- Styling
+- Data binding
+- Styling and templating
 - Animation
-- Default metadata
-- Value inheritance
-- Change callbacks
-- Layout or render invalidation
+- Property value inheritance
+- Dynamic resources
+- Metadata-driven layout or render invalidation
+- Designer and XAML visibility as part of the control's public surface
 
-If the property is only internal implementation detail, a normal CLR property is often enough.
+If the value is purely internal state that consumers should never bind to, style, animate, or set from XAML, use a normal CLR property or a private field instead.
+
+If the state should be externally readable and bindable but only internally writable, use a read-only dependency property.
 
 ## What Good DP Design Looks Like
 
-- The property name reads like it belongs beside built-in WPF properties.
-- Metadata reflects real rendering or layout consequences.
-- Change callbacks are narrow and predictable.
-- The control remains usable from pure XAML.
-- The property enables composition instead of forcing consumers into code-behind.
+- Immaculate CLR wrappers. The wrapper should do nothing except call `GetValue` and `SetValue`.
+- Correct registration and naming. The field should be a `public static readonly DependencyProperty` named with the exact property name plus the `Property` suffix.
+- Smart metadata. Use `PropertyMetadata` or `FrameworkPropertyMetadata` to define default values, callbacks, coercion behavior, binding defaults, and framework-level invalidation behavior where appropriate.
+- Native-feeling API design. The property name, type, and semantics should feel like they belong beside the built-in WPF property set.
+- Clear ownership. The property should live on the control or attached surface where the concept actually belongs.
 
 ## Practical Heuristics
 
-- Register the property with the correct owner type and metadata.
-- Use `FrameworkPropertyMetadata` when layout, rendering, binding, or inheritance behavior matters.
-- Add property-changed callbacks only when the control must react immediately.
-- Keep callbacks free of business logic.
-- Prefer coercion or validation only when the property truly has invariant rules.
-- Use attached properties when the capability logically belongs on many unrelated elements.
+- Put change logic in `PropertyChangedCallback`, never in the CLR wrapper.
+- Use `CoerceValueCallback` when one property constrains another, such as keeping a current value within `Minimum` and `Maximum`.
+- Put default values in metadata, not in the constructor.
+- Use `FrameworkPropertyMetadata` when flags such as `AffectsMeasure`, `AffectsArrange`, `AffectsRender`, `BindsTwoWayByDefault`, or `Inherits` matter.
+- Use read-only dependency properties for internal state that templates, triggers, or bindings should still observe.
+- Keep metadata callbacks focused. They should synchronize control state, invalidate dependent values, or update visual behavior, not run application workflow logic.
+- If multiple properties interact, think carefully about callback order, coercion, and re-entrancy so the control remains predictable.
+
+## Read-Only Dependency Properties
+
+Read-only dependency properties are the right tool when a control owns the state but the outside world still needs to observe it.
+
+- Register them with `DependencyProperty.RegisterReadOnly`
+- Keep the resulting `DependencyPropertyKey` private or tightly scoped
+- Expose the public `DependencyProperty` for binding, styling, and triggers
+- Update the value only from within the control using the key
+
+This is appropriate for control-owned state such as computed status, visual mode, or interaction-derived state that should not be set externally.
+
+## Attached Versus Standard Dependency Properties
+
+Always ask where the concept really lives:
+
+- Use a standard dependency property when the value is intrinsic to one control type
+- Use an attached dependency property when the behavior or metadata can sensibly apply to many unrelated element types
+
+Attached properties are often the right answer for layout participation, attachable interaction features, drag-and-drop helpers, focus behavior, or cross-cutting UI capabilities.
+
+If the feature is a reusable modifier on arbitrary elements, `RegisterAttached` is usually the correct design.
+
+## Metadata-Driven Design
+
+The strongest WPF control authors lean on metadata instead of fighting the framework:
+
+- Use default values so every instance starts from a coherent baseline
+- Use metadata flags instead of manual invalidation where possible
+- Use coercion to enforce invariants through the property system itself
+- Use callbacks to synchronize related state when the property system changes values through binding, styling, animation, or templates
+
+The more your design works with the property system, the more native and reliable the control feels.
 
 ## Novel Control Work
 
-When building new control behavior, think in terms of native control affordances:
+When creating new control capabilities, think in terms of native WPF affordances:
 
-- What should be set in XAML?
-- What should be stylable?
-- What should be animatable?
-- What should templates be able to consume?
+- Should this be bindable from XAML
+- Should styles be able to set it
+- Should templates react to it
+- Should animations target it
+- Should a parent surface be able to influence it declaratively
 
-If the answer is "yes" to any of those, a dependency property is usually part of the solution.
+If the answer is yes to any of these, a dependency property is often part of the correct design.
 
-This is also the mechanism for deeply permuting existing controls in a native-feeling way. If a control should gain a new bindable capability, editing surface, or state model without feeling bolted on, dependency properties are usually part of that design.
+This is also how existing controls can be deeply permuted in a native-feeling way. If a control gains new bindable behavior, editable state, or templatable configuration and still feels like a first-class WPF citizen, dependency properties are usually carrying that contract.
 
 ## Smells
 
-- Plain CLR properties for values that must bind or animate
-- Code-behind fields that should be exposed to templates
-- Property callbacks that mutate half the control tree
-- Dependency properties used only because "custom controls need them"
+- Logic in CLR wrappers such as validation, event raising, or side effects
+- Setting dependency property defaults in the constructor instead of registration metadata
+- Incorrect backing field naming that breaks WPF conventions and tooling expectations
+- Manually calling `InvalidateMeasure`, `InvalidateArrange`, or `InvalidateVisual` when metadata flags would express the intent more accurately
+- Using dependency properties to store sensitive data that should not live in the public property system
+- Callbacks that mutate large parts of the control tree or trigger hard-to-follow recursive property changes
+- Choosing a normal dependency property when the concept is really an attached capability
 
 ## Goal
 
-Author controls and abstractions that plug into WPF naturally, even when the behavior itself is novel.
+Plug custom control state and configuration cleanly into the native WPF ecosystem so the resulting API fully participates in binding, styling, templating, and animation while remaining efficient, predictable, and idiomatic.

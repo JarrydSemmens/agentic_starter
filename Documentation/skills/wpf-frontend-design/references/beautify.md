@@ -1,3 +1,8 @@
+---
+name: beautify
+version: 1.1
+---
+
 # Beautify
 
 ## Use This Reference When
@@ -7,47 +12,67 @@
 - The work involves themes, colors, storyboards, triggers, or visual-state-driven behavior
 - The UI needs to feel modern, intuitive, and deliberate rather than merely functional
 
-## Senior WPF Stance
+## Veteran Expert Stance
 
-Beautiful WPF UI is not decoration layered on top of structure. It is the disciplined use of visual states, motion, theming, and rendering-aware techniques to make the interface feel intuitive and expensive.
+Beautiful WPF UI is built on a strict separation of control logic from visual representation through lookless design where appropriate, uses the `VisualStateManager` to orchestrate complex visual behavior cleanly, and favors hardware-friendly rendering paths so interactions stay fluid under real use.
 
 ## Core Levers
 
-- Visual states for readable interaction-state management
-- Resource dictionaries for palette, typography, brushes, durations, and reusable styling values
-- Triggers and storyboards for state transitions
-- Render transforms and opacity for cheap motion
-- Control templates for cohesive visual identity
+- VisualStateManager. This is the preferred engine for managing mutually exclusive states such as `Normal`, `MouseOver`, `Pressed`, `Disabled`, `Selected`, or `Focused`, along with the transitions between them.
+- ControlTemplates. Use these to completely replace the visual tree of an existing control while retaining its semantics and behavior contract.
+- Resource dictionaries and design tokens. Centralize semantic colors, brushes, durations, easing choices, spacing, and shared stylistic values so the application can be themed and refined coherently.
+- Storyboards and triggers. Use these to coordinate multi-property animation and declarative visual reactions over time.
 
 ## Motion Principles
 
-Use animation to communicate intent, hierarchy, and response. Borrow from animation craft where it helps:
+Use animation to communicate interaction context, spatial change, hierarchy, and feedback.
 
-- Anticipation makes actions legible
-- Follow-through makes motion feel less mechanical
-- Squash and stretch can add delight when used sparingly
-- Timing and easing matter more than raw movement distance
-- Staggered entrances can explain hierarchy without extra chrome
+- Short micro-interactions around 100 to 200 milliseconds work well for direct manipulation such as hover, press, and focus feedback.
+- Larger content transitions often need roughly 300 to 500 milliseconds so they read clearly without feeling sluggish.
+- Use easing functions such as `CubicEase` or other intentional curves. Natural-feeling motion is rarely linear.
+- Let motion clarify the interface rather than decorate it.
+- Keep the motion language cohesive across a screen or feature area.
 
-WPF can produce excellent motion, and the Disney animation principles are useful here, but the best results still come from restraint and precision rather than constant movement.
+WPF can produce excellent fluid motion when animations focus on hardware-friendly properties such as `Opacity` and `RenderTransform`.
 
 ## Practical Heuristics
 
-- Prefer animating `RenderTransform`, `Opacity`, gradient stops, or brush properties before layout-affecting properties.
-- Use visual states for control-state orchestration when the state model is meaningful.
-- Use triggers for smaller declarative reactions.
-- Centralize colors, brushes, easing functions, and durations in resources.
-- Design hover, pressed, focus, disabled, and validation states intentionally.
-- Keep the motion vocabulary consistent across the screen.
-- Favor render-only adjustments when possible so the interface feels lively without forcing unnecessary layout work.
+- Animate transforms, not layout. Prefer `RenderTransform` for movement, scaling, rotation, and emphasis. Avoid animating `LayoutTransform`, `Width`, `Height`, `Margin`, or `Padding` unless you deliberately want layout recalculation.
+- Use `DynamicResource` for runtime theming. If a palette value may change while the app is running, it should generally come through a dynamic resource.
+- Apply opacity to brushes instead of entire elements when possible. Element-level opacity can introduce extra compositing cost across a subtree.
+- Freeze static graphical resources. Brushes, geometries, pens, and transforms that never change should be frozen when created in code so WPF can treat them more efficiently.
+- Coordinate overlapping interaction states with `VisualStateManager` instead of building a maze of independent triggers.
+- Use triggers for smaller declarative reactions and `VisualStateManager` when the state model is richer or state transitions overlap.
+- Design hover, pressed, focus, disabled, validation, and selection states intentionally. A premium-feeling UI is often defined by these transitions more than its resting state.
+- Keep style definitions and motion tokens centralized so multiple controls share the same visual vocabulary.
+
+## Theme And Resource Discipline
+
+Polish depends on systemization, not ad hoc decoration:
+
+- Prefer semantic resource names such as `SuccessBrush`, `WarningBrush`, `WindowSurfaceBrush`, or `AccentHoverBrush` over raw color intent tied to a single screen.
+- Avoid scattering hardcoded hex values through views and templates.
+- Keep palette, typography, timing, and elevation choices reusable through shared dictionaries.
+- Make theme swaps and brand updates a resource problem, not a file-by-file rewrite.
+
+## Performance-Aware Beauty
+
+Visual quality is only premium if it remains responsive:
+
+- Favor render-only adjustments over layout-affecting animations.
+- Be cautious with stacked translucency, large blur-like effects, and broad opacity usage across complex trees.
+- Avoid animating many elements independently when a smaller coordinated effect will communicate the same idea.
+- Remember that elegant motion usually comes from restraint, timing, and hierarchy rather than sheer animation density.
 
 ## Smells
 
-- Layout-heavy animations for simple emphasis
-- Too many unrelated motion styles in one surface
-- Colors and shadows chosen ad hoc instead of from a system
-- Fancy visuals with no state clarity
+- Animating `Width`, `Height`, or similar layout properties for effects that should be transform-based
+- Default linear motion that feels robotic or mechanical
+- Hardcoded hex colors repeated across templates and views
+- Visual state logic implemented in code-behind with event handlers instead of declarative XAML state systems
+- Heavy transparency stacks, large opacity masks, or expensive compositing used casually
+- A visually flashy control whose hover, focus, pressed, disabled, or validation states are inconsistent or unclear
 
 ## Goal
 
-Produce UI that feels smooth, understandable, and unmistakably deliberate.
+Craft visually engaging, responsive, and themeable WPF interfaces where motion feels deliberate, aesthetics stay cleanly separated from application logic, and the experience remains smooth under real interaction.
