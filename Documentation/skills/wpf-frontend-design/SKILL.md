@@ -1,7 +1,7 @@
 ---
 name: wpf-frontend-design
-description: Use this skill when the user is building, styling, refactoring, or troubleshooting WPF UI such as views, user controls, custom controls, templates, bindings, resource dictionaries, animations, or MVVM-driven desktop experiences. This skill encodes senior WPF frontend engineering judgment and loads deeper reference files only for the WPF domain currently in play.
-version: 1.0
+description: Use this skill when the user is building, styling, refactoring, or troubleshooting WPF UI such as views, user controls, custom controls, templates, bindings, resource dictionaries, animations, or MVVM-driven desktop experiences. This skill encodes veteran WPF frontend expertise and loads deeper reference files only for the WPF domain currently in play.
+version: 1.1
 ---
 
 # WPF Frontend Design
@@ -30,6 +30,8 @@ Think in this order:
 
 Prefer the least powerful abstraction that cleanly solves the problem. Do not jump to inheritance or custom controls when a template, behavior, style, or attached property is enough.
 
+After identifying the problem type, load only the reference files that directly help solve it. This skill is a catalogue first and a knowledge dump second.
+
 ## Default WPF Stance
 
 - Prefer composition over inheritance.
@@ -56,7 +58,7 @@ Load these references only when they are relevant:
 - [references/resource-system.md](references/resource-system.md)
   Use when organizing shared colors, brushes, styles, templates, themes, merged dictionaries, or deferred resource loading.
 - [references/performance.md](references/performance.md)
-  Use when the task touches rendering cost, invalidation, virtualization, `Freezable` usage, animation efficiency, or retained-mode rendering behavior.
+  Use when the task touches rendering cost, invalidation, virtualization, `Freezable` usage, memory leaks, animation efficiency, or retained-mode rendering behavior.
 
 If a task crosses multiple domains, load only the smallest useful combination. Typical pairings:
 
@@ -65,6 +67,9 @@ If a task crosses multiple domains, load only the smallest useful combination. T
 - App-wide theming: `resource-system.md` + `beautify.md`
 - UI logic cleanup: `mvvm-bindings.md` + `componentization.md`
 - Slow or janky UI: `performance.md` plus the domain that introduced the issue
+- Custom control authoring: `dependency-properties.md` + `control-templating.md` + `componentization.md`
+- Runtime theming or skinning: `resource-system.md` + `control-templating.md` + `beautify.md`
+- Event-heavy UI cleanup: `mvvm-bindings.md` + `componentization.md` + `dependency-properties.md` when the control surface also needs a better API
 
 ## Execution Checklist
 
@@ -76,6 +81,7 @@ When using this skill:
 4. Reuse resources and templates instead of cloning markup.
 5. Keep interactions smooth and cheap.
 6. Verify that the result still feels like a native WPF control or view.
+7. Prefer the framework feature that preserves the most native WPF behavior for the least implementation cost.
 
 ## Do Not
 
