@@ -1,9 +1,9 @@
 ---
-name: mvvm-bindings
+name: mvvm-and-presentation-architecture
 version: 1.1
 ---
 
-# MVVM Pattern And Bindings
+# MVVM and Presentation Architecture
 
 ## Use This Reference When
 
@@ -35,6 +35,7 @@ In the ideal case, a view's code-behind contains only view plumbing, often littl
 - Use attributes such as `[NotifyPropertyChangedFor]` and `[NotifyCanExecuteChangedFor]` to keep dependent properties and commands synchronized automatically.
 - Prefer simple view-model properties over elaborate converter chains when the display state is conceptually part of the presentation model.
 - Keep bindings readable. One clean binding path is usually better than clever indirection through multiple named elements.
+- Use child view models and `DataTemplate` mapping when the screen is naturally composed of distinct presentation units.
 
 ## CommunityToolkit.Mvvm Guidance
 
@@ -56,6 +57,15 @@ This reduces boilerplate and keeps view models focused on behavior and state ins
 - Behavior or attached property. Reusable UI interactivity such as focus management, drag-and-drop, event bridging, or view-specific interaction patterns that should not live in a single view model
 
 If a decision exists only because of the UI's appearance or composition, it usually belongs in the view layer. If it exists because of workflow, state, or user intent, it usually belongs in the view model or model.
+
+## Validation And Presentation Shaping
+
+Validation belongs here because it is part of how the presentation layer exposes user-editable state:
+
+- Keep validation rules coherent with the binding and editing experience
+- Prefer `INotifyDataErrorInfo`-friendly patterns when asynchronous or multi-field validation matters
+- Keep validation messages and UI state separate from raw domain services where possible
+- Shape domain data into presentation-friendly state instead of forcing the view to reconstruct it through fragile binding graphs
 
 ## Binding Discipline
 

@@ -12,6 +12,7 @@ version: 1.1
 - Rendering large datasets or complex visual layouts
 - A control updates frequently or hosts heavy custom visuals
 - Hunting down memory leaks related to UI elements, bindings, or event handlers
+- Diagnosing binding failures, layout pathologies, template bugs, or rendering-path problems
 
 ## Veteran Expert Stance
 
@@ -52,6 +53,19 @@ Virtualization is one of the biggest practical wins in WPF:
 
 Large data UIs often need both virtualization and template simplification.
 
+## Diagnostics Workflow
+
+Diagnostics should be a standard part of WPF engineering, not a last resort:
+
+- Keep the output window clean of binding errors before tuning anything else
+- Use binding tracing when a binding path, source, or update mode is behaving unexpectedly
+- Use Live Visual Tree, Live Property Explorer, or Snoop to inspect real runtime structure instead of guessing what the tree became
+- Inspect control templates and generated containers when item UI or state behavior looks wrong
+- Trace layout issues by looking for repeated measure-arrange churn, unexpected container growth, or template bloat
+- Confirm whether rendering is staying on a healthy path before assuming the issue is pure CPU logic
+
+A surprising amount of "WPF is slow" turns out to be "the tree is wrong," "the bindings are noisy," or "the template contract is broken."
+
 ## Retained-Mode Mindset
 
 WPF uses a retained-mode graphics system. Your application defines a scene graph, and WPF decides how and when to redraw it.
@@ -90,6 +104,14 @@ Not all visual effects stay on the hardware-accelerated path:
 
 When a UI feels inexplicably heavy, confirm that the design is not triggering software rendering or excessive compositing.
 
+## Boundaries
+
+This reference owns runtime behavior, diagnostics, and optimization.
+
+- For the architecture of item presentation itself, use `data-templating-and-items-controls.md`.
+- For async coordination and dispatcher rules, use `threading-dispatcher-and-async-ui.md`.
+- For visual quality choices, use `visual-design-and-motion.md`.
+
 ## Smells
 
 - Animating `Width`, `Height`, `Margin`, or other layout-triggering properties when a `RenderTransform` would communicate the same motion
@@ -99,6 +121,7 @@ When a UI feels inexplicably heavy, confirm that the design is not triggering so
 - Recreating brushes, geometries, or other graphical objects during frequent updates instead of reusing or freezing them
 - Software-rendering fallbacks caused by inappropriate visual effects or transparency usage
 - Calling invalidation methods repeatedly in hot paths without understanding the redraw consequences
+- Troubleshooting based on guesswork without checking runtime tree, bindings, and layout behavior first
 
 ## Goal
 

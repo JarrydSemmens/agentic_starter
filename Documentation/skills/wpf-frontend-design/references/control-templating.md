@@ -18,6 +18,8 @@ Control templating is the WPF mechanism for completely replacing the visual stru
 
 The goal is to maximize visual freedom while retaining the built-in behaviors, accessibility affordances, automation support, and routed events of the standard WPF control model.
 
+This reference is about lookless templating discipline and template correctness. The full lifecycle of authoring a reusable custom control belongs in `custom-control-authoring.md`.
+
 ## What Templates Are For
 
 - Separating look from behavior. Standard WPF controls are designed to be lookless. The control defines what it does, while the template defines how it appears.
@@ -33,6 +35,7 @@ The goal is to maximize visual freedom while retaining the built-in behaviors, a
 - Use `VisualStateManager` over large trigger webs when the control has mutually exclusive or overlapping interaction states.
 - Keep templates resource-driven. Hard-coded visual values reduce theming flexibility and make control instances harder to customize.
 - Escalate from styling to custom control authoring only when the control contract itself needs to change, not merely its appearance.
+- If you are defining `DefaultStyleKey`, `Generic.xaml`, or `OnApplyTemplate`, you have crossed from pure templating into custom control authoring and should load `custom-control-authoring.md`.
 
 ## Template Building Blocks
 

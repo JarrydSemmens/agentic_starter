@@ -36,6 +36,8 @@ Treat resources as a unified design token architecture. Keep dictionary structur
 - Use implicit styles for broad consistency. A `Style` with `TargetType` and no `x:Key` is a powerful way to establish defaults for a control family within scope.
 - Keep template, style, and token layers separate enough that each can evolve without forcing edits across unrelated files.
 - Centralize reusable spacing, elevation, radius, duration, and typography values alongside color and brush tokens when those concepts are part of the visual system.
+- In control libraries, keep the default control theme in `Themes/Generic.xaml` and align it with `ThemeInfo` expectations so custom controls resolve their styles predictably.
+- Use pack URIs deliberately when loading dictionaries across assemblies so resource ownership and lookup boundaries stay obvious.
 
 ## StaticResource Versus DynamicResource
 
@@ -57,6 +59,7 @@ Good layering keeps the system understandable:
 - Template dictionaries for deeper control visual definitions
 - Feature-specific dictionaries only when a feature genuinely owns distinct resources
 - Theme dictionaries for alternate visual systems such as light and dark
+- Library dictionaries for reusable control styles and templates that should travel with a control assembly
 
 Keep the hierarchy as shallow as possible while preserving clarity. Excessive fragmentation increases lookup cost and maintenance complexity.
 
@@ -68,6 +71,7 @@ WPF resource lookup follows scope and order rules that matter for correctness an
 - Window- or control-local resources override broader application resources
 - In merged dictionaries, later dictionaries win when duplicate keys exist
 - Re-merging the same shared dictionaries repeatedly across local controls increases lookup and memory cost
+- Cross-assembly resources introduce pack URI and theme lookup boundaries that should be designed intentionally, especially for reusable control libraries
 
 If the same `Colors.xaml`, `Brushes.xaml`, or base style dictionaries are being merged into many controls individually, step back and reconsider the architecture. Shared resources usually belong at app scope or in a small number of clearly owned scopes.
 
@@ -90,6 +94,7 @@ The resource system depends on correct project setup:
 - Resource dictionaries should generally use the `Page` build action so XAML is compiled into BAML efficiently
 - Shared dictionaries should be organized so load order and override order are explicit
 - Theme dictionaries should expose stable semantic keys so templates and styles do not need to change when visual direction changes
+- Control libraries should keep theme lookup conventions coherent across `Generic.xaml`, theme-specific dictionaries, and assembly-level `ThemeInfo`
 
 ## Smells
 
@@ -100,6 +105,7 @@ The resource system depends on correct project setup:
 - Dictionary sprawl so fragmented that nobody can predict precedence or lookup behavior
 - Duplicate resource keys whose override order is accidental instead of deliberate
 - Incorrect build action on resource dictionary XAML files
+- Control libraries whose default styles fail because `Generic.xaml`, pack URI setup, or theme metadata conventions were not respected
 
 ## Goal
 

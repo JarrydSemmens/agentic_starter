@@ -1,9 +1,9 @@
 ---
-name: beautify
+name: visual-design-and-motion
 version: 1.1
 ---
 
-# Beautify
+# Visual Design and Motion
 
 ## Use This Reference When
 
@@ -14,7 +14,7 @@ version: 1.1
 
 ## Veteran Expert Stance
 
-Beautiful WPF UI is built on a strict separation of control logic from visual representation through lookless design where appropriate, uses the `VisualStateManager` to orchestrate complex visual behavior cleanly, and favors hardware-friendly rendering paths so interactions stay fluid under real use.
+Beautiful WPF UI is built on clear separation of logic from presentation, strong composition, intentional motion language, and hardware-friendly rendering paths so interactions stay fluid under real use.
 
 ## Core Levers
 
@@ -22,6 +22,7 @@ Beautiful WPF UI is built on a strict separation of control logic from visual re
 - ControlTemplates. Use these to completely replace the visual tree of an existing control while retaining its semantics and behavior contract.
 - Resource dictionaries and design tokens. Centralize semantic colors, brushes, durations, easing choices, spacing, and shared stylistic values so the application can be themed and refined coherently.
 - Storyboards and triggers. Use these to coordinate multi-property animation and declarative visual reactions over time.
+- Spatial composition. Deliberate spacing, silhouette, density, hierarchy, and visual rhythm are part of WPF design quality, not just decoration layered on afterward.
 
 ## Motion Principles
 
@@ -45,6 +46,7 @@ WPF can produce excellent fluid motion when animations focus on hardware-friendl
 - Use triggers for smaller declarative reactions and `VisualStateManager` when the state model is richer or state transitions overlap.
 - Design hover, pressed, focus, disabled, validation, and selection states intentionally. A premium-feeling UI is often defined by these transitions more than its resting state.
 - Keep style definitions and motion tokens centralized so multiple controls share the same visual vocabulary.
+- Treat layout composition, edge alignment, density, and negative space as first-class design decisions, especially in desktop workflows where information density matters.
 
 ## Theme And Resource Discipline
 
@@ -63,6 +65,14 @@ Visual quality is only premium if it remains responsive:
 - Be cautious with stacked translucency, large blur-like effects, and broad opacity usage across complex trees.
 - Avoid animating many elements independently when a smaller coordinated effect will communicate the same idea.
 - Remember that elegant motion usually comes from restraint, timing, and hierarchy rather than sheer animation density.
+
+## Boundaries
+
+This reference owns visual language, state feedback, composition, and motion craft.
+
+- For template contracts and parts-states correctness, use `control-templating.md`.
+- For resource lookup and theme architecture, use `resource-system.md`.
+- For accessibility-sensitive visual behavior such as focus cues and high contrast, also load `accessibility-automation-and-localization.md`.
 
 ## Smells
 

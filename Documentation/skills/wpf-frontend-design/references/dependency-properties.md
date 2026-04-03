@@ -42,11 +42,14 @@ If the state should be externally readable and bindable but only internally writ
 
 - Put change logic in `PropertyChangedCallback`, never in the CLR wrapper.
 - Use `CoerceValueCallback` when one property constrains another, such as keeping a current value within `Minimum` and `Maximum`.
+- Use `ValidateValueCallback` when the value should be rejected globally before it even reaches per-instance metadata processing.
 - Put default values in metadata, not in the constructor.
 - Use `FrameworkPropertyMetadata` when flags such as `AffectsMeasure`, `AffectsArrange`, `AffectsRender`, `BindsTwoWayByDefault`, or `Inherits` matter.
 - Use read-only dependency properties for internal state that templates, triggers, or bindings should still observe.
 - Keep metadata callbacks focused. They should synchronize control state, invalidate dependent values, or update visual behavior, not run application workflow logic.
 - If multiple properties interact, think carefully about callback order, coercion, and re-entrancy so the control remains predictable.
+- Use `AddOwner` when an existing dependency property concept should participate on a new type without inventing a parallel property surface.
+- Override metadata on inherited dependency properties when a derived control needs different defaults or framework behavior instead of re-registering the concept.
 
 ## Read-Only Dependency Properties
 
@@ -78,6 +81,8 @@ The strongest WPF control authors lean on metadata instead of fighting the frame
 - Use metadata flags instead of manual invalidation where possible
 - Use coercion to enforce invariants through the property system itself
 - Use callbacks to synchronize related state when the property system changes values through binding, styling, animation, or templates
+- Understand property value precedence so local values, bindings, styles, templates, animations, coercion, and defaults do not surprise you
+- Remember that default style behavior for custom controls is also metadata-driven through `DefaultStyleKey`
 
 The more your design works with the property system, the more native and reliable the control feels.
 
@@ -104,6 +109,7 @@ This is also how existing controls can be deeply permuted in a native-feeling wa
 - Using dependency properties to store sensitive data that should not live in the public property system
 - Callbacks that mutate large parts of the control tree or trigger hard-to-follow recursive property changes
 - Choosing a normal dependency property when the concept is really an attached capability
+- Re-registering a property concept instead of using `AddOwner` or metadata override where the property system already provides the right extension path
 
 ## Goal
 

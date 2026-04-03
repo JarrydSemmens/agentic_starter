@@ -41,6 +41,9 @@ Start by asking what is actually being reused:
 - Use routed events when a component must notify parent containers in a WPF-native way.
 - Keep visual trees shallow. Prefer a clear `Grid` or similarly efficient layout over deeply nested panel stacks that multiply measure and arrange cost.
 - Keep code-behind limited to view plumbing, focus control, view-only state coordination, or animation hooks. Move application behavior into commands, view models, behaviors, or control logic as appropriate.
+- If the reuse point is really item presentation, prefer `DataTemplate` and `ItemsControl` techniques over inventing a new view type. See `data-templating-and-items-controls.md`.
+- If the reuse point is a true reusable control contract, hand off to `custom-control-authoring.md` rather than trying to stretch `UserControl` too far.
+- If the reuse point is interaction policy, check `input-focus-and-commanding.md` before introducing more event handlers.
 
 ## Behaviors Versus Attached Properties
 
