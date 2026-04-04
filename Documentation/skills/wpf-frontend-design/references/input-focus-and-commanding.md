@@ -1,6 +1,6 @@
 ---
 name: input-focus-and-commanding
-version: 1.1
+version: 1.0
 ---
 
 # Input, Focus, and Commanding

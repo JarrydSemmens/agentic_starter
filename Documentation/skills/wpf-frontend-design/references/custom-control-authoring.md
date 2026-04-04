@@ -1,6 +1,6 @@
 ---
 name: custom-control-authoring
-version: 1.1
+version: 1.0
 ---
 
 # Custom Control Authoring

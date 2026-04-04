@@ -1,6 +1,6 @@
 ---
 name: windowing-navigation-and-lifetime
-version: 1.1
+version: 1.0
 ---
 
 # Windowing, Navigation, and Lifetime

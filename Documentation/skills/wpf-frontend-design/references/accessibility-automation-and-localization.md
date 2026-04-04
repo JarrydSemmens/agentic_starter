@@ -1,6 +1,6 @@
 ---
 name: accessibility-automation-and-localization
-version: 1.1
+version: 1.0
 ---
 
 # Accessibility, Automation, and Localization

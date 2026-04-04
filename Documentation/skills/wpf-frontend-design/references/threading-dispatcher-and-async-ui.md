@@ -1,6 +1,6 @@
 ---
 name: threading-dispatcher-and-async-ui
-version: 1.1
+version: 1.0
 ---
 
 # Threading, Dispatcher, and Async UI

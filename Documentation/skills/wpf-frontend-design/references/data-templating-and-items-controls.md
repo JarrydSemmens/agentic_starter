@@ -1,6 +1,6 @@
 ---
 name: data-templating-and-items-controls
-version: 1.1
+version: 1.0
 ---
 
 # Data Templating and Items Controls
