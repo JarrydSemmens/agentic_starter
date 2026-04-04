@@ -1,65 +1,79 @@
 ---
 name: input-focus-and-commanding
-version: 1.0
+version: 1.1
 ---
 
 # Input, Focus, and Commanding
 
 ## Use This Reference When
 
-- Wiring keyboard shortcuts, access keys, or routed commands
+- Wiring keyboard shortcuts, access keys, or routed commands to ensure a keyboard-friendly and accessible application
 - Fixing focus behavior, tab order, focus scopes, or keyboard navigation
-- Deciding between direct event handling, behaviors, and routed commanding
+- Deciding between direct event handling, behaviors, and routed commanding in an MVVM architecture
 - Ensuring pointer interaction and keyboard interaction have equivalent behavior
 
 ## Veteran Expert Stance
 
-Great WPF interaction design is not just about mouse clicks. Input, focus, and commanding are part of the control and application contract. If keyboard, focus, and command routing are wrong, the UI is incomplete no matter how polished it looks.
+Great WPF interaction relies on semantic intent over device-specific events. It separates what the user wants to do from how they initiated it.
+
+A robust UI treats the keyboard as a first-class citizen and leans on WPF's focus and commanding infrastructure instead of scattering fragile `KeyDown`, `MouseDown`, or `Click` event handlers through code-behind.
 
 ## Core Layers
 
-- Routed commands and command bindings
-- Input bindings and gestures
-- Access keys
-- Logical focus and keyboard focus
-- Focus scopes
-- Keyboard navigation and tab order
-- Behaviors and event-to-command bridges where routed commanding does not fit cleanly
+- Keyboard focus versus logical focus. Keyboard focus is the one element currently receiving keyboard input. Logical focus is the remembered focused element within a focus scope.
+- Commanding model. Command, command source, command target, and command binding form the native routed-command architecture.
+- Behaviors. Encapsulated interaction logic attached in XAML that can bridge routed events to commands without altering a control's structure.
 
 ## Practical Heuristics
 
-- Use native command surfaces where controls already support `Command`.
-- Use routed commands when the action should travel naturally through the element tree.
-- Use input bindings for keyboard gestures instead of ad hoc key event logic when possible.
-- Use behaviors or event bridges when a useful event exists but there is no clean command surface.
-- Design keyboard and pointer flows together so hover-only affordances do not hide essential functionality.
-- Make tab navigation deliberate rather than accepting accidental visual-tree order.
-- Treat focus visuals as part of the design, not as cosmetic noise to be removed.
+- Use access keys intentionally. Underscore-based access keys can make desktop workflows dramatically faster.
+- For input controls without textual content, put the access key on a `Label` and connect it through `Target`.
+- Explicitly manage tab order in complex forms. Use `TabIndex` when the default visual order is not enough, and apply `IsTabStop="False"` aggressively to decorative or non-actionable elements.
+- Use `InputBindings` and `KeyBinding` for keyboard shortcuts instead of hand-rolled key event logic when the action is truly command-like.
+- Use `KeyboardNavigation` attached properties to constrain or cycle focus intentionally inside dialogs, menus, and composite containers.
+- Keep pointer and keyboard interaction equivalent. Hover-only or click-only behavior is incomplete if there is no keyboard path to the same outcome.
 
 ## Focus Discipline
 
-Focus issues often come from not distinguishing concepts:
+Focus issues often come from confusing keyboard focus with logical focus or trying to set focus before the element is ready.
 
-- Keyboard focus is where keyboard input goes now
-- Logical focus is the remembered focus within a scope
-- Focus scopes matter for menus, toolbars, dialogs, popups, and composite surfaces
+- Set initial focus only after the target element is in the visual tree and visible.
+- Use `Loaded` or a deferred dispatcher callback when startup focus must be applied programmatically.
+- Understand that focus scopes preserve logical focus even when keyboard focus moves elsewhere temporarily.
+- Remember that menus, toolbars, context menus, and similar surfaces can change focus behavior in ways that are correct but surprising if you do not think in scopes.
 
-Understanding these distinctions prevents a lot of "focus is weird" debugging.
+Good focus discipline prevents "input goes nowhere" bugs and preserves editing context across composite UI.
 
 ## Behaviors Versus Routed Commanding
 
-- Prefer routed commanding when the action is fundamentally a command in the WPF sense
-- Prefer behaviors when bridging arbitrary events or element-specific interaction patterns into MVVM
-- Prefer either over scattering custom key and event logic through code-behind
+- Use routed commands when the action is truly coupled to focus, the element tree, or native WPF command handling. Clipboard and text editing commands are classic examples.
+- Use MVVM commands plus behaviors when the command belongs to the view model and should not depend on visual-tree routing.
+- Use behaviors such as event-to-command bridging when a control exposes a useful routed event but not a direct command surface.
+- Prefer commands and behaviors over code-behind handlers when the behavior changes application state.
+
+Routed commands are powerful, but they are not the right default for all business actions.
+
+## Access Keys, Shortcuts, and Navigation
+
+Keyboard usability is more than tabbing:
+
+- Access keys accelerate dense desktop interfaces
+- Shortcuts map recurring expert actions to gestures
+- Focus scopes preserve context inside complex surfaces
+- Tab behavior should match the user's mental workflow, not just the markup order
+
+These concerns are part of the interaction model, not small polish items.
 
 ## Smells
 
-- Mouse-only workflows with no keyboard equivalent
-- Arbitrary `KeyDown` handling in code-behind for behavior that should be a command or input binding
-- Broken tab order caused by accidental tree structure
-- Focus visuals removed without providing an accessible replacement
-- Commands that technically exist but do not route to the place users expect
+- Non-interactive elements participating in the tab order
+- Business logic implemented as routed commands when the real behavior belongs in a view model command
+- Code-behind event handlers mutating application state in an MVVM screen
+- Arbitrary `KeyDown` handling for behavior that should be a key binding, command, or behavior
+- Focus visuals removed without an accessible replacement
+- Reflection-based method-call behaviors used to avoid proper command design
+- Commands that mysteriously enable or disable based on visual-tree routing side effects the architecture never meant to depend on
 
 ## Goal
 
-Build WPF interaction models that are command-driven, keyboard-credible, focus-correct, and consistent across pointer and non-pointer input paths.
+Build accessible, keyboard-friendly, and maintainable WPF interaction models where user intent is cleanly expressed through commanding and behaviors, focus transitions feel natural, and business logic stays decoupled from the visual tree.
