@@ -1,5 +1,5 @@
 ---
-name: wpf-frontend-design
+name: wpf
 description: Use this skill when the user is building, styling, refactoring, troubleshooting, or architecting WPF applications and control libraries. It covers custom controls, templating, resources, MVVM, items controls, input, threading, accessibility, navigation, diagnostics, and performance, and it loads deeper reference files only for the WPF engineering domain currently in play.
 version: 1.2
 ---
