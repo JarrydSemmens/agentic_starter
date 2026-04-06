@@ -2,7 +2,7 @@
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Tier 4 implementation plan template for scoping a concrete task, listing affected files, steps, verification, and risks.    
 ---
 
 # Implementation Plan Template

@@ -2,7 +2,7 @@
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Tier 3 goals template for Milestone 1, capturing deliverables, acceptance criteria, scope, and implementation guidance.    
 ---
 # Project Name – Goals (Milestone 1: *Name*)
 

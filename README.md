@@ -2,7 +2,7 @@
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Starter repository overview explaining the documentation-first workflow, project structure, and how to use this template.    
 ---
 # Agentic Starter
 

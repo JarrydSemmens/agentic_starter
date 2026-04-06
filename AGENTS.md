@@ -2,7 +2,7 @@
 version: 1.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.    
 ---
 # Agent Instructions
 

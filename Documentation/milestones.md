@@ -2,7 +2,7 @@
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Tier 2 milestone roadmap template defining major project stages, their intent, status, and linked goals files.    
 ---
 # Project Name - Milestones
 

@@ -2,7 +2,7 @@
 version: 1.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Workflow guide for how AI agents should use the repository's tiered specs, phased handovers, and execution process.    
 ---
 # Agentic Workflow
 

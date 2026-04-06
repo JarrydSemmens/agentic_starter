@@ -2,7 +2,7 @@
 version: 1.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Optional temporary scratchpad for short-lived agent notes during long or multi-phase tasks.    
 ---
 # Agent Thinking
 

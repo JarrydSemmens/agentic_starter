@@ -2,7 +2,7 @@
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-description: ???    
+description: Tier 1 design specification template defining the project architecture, principles, constraints, and documentation hierarchy.    
 ---
 # Project Name - Design Specification
 
