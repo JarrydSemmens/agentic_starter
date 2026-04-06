@@ -1,10 +1,10 @@
-# Project Name - Design Specification
-
+---
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Project Name - Design Specification
 
 ## Purpose of This File
 

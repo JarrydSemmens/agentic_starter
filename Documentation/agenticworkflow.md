@@ -1,10 +1,10 @@
-# Agentic Workflow
-
+---
 version: 1.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Agentic Workflow
 
 **How AI agents collaborate with the developer in this repository**
 

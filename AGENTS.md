@@ -1,3 +1,9 @@
+---
+version: 1.0    
+owner: "Your Name"    
+repo: "your-repo"    
+description: ???    
+---
 # Agent Instructions
 
 This file provides mandatory guidance for AI coding agents. Follow these rules in every interaction.

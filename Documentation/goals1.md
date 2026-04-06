@@ -1,12 +1,12 @@
-# Project Name – Goals (Milestone 1: *Name*)
-
-<!-- markdownlint-disable MD001 MD009 MD012 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD051 MD058 MD060 -->
-
+---
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Project Name – Goals (Milestone 1: *Name*)
+
+<!-- markdownlint-disable MD001 MD009 MD012 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD051 MD058 MD060 -->
 
 > **Goals and deliverables for Milestone 1: *Name***
 >

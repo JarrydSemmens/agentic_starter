@@ -1,10 +1,11 @@
-# Implementation Plan Template
-
+---
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+
+# Implementation Plan Template
 
 Use this file as the starting point for a Tier 4 implementation plan in this repository. Copy it to a task-specific filename and replace all placeholders.
 

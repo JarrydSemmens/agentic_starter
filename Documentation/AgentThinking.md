@@ -1,10 +1,10 @@
-# Agent Thinking
-
+---
 version: 1.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Agent Thinking
 
 This file is an optional scratchpad for temporary agent notes during a long or multi-phase task.
 

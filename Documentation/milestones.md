@@ -1,10 +1,10 @@
-# Project Name - Milestones
-
+---
 version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Project Name - Milestones
 
 > Authoritative milestone definitions for the project.
 >

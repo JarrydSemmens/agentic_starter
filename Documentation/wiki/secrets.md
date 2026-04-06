@@ -1,3 +1,10 @@
+---
+version: 0.0
+owner: "Your Name"
+repo: "your-repo"
+description: "Placeholder guidance for documenting secret and sensitive configuration handling."
+---
+
 # Secrets and Sensitive Configuration
 
 This page is a placeholder. Replace it with the real secret-management approach for the project that adopts this template.

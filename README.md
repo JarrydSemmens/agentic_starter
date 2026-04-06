@@ -1,10 +1,10 @@
-# Agentic Starter
-
-version: 1.0    
+---
+version: 0.0    
 owner: "Your Name"    
 repo: "your-repo"    
-
+description: ???    
 ---
+# Agentic Starter
 
 `agentic_starter` is an intentionally empty repository template for new projects that want structure and context before implementation.
 
