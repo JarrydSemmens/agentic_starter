@@ -16,18 +16,20 @@ Before making changes, load context in this order:
 
 ### 0.1: Review the shared rules index at `D:\Code Projects\windsurf_rules\index.md`. If the windsurf rules repo cannot be found at the default location, try here: `C:\Projects\windsurf_rules`. The layout of the repositories is different on various workstations, and this location is valid on portable workstations. If you still cannot find it, go up on folder from the root directory of this project and look for `windsurf_rules`, it's usually there.
 2. From that index, load only the rule files relevant to this repository and the current task.
-3. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
-4. Review `Documentation/design.md`. This is always required baseline context.
-5. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
-6. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
-7. Review the relevant goals file for the feature being discussed or implemented.
-8. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+3. Review `Documentation/laws.md`. This is the constitutional authority for all code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file or in shared rules.
+4. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
+5. Review `Documentation/design.md`. This is always required baseline context.
+6. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
+7. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
+8. Review the relevant goals file for the feature being discussed or implemented.
+9. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
 
 ### 0.2: Shared Rules Policy
 
 - Do not bulk-read all files under `D:\Code Projects\windsurf_rules\`.
 - Use `D:\Code Projects\windsurf_rules\index.md` to choose the minimum relevant rule set.
 - Apply shared rules together when appropriate, for example C# plus WPF.
+- `Documentation/laws.md` overrides all other instructions when they conflict.
 - Repository-local instructions override shared rules when they conflict.
 - Task-specific instructions override general rules when they conflict.
 
@@ -129,35 +131,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-## 2. Core Philosophy
-
-These principles drive every decision. When two rules conflict, resolve by applying them in priority order.
-
-1. **Functional First** — Code exists to fulfil a purpose. Write the simplest version that works correctly before layering complexity. Apply Occam's Razor.
-2. **Readable** — Code is read at least ten times more than it is written. Optimise for the reader, not the writer. Never write the cleverest thing you can — if you write at the limit of your ability, you will not be able to debug it. Use descriptive names, prefer explicit over implicit, keep code density low.
-3. **Understandable** — Write software that fits in your head. Working memory holds roughly four items. Separate concerns, keep nesting shallow, keep functions short. Follow the Principle of Least Astonishment — a method called `MakeCookies` must never return `Potato` objects.
-4. **Reliable** — Code should be hard to break. Loosely coupled, testable via dependency inversion, covered by automated tests. Every bug fix ships with a regression test.
-5. **Efficient** — Games are real-time software with hard frame-rate targets. But premature optimisation is still the root of all evil. Write correct code first. Do not optimise until a profiler measurement shows a bottleneck, and always verify that the optimisation had the intended effect.
-6. **Iterative** — Nobody gets it right the first time. Apply the Rule of Three — refactor only after something is duplicated three times. Use Red-Green-Refactor. Each commit should leave the codebase better than it was.
-7. **Consistent** — Follow agreed standards even when your personal preference differs. Consistency reduces cognitive load and onboarding time.
-
----
-
-## 3. SOLID Principles
-
-All code must respect SOLID:
-
-- **Single Responsibility** — A class has one and only one reason to change. If it handles more than one concern, it must be split. Do not mix gameplay logic, UI logic, persistence, input handling, animation, or infrastructure in a single class.
-- **Open/Closed** — Open for extension, closed for modification. Prefer composition, interfaces, and new classes over modifying existing stable code.
-- **Liskov Substitution** — Derived types must be fully substitutable for their base types without breaking behaviour.
-- **Interface Segregation** — Interfaces must be small and focused. Never force a class to implement methods it does not use.
-- **Dependency Inversion** — Depend on abstractions (interfaces), not concrete implementations. Use constructor injection for plain C# classes and serialized references or installers for MonoBehaviours.
-
-Apply these as guiding heuristics. Game code sometimes benefits from pragmatic shortcuts — but document them and revisit them.
-
----
-
-## 4. Refactoring Rules
+## 2. Refactoring Rules
 
 Immediate refactoring is required when:
 - A class grows beyond a single responsibility.
@@ -173,20 +147,3 @@ Refactoring must prioritise:
 Apply the Rule of Three — refactor after something is duplicated three times, not before.
 
 Before adding significant functionality to a large or monolithic file, consider a structural refactor with no intended behaviour changes first. Splitting a file into smaller, composable parts before feature work is often safer than mixing the refactor and the new behaviour in one step. Verify the refactor independently before layering new functionality on top.
-
----
-
-## 5. Definition of Done
-
-A change is complete only when:
-
-- [ ] Explicit variable types are used everywhere (no `var` or `auto`)
-- [ ] SOLID principles are respected
-- [ ] Each class has a single responsibility
-- [ ] Each method performs a single action
-- [ ] Serialized references are validated in initialisation
-- [ ] Code is readable, maintainable, and refactor-ready
-- [ ] Tests exist for new features and bug fixes
-- [ ] The console is clean (zero warnings, zero errors)
-- [ ] Every changed line traces directly to the user's request
-- [ ] No unnecessary abstractions, features, or "improvements" beyond scope
