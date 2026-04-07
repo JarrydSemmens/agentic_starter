@@ -28,6 +28,7 @@ Wielding context thoughtfully has a direct effect on the quality of outcomes. Cl
 
 - [doxygen_cheat_sheet.md](doxygen_cheat_sheet.md) - reference guide for Doxygen comment syntax, grouping, linking, and generated docs features
 - [markdown_cheat_sheet.md](markdown_cheat_sheet.md) - reference guide for core Markdown syntax and major flavours
+- [mermaid_chart_cheet_sheet.md](mermaid_chart_cheet_sheet.md) - reference guide for Mermaid class diagram syntax, relationships, and styling
 - [xml_documentation_comments_cheat_sheet.md](xml_documentation_comments_cheat_sheet.md) - reference guide for C# XML documentation comments and common tags
 - [yaml_cheat_sheet.md](yaml_cheat_sheet.md) - reference guide for YAML structure, scalars, collections, and common parser caveats
 

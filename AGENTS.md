@@ -1,5 +1,5 @@
 ---
-version: 1.0    
+version: 1.2    
 owner: "Your Name"    
 repo: "your-repo"    
 description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.    
@@ -14,36 +14,26 @@ This file provides mandatory guidance for AI coding agents. Follow these rules i
 
 Before making changes, load context in this order:
 
-### 0.1: Review the shared rules index at `D:\Code Projects\windsurf_rules\index.md`. If the windsurf rules repo cannot be found at the default location, try here: `C:\Projects\windsurf_rules`. The layout of the repositories is different on various workstations, and this location is valid on portable workstations. If you still cannot find it, go up on folder from the root directory of this project and look for `windsurf_rules`, it's usually there.
-2. From that index, load only the rule files relevant to this repository and the current task.
-3. Review `Documentation/laws.md`. This is the constitutional authority for all code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file or in shared rules.
-4. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
-5. Review `Documentation/design.md`. This is always required baseline context.
-6. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
-7. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
-8. Review the relevant goals file for the feature being discussed or implemented.
-9. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+### 0.1: Repository Context Order
 
-### 0.2: Shared Rules Policy
+1. Review `Documentation/laws.md`. This is the constitutional authority for all code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
+2. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
+3. Review `Documentation/design.md`. This is always required baseline context.
+4. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
+5. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
+6. Review the relevant goals file for the feature being discussed or implemented.
+7. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
 
-- Do not bulk-read all files under `D:\Code Projects\windsurf_rules\`.
-- Use `D:\Code Projects\windsurf_rules\index.md` to choose the minimum relevant rule set.
-- Apply shared rules together when appropriate, for example C# plus WPF.
-- `Documentation/laws.md` overrides all other instructions when they conflict.
-- Repository-local instructions override shared rules when they conflict.
-- Task-specific instructions override general rules when they conflict.
-
-## 0.3: Repository Expectations
+## 0.2: Repository Expectations
 
 - Follow the spec-driven workflow defined in `Documentation/agenticworkflow.md`.
 - Treat `Documentation/design.md` as always-required context.
 - Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
-- Do not execute pull, push, or commit operations in any VCS.
-- You may stage all tracked current changes only when explicitly requested.
-- When staging is requested, draft the commit message using `Documentation/commit_log_template.md`.
-- In Git workflows, commit message text is not part of staged state; provide drafted message text for the user to apply in their client.
+- Do not execute pull or push operations in any VCS.
+- You may stage and commit changes when explicitly requested. Push is never permitted.
+- When committing, follow the commit message format defined in `Documentation/commit_log_template.md`.
 
-## 0.4: Product and assembly versioning
+## 0.3: Product and assembly versioning
 
 All first-party assemblies in the solution share a four-part numeric identity **W.X.Y.Z** (exposed as `AssemblyVersion` / `FileVersion` and the MSBuild `Version` property where applicable).
 
