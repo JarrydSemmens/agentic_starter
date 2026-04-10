@@ -19,7 +19,7 @@ Before making changes, load context in this order:
 1. Review `Documentation/laws.md`. This is the constitutional authority for all code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
 2. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
 3. Review `Documentation/design.md`. This is always required baseline context.
-4. Review `Documentation/commit_log_template.md` when work involves staging changes or drafting commit logs.
+4. When work involves drafting commit logs or preparing to commit, use the `commit-log` skill at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md` instead of repository-local commit log instructions. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
 5. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
 6. Review the relevant goals file for the feature being discussed or implemented.
 7. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
@@ -31,7 +31,7 @@ Before making changes, load context in this order:
 - Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
 - Do not execute pull or push operations in any VCS.
 - You may stage and commit changes when explicitly requested. Push is never permitted.
-- When committing, follow the commit message format defined in `Documentation/commit_log_template.md`.
+- When drafting a commit log or creating a commit, use the `commit-log` skill at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md`. Default to outputting the commit log in chat unless the user explicitly asks you to create the commit.
 
 ## 0.3: Product and assembly versioning
 
