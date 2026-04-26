@@ -26,6 +26,16 @@ Once the context is in place, future work becomes much simpler. Instead of resta
 
 That keeps context windows cleaner, reduces drift, and lets the agent stay focused on the current task instead of repeatedly rebuilding project understanding from scratch.
 
+### Tier 0 Dictation Instructions
+
+The common workflow used with this 4 tier system, and this agentic starter is to provide a draft design document. This is often made from dictated notes from the user, with the intent to populate this agentic starter with the initial specifics of the project to be created.
+
+This design document is usually written such that it includes mention of the 4-tier design. This makes is effectively a hidden Tier-0 document that serves as the messy initial seed of the project. The user will enumerate goals, technology, features, milestones, end results all via a conversation that is converted to a singular markdown file.
+
+When a new, specific repository is created from this very template, it is expected that the initial commit will include a frontier AI model parsing this document to dismantle it into component parts across Design.md, Milestones.md and one or more Goals.md files.
+
+Supplamentary design documents will frequently be ingested into the four tier design, to fill out new milestones, redirect goals, revise content, add additional information to existing context and enrich the context files. 
+
 ## Context Maintenance Expectations
 
 Expect to spend roughly half of your development time maintaining, correcting, and extending the project context in this repository. That is not overhead. It is the management layer that makes the rest of the workflow effective.

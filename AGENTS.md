@@ -31,7 +31,8 @@ Before making changes, load context in this order:
 - Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
 - Do not execute pull or push operations in any VCS.
 - You may stage and commit changes when explicitly requested. Push is never permitted.
-- When drafting a commit log or creating a commit, use the `commit-log` skill at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md`. Default to outputting the commit log in chat unless the user explicitly asks you to create the commit.
+- When drafting a commit log or creating a commit, use the `commit-log` skill, and default to outputting the commit log in chat unless the user explicitly asks you to create the commit.
+- The skill is located at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md` if you cannot find it in your known skill set.
 
 ## 0.3: Product and assembly versioning
 
