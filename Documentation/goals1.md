@@ -6,8 +6,6 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 ---
 # Project Name - Goals (Milestone 1: *Name*)
 
-<!-- markdownlint-disable MD001 MD009 MD012 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD051 MD058 MD060 -->
-
 > **Goals and deliverables for Milestone 1: *Name***
 >
 > **Status:** Not Started
@@ -176,6 +174,11 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 - [ ] Criterion 1
 - [ ] Criterion 2
 
+#### Out of Scope
+
+- *Deferred item 1*
+- *Deferred item 2*
+
 ---
 
 <a id="goal-1-3"></a>
@@ -202,6 +205,11 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 - [ ] Criterion 1
 - [ ] Criterion 2
+
+#### Out of Scope
+
+- *Deferred item 1*
+- *Deferred item 2*
 
 ---
 

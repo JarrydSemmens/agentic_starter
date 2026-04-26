@@ -100,9 +100,11 @@ agentic_starter/
     |-- AgentThinking.md
     |-- agenticworkflow.md
     |-- design.md
+    |-- laws.md
     |-- milestones.md
     |-- goals1.md
     |-- tier0/
+    |   `-- TIER0_NOTE_TEMPLATE.md
     |-- implementation_plans/
     `-- wiki/
 ```
@@ -111,6 +113,7 @@ agentic_starter/
 
 | Document | Purpose |
 | --- | --- |
+| [Documentation/laws.md](Documentation/laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | [Documentation/tier0/README.md](Documentation/tier0/README.md) | Tier 0 raw intake and addendum guidance |
 | [Documentation/design.md](Documentation/design.md) | Tier 1 design and architecture template |
 | [Documentation/milestones.md](Documentation/milestones.md) | Tier 2 roadmap and milestone template |

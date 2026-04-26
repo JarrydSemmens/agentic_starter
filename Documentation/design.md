@@ -21,6 +21,7 @@ This file is Tier 1: the maintained design specification. It should synthesize r
 | 2 - Milestones | [milestones.md](milestones.md) | Roadmap structure and milestone summaries |
 | 3 - Goals | `goals*.md` | Specific deliverables and acceptance criteria |
 | 4 - Implementation Plans and Handovers | `implementation_plans/*.md` | Task-specific implementation plans and phase handovers |
+| Support | [laws.md](laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
 | Support | [AgentThinking.md](AgentThinking.md) | Optional temporary scratchpad for long tasks |
 | Support | [wiki/home.md](wiki/home.md) | Operational reference notes and cheat sheets |
@@ -80,6 +81,8 @@ project-root/
 ---
 
 ## Processing Pipelines
+
+> Delete this section if the project has no defined pipelines. Add it back when the system's data flows are known.
 
 Describe the main data flows or user journeys only after the project has enough shape to justify them.
 

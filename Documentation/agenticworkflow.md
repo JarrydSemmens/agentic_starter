@@ -65,7 +65,7 @@ Phases answer: *What order do we build this in?*
 
 ## WISC as Supporting Practice
 
-WISC is useful vocabulary for the discipline this starter already encourages. Treat it as a supporting practice, not a replacement name for the repository.
+WISC (Write, Isolate, Select, Compress) is useful vocabulary for the discipline this starter already encourages. Treat it as a supporting practice, not a replacement name for the repository.
 
 | WISC Step | How this starter applies it |
 | --- | --- |
@@ -189,6 +189,7 @@ When assigned work in this repository:
 
 1. Check for a relevant handover document first if the work is phased.
 2. Read the minimum necessary context in this order:
+   - `laws.md` always — constitutional authority for code quality, security, and architectural constraints
    - `design.md`
    - `milestones.md` when scope or roadmap matters
    - the relevant goals file
@@ -205,6 +206,6 @@ When assigned work in this repository:
 
 ## IDE-Specific Agent Rules
 
-When working within agentic IDEs such as Codex, Claude, Antigravity, Cursor, Windsurf, Gemini CLI, or similar tools, additional language-specific, framework-specific, skill, or agent rules may exist outside this repository.
+When working within agentic IDEs such as Codex, Claude, Cursor, Windsurf, Gemini CLI, or similar tools, additional language-specific, framework-specific, skill, or agent rules may exist outside this repository.
 
 These rules supplement the repository docs. Keep the repository workflow authoritative, but honor relevant external tooling when it has been installed for the current IDE.

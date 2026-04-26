@@ -1,5 +1,5 @@
 ---
-version: 0.0
+version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: "Placeholder guidance for documenting secret and sensitive configuration handling."
