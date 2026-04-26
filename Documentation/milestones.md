@@ -1,20 +1,22 @@
 ---
-version: 0.0    
-owner: "Your Name"    
-repo: "your-repo"    
-description: Tier 2 milestone roadmap template defining major project stages, their intent, status, and linked goals files.    
+version: 0.1
+owner: "Your Name"
+repo: "your-repo"
+description: Tier 2 milestone roadmap template defining major project stages, their intent, status, and linked goals files.
 ---
 # Project Name - Milestones
 
 > Authoritative milestone definitions for the project.
 >
-> Related: [design.md](design.md), [agenticworkflow.md](agenticworkflow.md), [AgentThinking.md](AgentThinking.md)
+> Related: [tier0/](tier0/), [design.md](design.md), [agenticworkflow.md](agenticworkflow.md), [AgentThinking.md](AgentThinking.md)
 
 ---
 
 ## Template Note
 
 This file is starter scaffolding. Replace the placeholder milestone set with real milestones once the project scope is known.
+
+Use Tier 0 intake and addenda as source material when milestones need to split, merge, reorder, or change intent. Once the decision is accepted, this file becomes the maintained roadmap truth.
 
 ## Table of Contents
 
@@ -54,4 +56,5 @@ This file is starter scaffolding. Replace the placeholder milestone set with rea
 - Keep milestones thematic rather than overly granular.
 - Link every milestone to a goals file.
 - Update milestone status as goals progress.
+- When Tier 0 addenda change scope, update this roadmap before asking agents to implement affected goals.
 - Use `AgentThinking.md` only for temporary task notes, not for milestone definitions.

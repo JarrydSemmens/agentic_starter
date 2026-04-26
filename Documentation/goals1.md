@@ -1,10 +1,10 @@
 ---
-version: 0.0    
-owner: "Your Name"    
-repo: "your-repo"    
-description: Tier 3 goals template for Milestone 1, capturing deliverables, acceptance criteria, scope, and implementation guidance.    
+version: 0.1
+owner: "Your Name"
+repo: "your-repo"
+description: Tier 3 goals template for Milestone 1, capturing deliverables, acceptance criteria, scope, and implementation guidance.
 ---
-# Project Name – Goals (Milestone 1: *Name*)
+# Project Name - Goals (Milestone 1: *Name*)
 
 <!-- markdownlint-disable MD001 MD009 MD012 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD051 MD058 MD060 -->
 
@@ -16,24 +16,25 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 ---
 
-## 📋 Context
+## Context
 
 <!-- One-sentence description of the problem this milestone addresses. -->
 
 - **Problem:** *Describe the core problem or need this milestone tackles.*
+- **Relevant Tier 0 intake:** *Link raw source notes or addenda only when they materially affect this milestone.*
 
-## 📊 Milestone 1 Goals Summary
+## Milestone 1 Goals Summary
 
 <!-- Keep this table in sync as goals are added, completed, or modified. -->
-<!-- Status emoji: ✅ Complete, 🔄 In Progress, (none) Not Started -->
+<!-- Status values: Complete, In Progress, Not Started, Blocked, Superseded -->
 
 | Goal | Status | Link |
 |------|--------|------|
-| Goal 1.1 – *Name* | Not Started | [Jump to details](#goal-1-1) |
-| Goal 1.2 – *Name* | Not Started | [Jump to details](#goal-1-2) |
-| Goal 1.3 – *Name* | Not Started | [Jump to details](#goal-1-3) |
+| Goal 1.1 - *Name* | Not Started | [Jump to details](#goal-1-1) |
+| Goal 1.2 - *Name* | Not Started | [Jump to details](#goal-1-2) |
+| Goal 1.3 - *Name* | Not Started | [Jump to details](#goal-1-3) |
 
-**Milestone Status:** Not Started — 0/? goals complete.
+**Milestone Status:** Not Started - 0/? goals complete.
 
 <!-- Optional: List key environment details and constraints. -->
 <!--
@@ -71,7 +72,7 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 ---
 
-## 🏗️ Solution Overview
+## Solution Overview
 
 ### High-Level Architecture
 
@@ -87,19 +88,19 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 #### Pipeline / Flow 1: *Name*
 
-1. **Step 1** — description
-2. **Step 2** — description
-3. **Step 3** — description
+1. **Step 1** - description
+2. **Step 2** - description
+3. **Step 3** - description
 
 #### Pipeline / Flow 2: *Name*
 
-1. **Step 1** — description
-2. **Step 2** — description
-3. **Step 3** — description
+1. **Step 1** - description
+2. **Step 2** - description
+3. **Step 3** - description
 
 ---
 
-## 🎯 Milestone 1 Goals & Deliverables
+## Milestone 1 Goals and Deliverables
 
 <!-- ============================================================ -->
 <!-- GOAL TEMPLATE                                                 -->
@@ -109,9 +110,16 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 <a id="goal-1-1"></a>
 
-### Goal 1.1 – *Name*
+### Goal 1.1 - *Name*
 
 **Intent:** *One-sentence description of what this goal achieves.*
+
+#### Source Context
+
+- **Milestone:** [Milestone 1](milestones.md#milestone-1)
+- **Tier 0 source:** *Link only if this goal depends on a specific intake note or addendum.*
+- **Design context:** *Link a relevant design section if one exists.*
+- **Tier 4 plan:** *Link the implementation plan when this goal is ready for execution.*
 
 #### Deliverables
 
@@ -145,9 +153,15 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 <a id="goal-1-2"></a>
 
-### Goal 1.2 – *Name*
+### Goal 1.2 - *Name*
 
 **Intent:** *One-sentence description of what this goal achieves.*
+
+#### Source Context
+
+- **Milestone:** [Milestone 1](milestones.md#milestone-1)
+- **Tier 0 source:** *Link only if applicable.*
+- **Tier 4 plan:** *Link when ready.*
 
 #### Deliverables
 
@@ -166,9 +180,15 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 <a id="goal-1-3"></a>
 
-### Goal 1.3 – *Name*
+### Goal 1.3 - *Name*
 
 **Intent:** *One-sentence description of what this goal achieves.*
+
+#### Source Context
+
+- **Milestone:** [Milestone 1](milestones.md#milestone-1)
+- **Tier 0 source:** *Link only if applicable.*
+- **Tier 4 plan:** *Link when ready.*
 
 #### Deliverables
 
@@ -185,7 +205,7 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 ---
 
-## 🔒 Non-Functional Guarantees
+## Non-Functional Guarantees
 
 <!-- List non-functional requirements that apply across all goals in this milestone.
      Examples: idempotency, explainability, security, performance, accessibility.
@@ -208,7 +228,7 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 ---
 
-## 📦 External Dependencies
+## External Dependencies
 
 <!-- List all external services, libraries, or infrastructure this milestone depends on.
      Include version, purpose, and current status. -->
@@ -227,18 +247,18 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 ---
 
-## 🤖 Agent Guidelines for This Milestone
+## Agent Guidelines for This Milestone
 
 <!-- Instructions for AI agents working on goals in this milestone. -->
 
-When working on tasks in this milestone, anchor them to the **goals** above.
+When working on tasks in this milestone, anchor them to the goals above.
 
 ### Project Boundaries
 
 <!-- Define which parts of the codebase each type of change should touch. -->
 
-- *Change type 1* → *which module / directory*
-- *Change type 2* → *which module / directory*
+- *Change type 1* -> *which module / directory*
+- *Change type 2* -> *which module / directory*
 
 ### Development Approach
 
@@ -252,16 +272,18 @@ When working on tasks in this milestone, anchor them to the **goals** above.
 
 <!-- Reference any coding style or convention files agents should follow. -->
 
-- Always respect project-level coding conventions and style guides
-- Check for IDE-specific rules (see `agenticworkflow.md` → IDE-Specific Agent Rules)
+- Always respect project-level coding conventions and style guides.
+- Check for relevant installed shared rules, skills, workflow-skills, or specialist agents only when the task calls for them.
+- Keep repository-local goals and implementation plans authoritative when external tooling gives generic advice.
 
 ---
 
-## 📚 Related Documents
+## Related Documents
 
-- **`milestones.md`** — Authoritative milestone definitions
-- **`design.md`** — Technical architecture specification
-- **`agenticworkflow.md`** — How AI agents collaborate on this project
+- **`tier0/`** - Raw intake and addenda
+- **`milestones.md`** - Authoritative milestone definitions
+- **`design.md`** - Technical architecture specification
+- **`agenticworkflow.md`** - How AI agents collaborate on this project
 
 <!-- ============================================================ -->
 <!-- GUIDELINES FOR USING THIS TEMPLATE                           -->
@@ -269,10 +291,11 @@ When working on tasks in this milestone, anchor them to the **goals** above.
 <!-- 1. Create one goals file per milestone (goals1.md, goals2.md) -->
 <!-- 2. Each goal has: Intent, Deliverables, Acceptance Criteria   -->
 <!-- 3. Goals can have VARIANTS (A/B/C) for alternative approaches -->
-<!--    - See agenticworkflow.md for variant conventions            -->
+<!--    - See agenticworkflow.md for variant conventions           -->
 <!-- 4. Goals can have PHASES for large implementations            -->
 <!--    - See agenticworkflow.md for phase and handover conventions -->
 <!-- 5. Update the summary table at the top as goals progress      -->
-<!-- 6. Mark completed goals with ✅ in both title and table       -->
-<!-- 7. Keep Out of Scope sections honest — they prevent creep     -->
+<!-- 6. Mark completed goals in both title and table               -->
+<!-- 7. Keep Out of Scope sections honest because they prevent creep -->
+<!-- 8. Promote accepted Tier 0 changes into maintained goal text   -->
 <!-- ============================================================ -->

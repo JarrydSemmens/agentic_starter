@@ -1,8 +1,8 @@
 ---
-version: 0.0    
-owner: "Your Name"    
-repo: "your-repo"    
-description: Tier 1 design specification template defining the project architecture, principles, constraints, and documentation hierarchy.    
+version: 0.1
+owner: "Your Name"
+repo: "your-repo"
+description: Tier 1 design specification template defining project architecture, principles, constraints, and the five-tier context hierarchy.
 ---
 # Project Name - Design Specification
 
@@ -10,18 +10,20 @@ description: Tier 1 design specification template defining the project architect
 
 This repository is an intentionally empty starter for future projects. Replace the placeholders in this file when you fork or copy the template into a real codebase.
 
-## Documentation Hierarchy
+This file is Tier 1: the maintained design specification. It should synthesize relevant Tier 0 intake into stable project direction.
 
-This file is **Tier 1** of the repository's documentation-first workflow.
+## Documentation Hierarchy
 
 | Tier | Document | Purpose |
 | --- | --- | --- |
+| 0 - Raw Intake and Addenda | [tier0/](tier0/) | Dictated notes, rough source material, and supplemental design changes |
 | 1 - Design | `design.md` | Project architecture, principles, and constraints |
 | 2 - Milestones | [milestones.md](milestones.md) | Roadmap structure and milestone summaries |
 | 3 - Goals | `goals*.md` | Specific deliverables and acceptance criteria |
-| 4 - Implementation Details | `implementation_plans/*.md` | Task-specific implementation plans and handovers |
+| 4 - Implementation Plans and Handovers | `implementation_plans/*.md` | Task-specific implementation plans and phase handovers |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
 | Support | [AgentThinking.md](AgentThinking.md) | Optional temporary scratchpad for long tasks |
+| Support | [wiki/home.md](wiki/home.md) | Operational reference notes and cheat sheets |
 
 ---
 
@@ -61,6 +63,7 @@ Update this tree as the project takes shape.
 ```text
 project-root/
 |-- Documentation/
+|   |-- tier0/
 |   |-- design.md
 |   |-- milestones.md
 |   |-- goals1.md
@@ -162,10 +165,19 @@ If performance is not yet a concern, say so explicitly and revisit it later.
 
 ---
 
+## Context Maintenance
+
+Use Tier 0 intake to revise this design when the project vision changes. Do not leave important decisions stranded in raw notes, chats, or addenda. Promote durable decisions into this file, milestones, goals, or implementation plans as appropriate.
+
+When an older design statement is superseded, update it directly and preserve only the rationale needed for future agents to understand the decision.
+
+---
+
 ## Navigation
 
 ### Specification Hierarchy
 
+- [tier0/README.md](tier0/README.md) - Tier 0 raw intake and addenda
 - [design.md](design.md) - Tier 1 design overview
 - [milestones.md](milestones.md) - Tier 2 roadmap summary
 - `goals*.md` - Tier 3 goals and deliverables

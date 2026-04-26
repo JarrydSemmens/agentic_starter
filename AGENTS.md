@@ -1,8 +1,8 @@
 ---
-version: 1.2    
-owner: "Your Name"    
-repo: "your-repo"    
-description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.    
+version: 1.3
+owner: "Your Name"
+repo: "your-repo"
+description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.
 ---
 # Agent Instructions
 
@@ -16,38 +16,42 @@ Before making changes, load context in this order:
 
 ### 0.1: Repository Context Order
 
-1. Review `Documentation/laws.md`. This is the constitutional authority for all code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
-2. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for this repository.
+1. Review `Documentation/laws.md`. This is the constitutional authority for code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
+2. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for the five-tier context system.
 3. Review `Documentation/design.md`. This is always required baseline context.
-4. When work involves drafting commit logs or preparing to commit, use the `commit-log` skill at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md` instead of repository-local commit log instructions. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
-5. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
-6. Review the relevant goals file for the feature being discussed or implemented.
-7. If continuing phased work, review the relevant handover document in `implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+4. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
+5. Review the relevant goals file when the task maps to a milestone goal.
+6. Review the relevant Tier 4 plan in `Documentation/implementation_plans/` when one exists.
+7. Review `Documentation/tier0/` files only when the task involves raw intake, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
+8. If continuing phased work, review the relevant handover document in `Documentation/implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+9. When work involves drafting commit logs or preparing to commit, use the installed `commit-log` skill if available. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
 
 ## 0.2: Repository Expectations
 
-- Follow the spec-driven workflow defined in `Documentation/agenticworkflow.md`.
+- Follow the five-tier workflow defined in `Documentation/agenticworkflow.md`.
 - Treat `Documentation/design.md` as always-required context.
 - Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
+- Treat `Documentation/tier0/` as raw source material that must be synthesized into maintained docs before it becomes authoritative.
+- Use relevant installed shared rules, skills, workflow-skills, and specialist agents when they are available and task-appropriate.
+- Repository-local instructions override reusable external tooling when they conflict.
 - Do not execute pull or push operations in any VCS.
 - You may stage and commit changes when explicitly requested. Push is never permitted.
 - When drafting a commit log or creating a commit, use the `commit-log` skill, and default to outputting the commit log in chat unless the user explicitly asks you to create the commit.
-- The skill is located at `%USERPROFILE%\\.agents\\skills\\commit-log\\SKILL.md` if you cannot find it in your known skill set.
 
-## 0.3: Product and assembly versioning
+## 0.3: Optional Project Versioning
 
-All first-party assemblies in the solution share a four-part numeric identity **W.X.Y.Z** (exposed as `AssemblyVersion` / `FileVersion` and the MSBuild `Version` property where applicable).
+This starter is language- and framework-agnostic. When a generated project has first-party assemblies, packages, apps, or deployable artifacts with shared version properties, define the versioning policy in project-specific documentation.
+
+Recommended context-driven version shape:
 
 | Part | Meaning |
 | --- | --- |
-| **W** | **Major release** - increments only for a significant product release the organization treats as major (for example a 1.0 GA). **0** means no major release has been shipped yet. |
-| **X** | **Milestone** - the current milestone number from [Documentation/milestones.md](Documentation/milestones.md), or the highest milestone the team is actively working against. |
-| **Y** | **Highest completed goal** - within that milestone, the largest goal index that is complete. Example: Milestone 2 with Goals 2.1-2.6 complete and 2.7 not started yields **Y = 6**. When a new milestone begins, reset **Y** to **0** until the first goal in that milestone is completed, then advance as goals complete. |
-| **Z** | **Reserved** - default **0**. May later be used for a build or commit ordinal (for example CI setting the fourth part from pipeline build number). Until automation exists, keep **Z** at **0**. |
+| Major | Significant product release the organization treats as major. |
+| Milestone | Current milestone number from `Documentation/milestones.md`, or the highest milestone actively in progress. |
+| Goal | Highest completed goal index within that milestone. Reset when a new milestone begins. |
+| Build or Reserved | Build ordinal, CI value, or `0` until automation exists. |
 
-**Example:** Pre-1.0 work on Milestone 2 with Goal 2.6 as the latest completed goal uses **0.2.6.0**.
-
-**Maintenance:** When you complete a goal or change milestone scope, update version properties in every `*.csproj` under `Source/` so all libraries stay aligned. Keep this section aligned with the table above.
+If a project adopts this policy, document the exact files to update and keep every first-party version property aligned when goals or milestone scope change.
 
 ---
 
@@ -55,13 +59,15 @@ All first-party assemblies in the solution share a four-part numeric identity **
 
 ### 1.1 Think Before Coding
 
-Don't assume. Don't hide confusion. Surface tradeoffs.
+Do not assume. Do not hide confusion. Surface tradeoffs.
 
 Before implementing:
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them — don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
+
+- State assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them instead of choosing silently.
+- If a simpler approach exists, say so.
+- Push back when the requested approach conflicts with repository laws, scope, or maintainability.
+- If something is unclear and cannot be resolved from context, stop and ask.
 
 ### 1.2 Simplicity First
 
@@ -69,8 +75,8 @@ Minimum code that solves the problem. Nothing speculative.
 
 - No features beyond what was asked.
 - No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- Do not expose internal tuning knobs as user-facing editor controls unless the user explicitly asked for them. Keep them as code defaults or constants until they are proven necessary.
+- No flexibility or configurability that was not requested.
+- Do not expose internal tuning knobs as user-facing controls unless the user explicitly asked for them.
 - No error handling for impossible scenarios.
 - If you write 200 lines and it could be 50, rewrite it.
 
@@ -81,14 +87,16 @@ Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, sim
 Touch only what you must. Clean up only your own mess.
 
 When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it — don't delete it.
+
+- Do not improve adjacent code, comments, or formatting unless needed for the task.
+- Do not refactor things that are not broken.
+- Match existing style, even if you would do it differently.
+- If you notice unrelated dead code, mention it instead of deleting it.
 
 When your changes create orphans:
-- Remove imports, variables, and functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
+
+- Remove imports, variables, files, and functions that your changes made unused.
+- Do not remove pre-existing dead code unless asked.
 
 The test: every changed line should trace directly to the user's request.
 
@@ -97,44 +105,48 @@ The test: every changed line should trace directly to the user's request.
 Define success criteria. Loop until verified.
 
 Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
+
+- "Add validation" -> "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" -> "Write a test that reproduces it, then make it pass"
+- "Refactor X" -> "Ensure tests pass before and after"
 
 For multi-step tasks, state a brief plan:
-```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
+
+```text
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
 ```
 
-- For modal or editor features, define both the activation path and the cleanup path up front. If loading or enabling one feature automatically turns on another, clearing or disabling it must explicitly unwind that state.
+For modal, editor, workflow, or stateful features, define both the activation path and the cleanup path up front. If loading or enabling one feature automatically turns on another, clearing or disabling it must explicitly unwind that state.
 
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+Strong success criteria let you loop independently. Weak criteria require clarification.
 
 ### 1.5 Comments
 
-- Write comments that explain "why", not "what".
-- A few high-level comments explaining the purpose of classes or methods is helpful.
+- Write comments that explain why, not what.
+- A few high-level comments explaining the purpose of classes, modules, or methods can be helpful.
 - Comments explaining tricky or non-obvious code are helpful.
-- Avoid comments that are redundant with the code. Do not comment before each line explaining what it does.
-- Do not use formal C# XML doc comments unless it is an important public-facing interface or API.
+- Avoid comments that are redundant with the code.
+- Use formal API documentation only when the interface is public-facing or important to consumers.
 
 ---
 
 ## 2. Refactoring Rules
 
 Immediate refactoring is required when:
-- A class grows beyond a single responsibility.
-- Methods perform multiple actions.
-- Logic is duplicated across scripts.
-- Large conditional blocks control behaviour.
 
-Refactoring must prioritise:
+- A class, module, or file grows beyond a single responsibility.
+- Methods or functions perform multiple actions.
+- Logic is duplicated across the project.
+- Large conditional blocks control behavior that should be owned by clearer components.
+
+Refactoring must prioritize:
+
 - Composition over inheritance.
-- Small, focused classes.
+- Small, focused components.
 - Clear ownership of responsibilities.
 
-Apply the Rule of Three — refactor after something is duplicated three times, not before.
+Apply the Rule of Three: refactor after something is duplicated three times, not before.
 
-Before adding significant functionality to a large or monolithic file, consider a structural refactor with no intended behaviour changes first. Splitting a file into smaller, composable parts before feature work is often safer than mixing the refactor and the new behaviour in one step. Verify the refactor independently before layering new functionality on top.
+Before adding significant functionality to a large or monolithic file, consider a structural refactor with no intended behavior changes first. Splitting a file into smaller, composable parts before feature work is often safer than mixing the refactor and the new behavior in one step. Verify the refactor independently before layering new functionality on top.

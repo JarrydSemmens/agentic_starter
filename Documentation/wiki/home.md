@@ -1,15 +1,23 @@
 ---
-version: 0.0
+version: 0.1
 owner: "Your Name"
 repo: "your-repo"
-description: "Wiki hub for context-oriented reference material and cheat sheets."
+description: Wiki hub for context-oriented reference material and cheat sheets.
 ---
 
 # Project Wiki
 
 [Back to Design Specification](../design.md)
 
-This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative design, milestone, or goal documents.
+This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative five-tier context system.
+
+Authoritative project context lives in:
+
+- Tier 0: [../tier0/](../tier0/)
+- Tier 1: [../design.md](../design.md)
+- Tier 2: [../milestones.md](../milestones.md)
+- Tier 3: `../goals*.md`
+- Tier 4: `../implementation_plans/*.md`
 
 ## Context as a Working Language
 
@@ -19,16 +27,17 @@ Wielding context thoughtfully has a direct effect on the quality of outcomes. Cl
 
 ## Wiki Guidance
 
-- Add pages only when they provide durable value.
+- Add pages only when they provide durable reference value.
 - Prefer linking from here rather than scattering wiki pages without navigation.
 - Remove placeholder sections you do not need.
 - Verify wiki content against source-of-truth docs before relying on it.
+- Do not let wiki notes override design, milestones, goals, or implementation plans.
 
 ## Cheat Sheets
 
 - [doxygen_cheat_sheet.md](doxygen_cheat_sheet.md) - reference guide for Doxygen comment syntax, grouping, linking, and generated docs features
 - [markdown_cheat_sheet.md](markdown_cheat_sheet.md) - reference guide for core Markdown syntax and major flavours
-- [mermaid_chart_cheet_sheet.md](mermaid_chart_cheet_sheet.md) - reference guide for Mermaid class diagram syntax, relationships, and styling
+- [mermaid_chart_cheat_sheet.md](mermaid_chart_cheat_sheet.md) - reference guide for Mermaid class diagram syntax, relationships, and styling
 - [xml_documentation_comments_cheat_sheet.md](xml_documentation_comments_cheat_sheet.md) - reference guide for C# XML documentation comments and common tags
 - [yaml_cheat_sheet.md](yaml_cheat_sheet.md) - reference guide for YAML structure, scalars, collections, and common parser caveats
 

@@ -1,13 +1,15 @@
 ---
-version: 0.0    
-owner: "Your Name"    
-repo: "your-repo"    
-description: Tier 4 implementation plan template for scoping a concrete task, listing affected files, steps, verification, and risks.    
+version: 0.1
+owner: "Your Name"
+repo: "your-repo"
+description: Tier 4 implementation plan template for scoping a concrete task, listing source context, affected areas, steps, verification, and risks.
 ---
 
 # Implementation Plan Template
 
 Use this file as the starting point for a Tier 4 implementation plan in this repository. Copy it to a task-specific filename and replace all placeholders.
+
+Tier 4 context means the work is ready to execute against the repository. The plan should be grounded in maintained design, milestone, and goal context, and it should cite Tier 0 intake only when raw notes or addenda materially shaped the task.
 
 ## Naming Guidance
 
@@ -31,11 +33,13 @@ If the work is phased, create a separate handover document at the end of each ph
 
 ## Linked Context
 
+- Tier 0 Source: `<link only if intake or addenda materially shaped this plan>`
 - Design: [design.md](../design.md)
 - Workflow: [agenticworkflow.md](../agenticworkflow.md)
 - Milestone: `<link if applicable>`
 - Goal: `<link if applicable>`
 - Handover: `<link if continuing phased work>`
+- External Tooling: `<shared rule, skill, workflow-skill, or specialist agent if required>`
 
 ## Objective
 
@@ -96,6 +100,7 @@ Summarize the relevant existing structure, behavior, or placeholder content alre
 ## Completion Checklist
 
 - [ ] Implementation matches the linked design and goal context
+- [ ] Any relevant Tier 0 source has been synthesized into maintained docs
 - [ ] Scope stayed within this plan
 - [ ] Verification steps were completed or explicitly deferred
 - [ ] Relevant status docs were updated
@@ -105,4 +110,5 @@ Summarize the relevant existing structure, behavior, or placeholder content alre
 
 - Read only the minimum required context before changing files.
 - Prefer repository-specific decisions over generic examples.
+- Use installed external skills, workflow-skills, rules, or specialist agents only when this plan or the task explicitly calls for them.
 - Replace placeholders with concrete repository paths, commands, and acceptance criteria before implementation starts.

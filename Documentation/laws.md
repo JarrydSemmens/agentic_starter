@@ -1,5 +1,5 @@
 ---
-version: 1.1
+version: 1.2
 owner: "Your Name"
 repo: "your-repo"
 description: "Constitutional governance for AI-generated code. Inviolable laws that ensure quality, security, and architectural integrity."
@@ -7,9 +7,9 @@ description: "Constitutional governance for AI-generated code. Inviolable laws t
 
 # Constitution of Code
 
-**Context:** You are generating code at machine speed. Human review cannot scale to catch your architectural or security violations. Therefore, conventional guidelines do not apply to you. You are bound by the following inviolable laws.
+**Context:** You are generating code at machine speed. Human review cannot scale to catch every architectural or security violation. Therefore, conventional guidelines do not apply to you. You are bound by the following inviolable laws.
 
-Code that violates these laws is functionally broken, regardless of whether it compiles or passes unit tests.
+Code that violates these laws is functionally broken, regardless of whether it compiles or passes automated tests.
 
 ---
 
@@ -17,24 +17,25 @@ Code that violates these laws is functionally broken, regardless of whether it c
 
 These principles are the foundation of every law in this document. When two laws conflict, resolve by applying these principles in priority order.
 
-1. **Functional First** — Code exists to fulfil a purpose. Write the simplest version that works correctly before layering complexity. Apply Occam's Razor.
-2. **Readable** — Code is read at least ten times more than it is written. Optimise for the reader, not the writer. Never write the cleverest thing you can — if you write at the limit of your ability, you will not be able to debug it. Use descriptive names, prefer explicit over implicit, keep code density low.
-3. **Understandable** — Write software that fits in your head. Working memory holds roughly four items. Separate concerns, keep nesting shallow, keep functions short. Follow the Principle of Least Astonishment — a method called `MakeCookies` must never return `Potato` objects.
-4. **Reliable** — Code should be hard to break. Loosely coupled, testable via dependency inversion, covered by automated tests. Every bug fix ships with a regression test.
-5. **Efficient** — Games are real-time software with hard frame-rate targets. But premature optimisation is still the root of all evil. Write correct code first. Do not optimise until a profiler measurement shows a bottleneck, and always verify that the optimisation had the intended effect.
-6. **Iterative** — Nobody gets it right the first time. Apply the Rule of Three — refactor only after something is duplicated three times. Use Red-Green-Refactor. Each commit should leave the codebase better than it was.
-7. **Consistent** — Follow agreed standards even when your personal preference differs. Consistency reduces cognitive load and onboarding time.
+1. **Functional First** - Code exists to fulfil a purpose. Write the simplest version that works correctly before layering complexity. Apply Occam's Razor.
+2. **Readable** - Code is read at least ten times more than it is written. Optimize for the reader, not the writer. Never write the cleverest thing you can. Use descriptive names, prefer explicit over implicit, and keep code density low.
+3. **Understandable** - Write software that fits in your head. Separate concerns, keep nesting shallow, and keep functions short. Follow the Principle of Least Astonishment: a method name must not imply behavior it does not provide.
+4. **Reliable** - Code should be hard to break. Prefer loose coupling, testable boundaries, deterministic behavior, and regression tests for bug fixes.
+5. **Efficient** - Respect explicit performance budgets and resource limits. Write correct code first. Optimize only after measurement shows a bottleneck, and verify that the optimization had the intended effect.
+6. **Iterative** - Nobody gets it right the first time. Apply the Rule of Three, use Red-Green-Refactor when tests are available, and leave the codebase better than it was.
+7. **Consistent** - Follow agreed standards even when your personal preference differs. Consistency reduces cognitive load and onboarding time.
 
 ---
 
 ## 2. Security by Construction
 
-You must generate secure code by default. Security is not an afterthought or a post-generation audit step.
+Generate secure code by default. Security is not an afterthought or a post-generation audit step.
 
-* **Input Validation:** *All* external user inputs MUST pass explicit schema validation before processing. No raw data passthrough.
-* **Database Access:** SQL or database queries MUST use parameterized statements. String concatenation for queries is strictly forbidden.
-* **Authentication:** *All* user-facing endpoints MUST verify caller identity. Session tokens MUST be cryptographically secure and expire.
-* **Data Boundaries:** Personally Identifiable Information (PII) MUST NOT flow between service boundaries without encryption. Explicitly redact PII from all logging and analytics pipelines.
+- **Input Validation:** External inputs must pass explicit validation before processing. No raw data passthrough.
+- **Data Access:** Database, filesystem, network, and command execution boundaries must avoid injection risks. Use parameterized APIs and structured arguments where available.
+- **Authentication and Authorization:** User-facing privileged operations must verify caller identity and permission.
+- **Secrets:** Secrets and credentials must not be committed, logged, echoed, or copied into context files.
+- **Data Boundaries:** Sensitive data must not cross service, process, or storage boundaries without an explicit protection strategy. Redact sensitive data from logging and analytics.
 
 ---
 
@@ -42,54 +43,58 @@ You must generate secure code by default. Security is not an afterthought or a p
 
 You lack long-term persistent context. Rely on these invariants to prevent emergent complexity and systemic drift.
 
-* **Encapsulation:** Modules and services MUST communicate exclusively through defined APIs. Direct cross-boundary data access is forbidden.
-* **Separation of Concerns:** Business logic MUST remain strictly separated from presentation/UI logic.
-* **State & Configuration:** Configuration MUST be externalized from application code. State mutations MUST be predictable and isolated.
-* **Innovation Boundary:** Follow established repository patterns. Do not invent new architectural patterns or introduce new third-party dependencies unless explicitly instructed.
+- **Encapsulation:** Modules and services must communicate through defined APIs or clear ownership boundaries. Direct cross-boundary data access is forbidden unless the architecture explicitly allows it.
+- **Separation of Concerns:** Business logic must remain separated from presentation, infrastructure, persistence, and integration concerns.
+- **State and Configuration:** Configuration must be externalized from application code when it changes by environment. State mutations must be predictable and isolated.
+- **Innovation Boundary:** Follow established repository patterns. Do not invent new architectural patterns or introduce new third-party dependencies unless explicitly instructed or justified by the task.
 
 ### SOLID Principles
 
-All code must respect SOLID:
+All object-oriented code should respect SOLID:
 
-- **Single Responsibility** — A class has one and only one reason to change. If it handles more than one concern, it must be split. Do not mix gameplay logic, UI logic, persistence, input handling, animation, or infrastructure in a single class.
-- **Open/Closed** — Open for extension, closed for modification. Prefer composition, interfaces, and new classes over modifying existing stable code.
-- **Liskov Substitution** — Derived types must be fully substitutable for their base types without breaking behaviour.
-- **Interface Segregation** — Interfaces must be small and focused. Never force a class to implement methods it does not use.
-- **Dependency Inversion** — Depend on abstractions (interfaces), not concrete implementations. Use constructor injection for plain C# classes and serialized references or installers for MonoBehaviours.
+- **Single Responsibility** - A class or module has one reason to change. If it handles more than one concern, split it.
+- **Open/Closed** - Open for extension, closed for modification. Prefer composition, interfaces, and new focused components over unstable edits to mature code.
+- **Liskov Substitution** - Derived types must be substitutable for their base types without breaking behavior.
+- **Interface Segregation** - Interfaces must be small and focused. Never force a consumer to depend on methods it does not use.
+- **Dependency Inversion** - Depend on abstractions rather than concrete implementations where that improves testability, clarity, or decoupling.
 
-Apply these as guiding heuristics. Game code sometimes benefits from pragmatic shortcuts — but document them and revisit them.
-
----
-
-## 4. Performance & Scale
-
-You must embed performance constraints directly into the generated implementation.
-
-* **Latency:** Total system latency MUST NOT exceed defined user experience budgets. Respect frame-rate targets for real-time applications and response-time SLAs for services.
-* **Cascading Complexity:** Minimise transitive dependencies between modules. Avoid deep call chains that make failure diagnosis and performance profiling difficult.
-* **Resource Limits:** Implement strict memory management. Avoid unnecessary heap allocations in hot paths, tick functions, or high-frequency loops.
+Apply these as guiding heuristics. If a domain or framework requires a pragmatic shortcut, document the reason and revisit it when the pressure passes.
 
 ---
 
-## 5. Quality & Stability
+## 4. Performance and Scale
+
+Embed performance constraints directly into generated implementation when the project defines them.
+
+- **Latency and Throughput:** Respect user experience budgets, frame-rate targets, service-level objectives, and batch-processing limits when they exist.
+- **Cascading Complexity:** Minimize transitive dependencies between modules. Avoid deep call chains that make failure diagnosis and profiling difficult.
+- **Resource Limits:** Avoid unnecessary memory, CPU, network, and storage costs, especially in hot paths or high-frequency loops.
+- **Measurement First:** Do not optimize from vibes. Use profiling, instrumentation, benchmarks, or targeted tests when performance drives a change.
+
+---
+
+## 5. Quality and Stability
 
 Code quality must not drift based on prompt phrasing. These are non-negotiable structural requirements.
 
-* **Complexity:** Functions MUST be short enough to reason about as a single unit of work. Classes MUST adhere to the Single Responsibility Principle.
-* **Testability:** *All* public methods MUST include deterministic unit tests. Coverage MUST NOT drop below the established repository baseline.
-* **Documentation:** Public APIs MUST include usage examples. Complex algorithmic choices MUST be explained in comments.
+- **Complexity:** Functions should be short enough to reason about as a single unit of work. Classes, modules, and services must adhere to single responsibility.
+- **Testability:** New features and bug fixes require appropriate automated tests unless the repository has no test harness or the user explicitly accepts the gap.
+- **Documentation:** Public APIs, durable workflows, and non-obvious algorithmic choices must be documented at the right level.
+- **Maintainability:** Prefer boring, predictable code over clever code. A future agent or developer should be able to modify it without reconstructing hidden intent from chat history.
 
 ---
 
 ## 6. Mandatory Trade-offs
 
-When faced with architectural ambiguity, you MUST resolve decisions using the following hierarchy:
+When faced with architectural ambiguity, resolve decisions using the following hierarchy:
 
-* **Security vs. Convenience:** *Always* choose security over developer or user convenience.
-* **Performance vs. Readability:** Prefer readability by default. Optimize for performance *only* if the explicit execution budget is violated.
-* **Consistency vs. Novelty:** *Always* follow existing codebase conventions over modern/novel approaches, unless explicitly authorized to refactor.
+- **Security vs. Convenience:** Choose security over developer or user convenience.
+- **Correctness vs. Speed:** Choose correctness first. Speed matters after the behavior is right.
+- **Performance vs. Readability:** Prefer readability by default. Optimize for performance only when an explicit budget is violated or a measured bottleneck exists.
+- **Consistency vs. Novelty:** Follow existing codebase conventions over modern or novel approaches unless explicitly authorized to refactor.
+- **Scope vs. Speculation:** Build what the task requires. Do not add speculative features, knobs, or abstractions.
 
-When these specific rules do not cover the conflict, fall back to the Core Philosophy priority order in Section 1.
+When these rules do not cover the conflict, fall back to the Core Philosophy priority order in Section 1.
 
 ---
 
@@ -97,23 +102,23 @@ When these specific rules do not cover the conflict, fall back to the Core Philo
 
 A change is complete only when:
 
-- [ ] Explicit variable types are used everywhere (no `var` or `auto`)
-- [ ] SOLID principles are respected
-- [ ] Each class has a single responsibility
-- [ ] Each method performs a single action
-- [ ] Serialized references are validated in initialisation
-- [ ] Code is readable, maintainable, and refactor-ready
-- [ ] Tests exist for new features and bug fixes
-- [ ] The console is clean (zero warnings, zero errors)
-- [ ] Every changed line traces directly to the user's request
-- [ ] No unnecessary abstractions, features, or "improvements" beyond scope
+- [ ] The implementation satisfies the requested behavior.
+- [ ] Security-sensitive boundaries are validated.
+- [ ] Architectural ownership remains clear.
+- [ ] Each changed component has a single understandable responsibility.
+- [ ] Code is readable, maintainable, and refactor-ready.
+- [ ] Tests exist for new features and bug fixes, or the test gap is explicitly documented.
+- [ ] Relevant docs, goals, or implementation plans are updated when behavior or scope changes.
+- [ ] The console, build, or test output is clean for the checks that were run.
+- [ ] Every changed line traces directly to the user's request.
+- [ ] No unnecessary abstractions, features, or improvements beyond scope were added.
 
 ---
 
 ## 8. Enforcement
 
-When you cannot satisfy a law, you MUST:
+When you cannot satisfy a law, you must:
 
 1. Stop and identify which law is at risk.
 2. Explain the conflict to the user before proceeding.
-3. Never silently violate a law — an acknowledged exception is acceptable; a hidden one is not.
+3. Never silently violate a law. An acknowledged exception is acceptable; a hidden one is not.
