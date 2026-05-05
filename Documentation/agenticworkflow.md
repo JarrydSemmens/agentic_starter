@@ -29,8 +29,8 @@ Tier 0: Raw Intake and Addenda (tier0/)
   +--> Tier 3: Goals (goals1.md, goals2.md, ...)
   |     Individual features, bugs, or significant changes
   |
-  +--> Tier 4: Implementation Plans and Handovers (implementation_plans/)
-        Task-specific implementation plans and phase handovers
+  +--> Tier 4: Implementation Plans and Execution Records (implementation_plans/)
+        Task-specific implementation plans, implementation logs, and optional provenance artifacts
 ```
 
 When this repository refers to "context files," it means this five-tier system.
@@ -69,7 +69,7 @@ WISC (Write, Isolate, Select, Compress) is useful vocabulary for the discipline 
 
 | WISC Step | How this starter applies it |
 | --- | --- |
-| Write | Externalize memory into Tier 0 notes, maintained specs, implementation plans, progress files, and handovers. |
+| Write | Externalize memory into Tier 0 notes, maintained specs, implementation plans, implementation logs, progress files, and opt-in handovers. |
 | Isolate | Keep work slices small, use focused agent sessions, and use specialist agents or subagents for bounded research and execution. |
 | Select | Load only the context needed for the task instead of dumping every document into every prompt. |
 | Compress | Summarize long work into maintained docs, phase handovers, progress files, and compacted state before context quality degrades. |
@@ -97,7 +97,7 @@ Phase splitting exists to manage AI context limitations. A single conversation s
 
 At the end of a phase, create a handover document so a fresh AI session can continue the work without depending on prior chat history.
 
-**Location:** `Documentation/implementation_plans/`
+**Location:** Prefer the active task folder under `Documentation/implementation_plans/`. If the work predates folder-based plans, use `Documentation/implementation_plans/`.
 
 **Naming convention:**
 
@@ -126,6 +126,28 @@ At the end of a phase, create a handover document so a fresh AI session can cont
    - `tier0/` files only when the task involves intake synthesis or rationale recovery
    - `AgentThinking.md` only if it was used and is still relevant
 3. Continue from the documented repo state rather than reconstructing the full prior conversation.
+
+---
+
+## Optional Plan Artifacts
+
+Every Tier 4 implementation-plan folder should contain:
+
+```text
+plan.md
+implementation-log.md
+```
+
+Other provenance artifacts are opt-in. Use them only when the task, user, plan, or installed skill explicitly calls for them.
+
+| Artifact | Created By | Purpose |
+| --- | --- | --- |
+| `complaining.md` | `complaining` skill | Records actionable friction, blockers, ambiguity, risky assumptions, and tooling failures |
+| `thinking.md` | `thinking-out-loud` skill | Records sanitized investigation notes, discovered constraints, useful observations, and revisit items |
+| `evidence.md` | `evidence` skill | Indexes changed files, validation, commits, planning inputs, and unverified claims |
+| `handover/shallow-handover.md` | `handover` skill | Transfers ownership back to the human or forward to another agent |
+
+Do not create these optional files by default.
 
 ---
 
@@ -177,7 +199,7 @@ This project uses capability-tiered model allocation so the level of model effor
 
 - `tier0/*.md` contains raw intake and addenda that should be synthesized before implementation decisions rely on it.
 - `design.md`, `milestones.md`, and the goals files are authoritative and maintained.
-- `implementation_plans/*.md` contains active task plans and phase handovers.
+- `implementation_plans/` contains task folders with `plan.md` and `implementation-log.md`. Optional skill-generated artifacts may live beside those files.
 - `AgentThinking.md` is temporary and should stay lightweight.
 - Wiki and reference material support the project but may become stale; check them against the source of truth before relying on them.
 
@@ -199,7 +221,7 @@ When assigned work in this repository:
 3. If a Tier 4 implementation plan exists for the task, follow it closely.
 4. Keep repository structure, naming, and documentation conventions consistent.
 5. Update status fields in milestone and goal documents when the task requires it.
-6. When ending a phase mid-stream, create a handover document in `Documentation/implementation_plans/`.
+6. When ending a phase mid-stream, create a handover document only when a handover is needed or explicitly requested.
 7. Use installed reusable tooling only when it is relevant and available; do not make the project depend on external tooling silently.
 
 ---

@@ -19,12 +19,12 @@ The point is not to make agents autonomous. The point is to make agentic coding 
 
 ## Repository Model
 
-Agentic Rails is split across complementary repositories.
+Agentic Rails is the framework name for projects that use the context starter and reusable tooling together. It is not a separate repository.
 
-| Repository | Role | Responsibility |
+| Layer | Role | Responsibility |
 | --- | --- | --- |
-| `agentic_rails_framework` | Conceptual hub | Explains the system, terminology, adoption model, and how the repositories relate |
-| `agentic_rails_context_starter` | Left rail | Template repository for project-local context, provenance, evidence, plans, and handovers |
+| Agentic Rails | Framework name | Names the combined development system, terminology, and adoption model |
+| `agentic_rails_context_starter` | Left rail | Template repository for project-local context, plans, implementation logs, and handovers |
 | `agentic_rails_tooling` | Right rail | Reusable skills, agents, rules, workflows, and references |
 | Target project repositories | Carriage | Actual software projects created from the starter and supported by tooling |
 
@@ -41,9 +41,9 @@ It is provided by `agentic_rails_context_starter` and gives each project a durab
 - five-tier context hierarchy
 - documentation conventions
 - implementation-plan folders
-- provenance and evidence templates
-- complaint logs
-- handover locations
+- required plan and implementation-log templates
+- optional skill-generated provenance artifacts
+- handover locations when a handover skill or workflow is used
 - persistent framework identity files
 
 The starter is a template. A derived project should replace placeholders with project-specific purpose, architecture, milestones, goals, and execution history.
@@ -77,7 +77,7 @@ Agentic Rails uses a five-tier context model:
 | Tier 1 | Project purpose and design | `Documentation/design.md` | Maintained architecture, principles, constraints, and system shape |
 | Tier 2 | Milestones | `Documentation/milestones.md` | Roadmap stages and milestone intent |
 | Tier 3 | Goals | `Documentation/goals*.md` | Specific deliverables, acceptance criteria, scope, and status |
-| Tier 4 | Implementation plans and provenance | `Documentation/implementation_plans/` | Task-ready plans, logs, evidence, complaints, thinking notes, and handovers |
+| Tier 4 | Implementation plans and execution records | `Documentation/implementation_plans/` | Task-ready plans and implementation logs, with optional skill-generated provenance artifacts |
 
 Lower tiers give agents strategic context. Higher tiers capture what happened during execution. This prevents agents from operating only on immediate prompts and scattered source files.
 
@@ -101,10 +101,6 @@ Documentation/
     GOAL_3_1_short-readable-name/
       plan.md
       implementation-log.md
-      complaining.md
-      thinking.md
-      evidence.md
-      handover/
 ```
 
 ### `plan.md`
@@ -129,6 +125,8 @@ What actually happened:
 - validation performed
 - remaining uncertainty
 
+The following artifacts are optional. They are created only when the corresponding reusable skill or workflow is invoked for the task.
+
 ### `complaining.md`
 
 Operational friction:
@@ -143,6 +141,8 @@ Operational friction:
 
 This is not emotional theatre. It captures actionable friction that would otherwise disappear.
 
+Created by the `complaining` skill.
+
 ### `thinking.md`
 
 Sanitised agent notes:
@@ -153,6 +153,8 @@ Sanitised agent notes:
 - things to revisit
 
 This is not a private chain-of-thought dump.
+
+Created by the `thinking-out-loud` skill.
 
 ### `evidence.md`
 
@@ -166,9 +168,13 @@ The provenance index:
 - planning inputs
 - known unverified claims
 
+Created by the `evidence` skill.
+
 ### `handover/`
 
 Ownership transfer artifacts that help the human understand what was done and how to continue.
+
+Created by the `handover` skill or a larger handover workflow.
 
 ## Accountability Handover
 

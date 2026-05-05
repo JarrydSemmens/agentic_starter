@@ -7,7 +7,7 @@ description: Tier 4 implementation plan template for scoping a concrete task, li
 
 # Implementation Plan Template
 
-Use this file as the starting point for a Tier 4 implementation plan in this repository. Copy the full `IMPLEMENTATION_PLAN_TEMPLATE/` folder to a task-specific folder and replace all placeholders.
+Use this folder as the starting point for a Tier 4 implementation plan in this repository. Copy `plan.md` and `implementation-log.md` to a task-specific folder and replace all placeholders.
 
 Tier 4 context means the work is ready to execute against the repository. The plan should be grounded in maintained design, milestone, and goal context, and it should cite Tier 0 intake only when raw notes or addenda materially shaped the task.
 
@@ -19,7 +19,7 @@ Choose a folder name that matches the task type:
 - `FEATURE_<short-slug>/`
 - `BUG_<short-slug>/`
 
-If the work is phased, create a handover artifact under `handover/` at the end of each phase using the naming rules in [agenticworkflow.md](../../agenticworkflow.md).
+If the work is phased or needs explicit ownership transfer, use the relevant handover guidance in [agenticworkflow.md](../../agenticworkflow.md) or an installed handover skill.
 
 ---
 
@@ -40,6 +40,7 @@ If the work is phased, create a handover artifact under `handover/` at the end o
 - Goal: `<link if applicable>`
 - Handover: `<link if continuing phased work>`
 - External Tooling: `<shared rule, skill, workflow-skill, or specialist agent if required>`
+- Optional Provenance Artifacts: `<complaining.md, thinking.md, evidence.md, or handover path only if created by an explicit skill or workflow>`
 
 ## Objective
 
@@ -104,8 +105,9 @@ Summarize the relevant existing structure, behavior, or placeholder content alre
 - [ ] Scope stayed within this plan
 - [ ] Verification steps were completed or explicitly deferred
 - [ ] Relevant status docs were updated
-- [ ] `implementation-log.md`, `evidence.md`, and other provenance files were updated
-- [ ] A handover artifact was created if the work stopped mid-phase or ownership needs explicit transfer
+- [ ] `implementation-log.md` was updated
+- [ ] Optional provenance artifacts were updated if their skills were used
+- [ ] A handover artifact was created if a handover skill or workflow was used
 
 ## Notes for the Implementing Agent
 
