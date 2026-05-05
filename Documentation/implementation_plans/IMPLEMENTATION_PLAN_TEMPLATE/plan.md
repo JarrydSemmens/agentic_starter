@@ -1,5 +1,5 @@
 ---
-version: 0.1
+version: 0.2
 owner: "Your Name"
 repo: "your-repo"
 description: Tier 4 implementation plan template for scoping a concrete task, listing source context, affected areas, steps, verification, and risks.
@@ -7,19 +7,19 @@ description: Tier 4 implementation plan template for scoping a concrete task, li
 
 # Implementation Plan Template
 
-Use this file as the starting point for a Tier 4 implementation plan in this repository. Copy it to a task-specific filename and replace all placeholders.
+Use this file as the starting point for a Tier 4 implementation plan in this repository. Copy the full `IMPLEMENTATION_PLAN_TEMPLATE/` folder to a task-specific folder and replace all placeholders.
 
 Tier 4 context means the work is ready to execute against the repository. The plan should be grounded in maintained design, milestone, and goal context, and it should cite Tier 0 intake only when raw notes or addenda materially shaped the task.
 
 ## Naming Guidance
 
-Choose a filename that matches the task type:
+Choose a folder name that matches the task type:
 
-- `GOAL_<milestone>_<goal>_<short-slug>.md`
-- `FEATURE_<short-slug>.md`
-- `BUG_<short-slug>.md`
+- `GOAL_<milestone>_<goal>_<short-slug>/`
+- `FEATURE_<short-slug>/`
+- `BUG_<short-slug>/`
 
-If the work is phased, create a separate handover document at the end of each phase using the naming rules in [agenticworkflow.md](../agenticworkflow.md).
+If the work is phased, create a handover artifact under `handover/` at the end of each phase using the naming rules in [agenticworkflow.md](../../agenticworkflow.md).
 
 ---
 
@@ -34,8 +34,8 @@ If the work is phased, create a separate handover document at the end of each ph
 ## Linked Context
 
 - Tier 0 Source: `<link only if intake or addenda materially shaped this plan>`
-- Design: [design.md](../design.md)
-- Workflow: [agenticworkflow.md](../agenticworkflow.md)
+- Design: [design.md](../../design.md)
+- Workflow: [agenticworkflow.md](../../agenticworkflow.md)
 - Milestone: `<link if applicable>`
 - Goal: `<link if applicable>`
 - Handover: `<link if continuing phased work>`
@@ -104,7 +104,8 @@ Summarize the relevant existing structure, behavior, or placeholder content alre
 - [ ] Scope stayed within this plan
 - [ ] Verification steps were completed or explicitly deferred
 - [ ] Relevant status docs were updated
-- [ ] A handover document was created if the work stopped mid-phase
+- [ ] `implementation-log.md`, `evidence.md`, and other provenance files were updated
+- [ ] A handover artifact was created if the work stopped mid-phase or ownership needs explicit transfer
 
 ## Notes for the Implementing Agent
 

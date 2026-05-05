@@ -129,13 +129,13 @@ At the end of a phase, create a handover document so a fresh AI session can cont
 
 ---
 
-## Companion Repository: agentic_tooling
+## Companion Repository: agentic_rails_tooling
 
-`agentic_starter` is the project-local context system. The sibling `agentic_tooling` repository is the recommended reusable capability system. A generated project should work without `agentic_tooling`, but it can become much stronger when those reusable assets are installed into the agentic IDE's expected locations.
+`agentic_rails_context_starter` is the project-local context system. The sibling `agentic_rails_tooling` repository is the recommended reusable capability system. A generated project should work without `agentic_rails_tooling`, but it can become much stronger when those reusable assets are installed into the agentic IDE's expected locations.
 
 Use this conceptual split:
 
-| Layer in `agentic_tooling` | Purpose |
+| Layer in `agentic_rails_tooling` | Purpose |
 | --- | --- |
 | `rules/` | Concise standards, style guidance, and stack-specific rules selected just in time. |
 | `skills/` | Reusable task capabilities such as `commit-log`, compatibility checks, and focused process guidance. |
