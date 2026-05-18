@@ -1,5 +1,6 @@
 ---
 version: 0.1
+agentic_rails_source_version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: Tier 1 design specification template defining project architecture, principles, constraints, and the five-tier context hierarchy.

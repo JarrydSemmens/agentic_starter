@@ -1,5 +1,6 @@
 ---
 version: 1.1
+agentic_rails_source_version: 1.1
 owner: "Your Name"
 repo: "your-repo"
 description: Workflow guide for how AI agents should use the repository's five-tier context system, phased handovers, companion tooling, and execution process.

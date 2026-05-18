@@ -1,5 +1,6 @@
 ---
 version: 0.1
+agentic_rails_source_version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: Template execution log for recording what actually happened while implementing a Tier 4 plan.

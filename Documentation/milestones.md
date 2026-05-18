@@ -1,5 +1,6 @@
 ---
 version: 0.1
+agentic_rails_source_version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: Tier 2 milestone roadmap template defining major project stages, their intent, status, and linked goals files.

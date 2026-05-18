@@ -1,5 +1,6 @@
 ---
 version: 1.2
+agentic_rails_source_version: 1.2
 owner: "Your Name"
 repo: "your-repo"
 description: "Constitutional governance for AI-generated code. Inviolable laws that ensure quality, security, and architectural integrity."

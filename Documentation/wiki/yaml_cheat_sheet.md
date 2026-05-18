@@ -1,5 +1,6 @@
 ---
 version: 1.0
+agentic_rails_source_version: 1.0
 owner: "Your Name"
 repo: "your-repo"
 description: "Cheat sheet for YAML syntax, data types, collections, and practical usage caveats."

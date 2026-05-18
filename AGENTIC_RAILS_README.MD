@@ -1,3 +1,11 @@
+---
+version: 1.2
+agentic_rails_source_version: 1.2
+owner: "Your Name"
+repo: "your-repo"
+description:
+---
+
 # Agentic Rails
 
 Agentic Rails is an opinionated, IDE-agnostic framework for AI-assisted software development.

@@ -1,5 +1,6 @@
 ---
 version: 0.2
+agentic_rails_source_version: 0.2
 owner: "Your Name"
 repo: "your-repo"
 description: Tier 4 implementation plan template for scoping a concrete task, listing source context, affected areas, steps, verification, and risks.

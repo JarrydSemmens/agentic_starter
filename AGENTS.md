@@ -1,5 +1,6 @@
 ---
 version: 1.3
+agentic_rails_source_version: 1.3
 owner: "Your Name"
 repo: "your-repo"
 description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.

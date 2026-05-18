@@ -1,5 +1,6 @@
 ---
 version: 0.1
+agentic_rails_source_version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: Wiki hub for context-oriented reference material and cheat sheets.

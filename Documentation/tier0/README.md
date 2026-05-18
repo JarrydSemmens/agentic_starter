@@ -1,5 +1,6 @@
 ---
 version: 0.1
+agentic_rails_source_version: 0.1
 owner: "Your Name"
 repo: "your-repo"
 description: Tier 0 raw intake and addendum guidance for dictated notes, rough project seeds, and recurring vision updates.
