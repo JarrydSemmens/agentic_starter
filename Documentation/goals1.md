@@ -27,11 +27,11 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 <!-- Keep this table in sync as goals are added, completed, or modified. -->
 <!-- Status values: Complete, In Progress, Not Started, Blocked, Superseded -->
 
-| Goal | Status | Link |
-|------|--------|------|
-| Goal 1.1 - *Name* | Not Started | [Jump to details](#goal-1-1) |
-| Goal 1.2 - *Name* | Not Started | [Jump to details](#goal-1-2) |
-| Goal 1.3 - *Name* | Not Started | [Jump to details](#goal-1-3) |
+| Goal | Name | Plan | Status | Intent |
+|------|------|------|--------|--------|
+| [Goal 1.1](#goal-1-1) | *New Feature* | [Yes](implementation_plans/IMPLEMENTATION_PLAN_TEMPLATE/plan.md) | Complete | Awesome Feature added to project |
+| [Goal 1.2](#goal-1-2) | *Bug Fix* | No | In Progress | Bug fix in a solid way |
+| [Goal 1.3](#goal-1-3) | *Example Name* | No | Not Started | Another line of example Text |
 
 **Milestone Status:** Not Started - 0/? goals complete.
 
@@ -44,7 +44,7 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 - **Key constraints:**
   - Constraint 1
   - Constraint 2
--->
+  -->
 
 ### Milestone 1 Scope
 
