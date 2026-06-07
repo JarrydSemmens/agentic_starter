@@ -33,6 +33,8 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 | [Goal 1.2](#goal-1-2) | *Bug Fix* | No | In Progress | Bug fix in a solid way |
 | [Goal 1.3](#goal-1-3) | *Example Name* | No | Not Started | Another line of example Text |
 
+---
+
 **Milestone Status:** Not Started - 0/? goals complete.
 
 <!-- Optional: List key environment details and constraints. -->
