@@ -1,9 +1,11 @@
 ---
-version: 0.1
-agentic_rails_source_version: 0.1
-owner: "Your Name"
-repo: "your-repo"
+name: tier0-note-template
 description: Copyable Tier 0 note template for raw intake and addendum documents.
+metadata:
+  version: "0.2"
+  agentic_rails_source_version: "0.2"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 # <YYYY-MM-DD> - <Short Topic>
 

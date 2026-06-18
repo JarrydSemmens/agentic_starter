@@ -1,9 +1,11 @@
 ---
-version: 0.1
-agentic_rails_source_version: 0.1
-owner: "Your Name"
-repo: "your-repo"
-description: "Placeholder guidance for documenting secret and sensitive configuration handling."
+name: wiki-secrets
+description: Placeholder guidance for documenting secret and sensitive configuration handling.
+metadata:
+  version: "0.2"
+  agentic_rails_source_version: "0.2"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Secrets and Sensitive Configuration

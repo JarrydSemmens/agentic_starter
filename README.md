@@ -1,9 +1,11 @@
 ---
-version: 0.2
-agentic_rails_source_version: 0.2
-owner: "Your Name"
-repo: "your-repo"
+name: readme
 description: Minimal project README template for repositories created from the Agentic Rails context starter.
+metadata:
+  version: "0.3"
+  agentic_rails_source_version: "0.3"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 # Project Name
 

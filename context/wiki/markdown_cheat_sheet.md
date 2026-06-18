@@ -1,9 +1,11 @@
 ---
-version: 1.0
-agentic_rails_source_version: 1.0
-owner: "Your Name"
-repo: "your-repo"
-description: "Cheat sheet for core Markdown syntax, common extensions, and major flavours."
+name: wiki-markdown-cheat-sheet
+description: Cheat sheet for core Markdown syntax, common extensions, and major flavours.
+metadata:
+  version: "1.1"
+  agentic_rails_source_version: "1.1"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Markdown Cheat Sheet

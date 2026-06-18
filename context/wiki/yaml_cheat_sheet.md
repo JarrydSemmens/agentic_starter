@@ -1,9 +1,11 @@
 ---
-version: 1.0
-agentic_rails_source_version: 1.0
-owner: "Your Name"
-repo: "your-repo"
-description: "Cheat sheet for YAML syntax, data types, collections, and practical usage caveats."
+name: wiki-yaml-cheat-sheet
+description: Cheat sheet for YAML syntax, data types, collections, and practical usage caveats.
+metadata:
+  version: "1.1"
+  agentic_rails_source_version: "1.1"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # YAML Cheat Sheet

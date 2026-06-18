@@ -1,9 +1,11 @@
 ---
-version: 0.1
-agentic_rails_source_version: 0.1
-owner: "Your Name"
-repo: "your-repo"
+name: goals1
 description: Tier 3 goals template for Milestone 1, capturing deliverables, acceptance criteria, scope, and implementation guidance.
+metadata:
+  version: "0.2"
+  agentic_rails_source_version: "0.2"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 # Project Name - Goals (Milestone 1: *Name*)
 

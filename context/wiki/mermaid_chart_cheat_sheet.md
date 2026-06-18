@@ -1,9 +1,11 @@
 ---
-version: 1.0
-agentic_rails_source_version: 1.0
-owner: "Your Name"
-repo: "your-repo"
-description: "Cheat sheet for Mermaid class diagram syntax, relationships, styling, and practical usage."
+name: wiki-mermaid-chart-cheat-sheet
+description: Cheat sheet for Mermaid class diagram syntax, relationships, styling, and practical usage.
+metadata:
+  version: "1.1"
+  agentic_rails_source_version: "1.1"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Mermaid Class Diagram Cheat Sheet

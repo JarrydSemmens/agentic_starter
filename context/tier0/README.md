@@ -1,9 +1,11 @@
 ---
-version: 0.1
-agentic_rails_source_version: 0.1
-owner: "Your Name"
-repo: "your-repo"
+name: tier0-readme
 description: Tier 0 raw intake and addendum guidance for dictated notes, rough project seeds, and recurring vision updates.
+metadata:
+  version: "0.2"
+  agentic_rails_source_version: "0.2"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 # Tier 0 - Raw Intake and Addenda
 

@@ -1,9 +1,11 @@
 ---
-version: 0.1
-agentic_rails_source_version: 0.1
-owner: "Your Name"
-repo: "your-repo"
+name: implementation-log-template
 description: Template execution log for recording what actually happened while implementing a Tier 4 plan.
+metadata:
+  version: "0.2"
+  agentic_rails_source_version: "0.2"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Implementation Log

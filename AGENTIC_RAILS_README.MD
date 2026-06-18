@@ -1,9 +1,11 @@
 ---
-version: 1.2
-agentic_rails_source_version: 1.2
-owner: "Your Name"
-repo: "your-repo"
-description:
+name: agentic-rails-readme
+description: Durable framework overview for Agentic Rails, the opinionated IDE-agnostic system for AI-assisted software development.
+metadata:
+  version: "1.3"
+  agentic_rails_source_version: "1.3"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Agentic Rails

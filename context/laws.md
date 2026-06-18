@@ -1,9 +1,11 @@
 ---
-version: 1.2
-agentic_rails_source_version: 1.2
-owner: "Your Name"
-repo: "your-repo"
-description: "Constitutional governance for AI-generated code. Inviolable laws that ensure quality, security, and architectural integrity."
+name: laws
+description: Constitutional governance for AI-generated code — inviolable laws that ensure quality, security, and architectural integrity.
+metadata:
+  version: "1.3"
+  agentic_rails_source_version: "1.3"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 
 # Constitution of Code

@@ -1,9 +1,11 @@
 ---
-version: 1.3
-agentic_rails_source_version: 1.3
-owner: "Your Name"
-repo: "your-repo"
+name: agents
 description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.
+metadata:
+  version: "1.4"
+  agentic_rails_source_version: "1.4"
+  owner: "Your Name"
+  repo: "your-repo"
 ---
 # Agent Instructions
 
