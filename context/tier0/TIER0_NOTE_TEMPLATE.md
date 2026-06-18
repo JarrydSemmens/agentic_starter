@@ -29,4 +29,4 @@ Paste or summarize the raw dictated material here.
 - Update `../design.md`:
 - Update `../milestones.md`:
 - Update `../goals*.md`:
-- Update `../implementation_plans/`:
+- Update `../implementation-plans/`:

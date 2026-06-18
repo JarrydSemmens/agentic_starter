@@ -21,13 +21,13 @@ Add setup, build, test, and run instructions once the project stack is known.
 
 This repository was created from `agentic_rails_context_starter`, the context-template side of the Agentic Rails system.
 
-Project planning and AI-agent context live in [Documentation/](Documentation/). Start with:
+Project planning and AI-agent context live in [context/](context/). Start with:
 
-- [Documentation/laws.md](Documentation/laws.md)
-- [Documentation/design.md](Documentation/design.md)
-- [Documentation/milestones.md](Documentation/milestones.md)
-- [Documentation/goals1.md](Documentation/goals1.md)
-- [Documentation/implementation_plans/IMPLEMENTATION_PLAN_TEMPLATE/](Documentation/implementation_plans/IMPLEMENTATION_PLAN_TEMPLATE/)
+- [context/laws.md](context/laws.md)
+- [context/design.md](context/design.md)
+- [context/milestones.md](context/milestones.md)
+- [context/goals1.md](context/goals1.md)
+- [context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/](context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/)
 
 For the durable overview of the Agentic Rails system, keep and maintain [AGENTIC_RAILS_README.MD](AGENTIC_RAILS_README.MD).
 
@@ -38,14 +38,14 @@ project-root/
 |-- AGENTS.md
 |-- AGENTIC_RAILS_README.MD
 |-- README.md
-`-- Documentation/
+`-- context/
     |-- laws.md
     |-- agenticworkflow.md
     |-- design.md
     |-- milestones.md
     |-- goals1.md
     |-- tier0/
-    |-- implementation_plans/
+    |-- implementation-plans/
     `-- wiki/
 ```
 

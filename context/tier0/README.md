@@ -22,7 +22,7 @@ Do not treat Tier 0 as authoritative after synthesis. Once an intake file change
 - Tier 1: `../design.md`
 - Tier 2: `../milestones.md`
 - Tier 3: `../goals*.md`
-- Tier 4: `../implementation_plans/*.md`
+- Tier 4: `../implementation-plans/*.md`
 
 ## Naming Guidance
 
@@ -62,7 +62,7 @@ Paste or summarize the raw dictated material here.
 - Update `../design.md`:
 - Update `../milestones.md`:
 - Update `../goals*.md`:
-- Update `../implementation_plans/`:
+- Update `../implementation-plans/`:
 ```
 
 ## Agent Rules

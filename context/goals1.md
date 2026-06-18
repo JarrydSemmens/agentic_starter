@@ -29,7 +29,7 @@ description: Tier 3 goals template for Milestone 1, capturing deliverables, acce
 
 | Goal | Name | Plan | Status | Intent |
 |------|------|------|--------|--------|
-| [Goal 1.1](#goal-1-1) | *New Feature* | [Yes](implementation_plans/IMPLEMENTATION_PLAN_TEMPLATE/plan.md) | Complete | Awesome Feature added to project |
+| [Goal 1.1](#goal-1-1) | *New Feature* | [Yes](implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/plan.md) | Complete | Awesome Feature added to project |
 | [Goal 1.2](#goal-1-2) | *Bug Fix* | No | In Progress | Bug fix in a solid way |
 | [Goal 1.3](#goal-1-3) | *Example Name* | No | Not Started | Another line of example Text |
 

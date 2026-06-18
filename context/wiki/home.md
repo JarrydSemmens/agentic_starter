@@ -18,7 +18,7 @@ Authoritative project context lives in:
 - Tier 1: [../design.md](../design.md)
 - Tier 2: [../milestones.md](../milestones.md)
 - Tier 3: `../goals*.md`
-- Tier 4: `../implementation_plans/*.md`
+- Tier 4: `../implementation-plans/*.md`
 
 ## Context as a Working Language
 

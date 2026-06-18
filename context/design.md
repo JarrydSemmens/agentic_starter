@@ -13,7 +13,7 @@ This repository is an intentionally empty starter for future projects. Replace t
 
 This file is Tier 1: the maintained design specification. It should synthesize relevant Tier 0 intake into stable project direction.
 
-## Documentation Hierarchy
+## Context Hierarchy
 
 | Tier | Document | Purpose |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ This file is Tier 1: the maintained design specification. It should synthesize r
 | 1 - Design | `design.md` | Project architecture, principles, and constraints |
 | 2 - Milestones | [milestones.md](milestones.md) | Roadmap structure and milestone summaries |
 | 3 - Goals | `goals*.md` | Specific deliverables and acceptance criteria |
-| 4 - Implementation Plans and Handovers | `implementation_plans/*.md` | Task-specific implementation plans and phase handovers |
+| 4 - Implementation Plans and Handovers | `implementation-plans/*.md` | Task-specific implementation plans and phase handovers |
 | Support | [laws.md](laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
 | Support | [AgentThinking.md](AgentThinking.md) | Optional temporary scratchpad for long tasks |
@@ -64,14 +64,14 @@ Update this tree as the project takes shape.
 
 ```text
 project-root/
-|-- Documentation/
+|-- context/
 |   |-- tier0/
 |   |-- design.md
 |   |-- milestones.md
 |   |-- goals1.md
 |   |-- agenticworkflow.md
 |   |-- AgentThinking.md
-|   |-- implementation_plans/
+|   |-- implementation-plans/
 |   `-- wiki/
 |-- source/
 |-- tests/
@@ -185,7 +185,7 @@ When an older design statement is superseded, update it directly and preserve on
 - [design.md](design.md) - Tier 1 design overview
 - [milestones.md](milestones.md) - Tier 2 roadmap summary
 - `goals*.md` - Tier 3 goals and deliverables
-- `implementation_plans/*.md` - Tier 4 execution plans and handovers
+- `implementation-plans/*.md` - Tier 4 execution plans and handovers
 
 ### Reference Documents
 

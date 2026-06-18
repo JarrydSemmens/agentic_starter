@@ -17,22 +17,22 @@ Before making changes, load context in this order:
 
 ### 0.1: Repository Context Order
 
-1. Review `Documentation/laws.md`. This is the constitutional authority for code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
-2. Review `Documentation/agenticworkflow.md`. This is the mandatory workflow standard for the five-tier context system.
-3. Review `Documentation/design.md`. This is always required baseline context.
-4. Review `Documentation/milestones.md` when the task touches roadmap, scope, or feature planning.
+1. Review `context/laws.md`. This is the constitutional authority for code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
+2. Review `context/agenticworkflow.md`. This is the mandatory workflow standard for the five-tier context system.
+3. Review `context/design.md`. This is always required baseline context.
+4. Review `context/milestones.md` when the task touches roadmap, scope, or feature planning.
 5. Review the relevant goals file when the task maps to a milestone goal.
-6. Review the relevant Tier 4 plan in `Documentation/implementation_plans/` when one exists.
-7. Review `Documentation/tier0/` files only when the task involves raw intake, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
-8. If continuing phased work, review the relevant handover document in `Documentation/implementation_plans/` first, as directed by `Documentation/agenticworkflow.md`.
+6. Review the relevant Tier 4 plan in `context/implementation-plans/` when one exists.
+7. Review `context/tier0/` files only when the task involves raw intake, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
+8. If continuing phased work, review the relevant handover document in `context/implementation-plans/` first, as directed by `context/agenticworkflow.md`.
 9. When work involves drafting commit logs or preparing to commit, use the installed `commit-log` skill if available. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
 
 ## 0.2: Repository Expectations
 
-- Follow the five-tier workflow defined in `Documentation/agenticworkflow.md`.
-- Treat `Documentation/design.md` as always-required context.
-- Use `Documentation/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
-- Treat `Documentation/tier0/` as raw source material that must be synthesized into maintained docs before it becomes authoritative.
+- Follow the five-tier workflow defined in `context/agenticworkflow.md`.
+- Treat `context/design.md` as always-required context.
+- Use `context/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
+- Treat `context/tier0/` as raw source material that must be synthesized into maintained docs before it becomes authoritative.
 - Use relevant installed shared rules, skills, workflow-skills, and specialist agents when they are available and task-appropriate.
 - Repository-local instructions override reusable external tooling when they conflict.
 - Do not execute pull or push operations in any VCS.
@@ -48,7 +48,7 @@ Recommended context-driven version shape:
 | Part | Meaning |
 | --- | --- |
 | Major | Significant product release the organization treats as major. |
-| Milestone | Current milestone number from `Documentation/milestones.md`, or the highest milestone actively in progress. |
+| Milestone | Current milestone number from `context/milestones.md`, or the highest milestone actively in progress. |
 | Goal | Highest completed goal index within that milestone. Reset when a new milestone begins. |
 | Build or Reserved | Build ordinal, CI value, or `0` until automation exists. |
 

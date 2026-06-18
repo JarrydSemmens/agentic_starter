@@ -30,7 +30,7 @@ Tier 0: Raw Intake and Addenda (tier0/)
   +--> Tier 3: Goals (goals1.md, goals2.md, ...)
   |     Individual features, bugs, or significant changes
   |
-  +--> Tier 4: Implementation Plans and Execution Records (implementation_plans/)
+  +--> Tier 4: Implementation Plans and Execution Records (implementation-plans/)
         Task-specific implementation plans, implementation logs, and optional provenance artifacts
 ```
 
@@ -98,7 +98,7 @@ Phase splitting exists to manage AI context limitations. A single conversation s
 
 At the end of a phase, create a handover document so a fresh AI session can continue the work without depending on prior chat history.
 
-**Location:** Prefer the active task folder under `Documentation/implementation_plans/`. If the work predates folder-based plans, use `Documentation/implementation_plans/`.
+**Location:** Prefer the active task folder under `context/implementation-plans/`. If the work predates folder-based plans, use `context/implementation-plans/`.
 
 **Naming convention:**
 
@@ -196,11 +196,11 @@ This project uses capability-tiered model allocation so the level of model effor
 
 ---
 
-## Documentation Lifecycle
+## Context Lifecycle
 
 - `tier0/*.md` contains raw intake and addenda that should be synthesized before implementation decisions rely on it.
 - `design.md`, `milestones.md`, and the goals files are authoritative and maintained.
-- `implementation_plans/` contains task folders with `plan.md` and `implementation-log.md`. Optional skill-generated artifacts may live beside those files.
+- `implementation-plans/` contains task folders with `plan.md` and `implementation-log.md`. Optional skill-generated artifacts may live beside those files.
 - `AgentThinking.md` is temporary and should stay lightweight.
 - Wiki and reference material support the project but may become stale; check them against the source of truth before relying on them.
 
@@ -216,7 +216,7 @@ When assigned work in this repository:
    - `design.md`
    - `milestones.md` when scope or roadmap matters
    - the relevant goals file
-   - `implementation_plans/*.md` when a task plan exists
+   - `implementation-plans/*.md` when a task plan exists
    - `tier0/*.md` only when the task involves intake, enrichment, major scope revision, or rationale recovery
    - `AgentThinking.md` only when explicitly needed
 3. If a Tier 4 implementation plan exists for the task, follow it closely.
