@@ -2,8 +2,8 @@
 name: agentic-rails-readme
 description: Durable framework overview for Agentic Rails, the opinionated IDE-agnostic system for AI-assisted software development.
 metadata:
-  version: "1.3"
-  agentic_rails_source_version: "1.3"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -48,15 +48,17 @@ The left rail answers:
 
 It is provided by `agentic_rails_context_starter` and gives each project a durable documentation structure:
 
-- five-tier context hierarchy
+- seven-tier context hierarchy
+- backlog, sprint, and milestone conventions
 - documentation conventions
 - implementation-plan folders
-- required plan and implementation-log templates
+- required plan, implementation-log, and completion-review templates
+- model-resume artifacts
 - optional skill-generated provenance artifacts
 - handover locations when a handover skill or workflow is used
 - persistent framework identity files
 
-The starter is a template. A derived project should replace placeholders with project-specific purpose, architecture, milestones, goals, and execution history.
+The starter is a template. A derived project should replace placeholders with project-specific purpose, architecture, milestones, sprints, stories, and execution history.
 
 ## The Right Rail: Tooling And Behaviour
 
@@ -75,21 +77,31 @@ It is provided by `agentic_rails_tooling` and may include reusable:
 - complaint logging behaviours
 - evidence and provenance behaviours
 
-Project-local context remains authoritative. Shared tooling supplements the project, but it does not override the project laws, design, milestones, goals, or implementation plans.
+Project-local context remains authoritative. Shared tooling supplements the project, but it does not override the project laws, design, milestones, sprints, stories, or implementation plans.
 
-## Five-Tier Context System
+## Seven-Tier Context System
 
-Agentic Rails uses a five-tier context model:
+Agentic Rails uses a seven-tier, backlog-driven, Scrum-aligned context model. Rough design and milestones are set up front; work is then planned close to execution by pulling only what is needed now. The backlog is allowed to be messy.
 
-| Tier | Layer | Location | Purpose |
-| --- | --- | --- | --- |
-| Tier 0 | Raw intake and addenda | `context/tier0/` | Dictated notes, rough source material, and recurring supplemental vision |
-| Tier 1 | Project purpose and design | `context/design.md` | Maintained architecture, principles, constraints, and system shape |
-| Tier 2 | Milestones | `context/milestones.md` | Roadmap stages and milestone intent |
-| Tier 3 | Goals | `context/goals*.md` | Specific deliverables, acceptance criteria, scope, and status |
-| Tier 4 | Implementation plans and execution records | `context/implementation-plans/` | Task-ready plans and implementation logs, with optional skill-generated provenance artifacts |
+| Tier | Layer | Location | Purpose | Scrum |
+| --- | --- | --- | --- | --- |
+| Tier 0 | Transcription | `context/tier0/` | Raw dictation — the rough shape of the project before structure is imposed | Pre-planning |
+| Tier 1 | Design | `context/design.md` | The whole deliverable and its largest pieces; holds the Milestones Index subsection | Vision / roadmap |
+| Tier 2 | Milestone | `context/milestones/` | Macro-features; each doc indexes a grouped collection of sprints | Theme |
+| Tier 3 | Sprint | `context/sprints/` | Time-bounded chunks toward a milestone with a clear deliverable | Sprint |
+| Tier 4 | Story | `context/backlog/` | Discrete work units (feature, bug, refactor), then scheduled into a sprint | Story |
+| Tier 5 | Implementation Plan | `context/implementation-plans/` | The normalized how-to for one story, with scoring and mitigation | Task breakdown |
+| Tier 6 | Phase *(optional)* | `context/implementation-plans/` | A safe slice of an over-large story | Sub-task |
 
 Lower tiers give agents strategic context. Higher tiers capture what happened during execution. This prevents agents from operating only on immediate prompts and scattered source files.
+
+### Vocabulary
+
+The overloaded word **`goal`** is retired: the old goal-file container is gone (its grouping role moved to Milestone and Sprint), and the old individual goal is now a **Story**. The word **`task`** is never used as a tier name, because sub-agents already use it for their internal to-do items. The system adopts standard Scrum nouns: **Design → Milestone → Sprint → Story**, with **Phases** as an optional split below the implementation plan.
+
+### Scoring, Orchestration, and Observability
+
+Every story is scored on three orthogonal metrics — **Complexity** (reasoning demand), **Effort** (volume), and **Risk** (uncapped headline plus sub-scores) — before model assignment. Scores drive model routing and risk-driven mitigation (fragment into phases, add test/eval/provenance gates) at planning time. Execution is handed to an **Orchestrator** that chooses the model and reasoning level, runs the story, and produces a **Completion Review** (estimates vs. actuals, model used, and why things were unexpected). Completion reviews feed **Model Resumes** — one empirical, workflow-specific resume per model, rebuilt (never appended) from the corpus. The scoring, orchestration, and rebuild logic are right-rail tooling; this starter defines the artifacts they read and write.
 
 ## Provenance
 
@@ -108,20 +120,24 @@ Meaningful implementation work should live in a dedicated folder under `context/
 ```text
 context/
   implementation-plans/
-    GOAL_3_1_short-readable-name/
+    STORY_3_1_short-readable-name/
       plan.md
       implementation-log.md
+      completion-review.md
 ```
 
 ### `plan.md`
 
 The intended work:
 
-- goal
-- approach
-- scope and non-goals
+- objective
+- estimates block (time, files, effort, complexity, risk)
+- complexity / effort / risk scoring and routing intent
+- mitigation (phase fragmentation, gates)
+- approach, scope, and non-goals
 - steps
 - acceptance criteria
+- optional Tier 6 phase breakdown
 - risks and open questions
 
 ### `implementation-log.md`
@@ -134,6 +150,16 @@ What actually happened:
 - implementation decisions
 - validation performed
 - remaining uncertainty
+
+### `completion-review.md`
+
+The session-end postmortem, distinct from the implementation log:
+
+- estimates vs. actuals (same units on both sides)
+- model used and reasoning level
+- narrative review
+- why things were unexpected, split by root cause
+- signals that feed Model Resumes
 
 The following artifacts are optional. They are created only when the corresponding reusable skill or workflow is invoked for the task.
 
@@ -281,7 +307,7 @@ Prompt -> Code -> Hope
 into:
 
 ```text
-Context -> Plan -> Execute -> Log -> Evidence -> Handover -> Ownership
+Context -> Backlog -> Plan -> Score -> Execute -> Log -> Review -> Handover -> Ownership
 ```
 
 The human remains responsible for direction, judgement, priorities, acceptance, taste, risk tolerance, and final ownership. Agents can execute, inspect, explain, complain, and hand over. They do not become the owner.

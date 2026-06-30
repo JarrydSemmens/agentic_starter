@@ -2,8 +2,8 @@
 name: wiki-home
 description: Wiki hub for context-oriented reference material and cheat sheets.
 metadata:
-  version: "0.2"
-  agentic_rails_source_version: "0.2"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -12,15 +12,16 @@ metadata:
 
 [Back to Design Specification](../design.md)
 
-This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative five-tier context system.
+This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative seven-tier context system.
 
 Authoritative project context lives in:
 
-- Tier 0: [../tier0/](../tier0/)
-- Tier 1: [../design.md](../design.md)
-- Tier 2: [../milestones.md](../milestones.md)
-- Tier 3: `../goals*.md`
-- Tier 4: `../implementation-plans/*.md`
+- Tier 0 (Transcription): [../tier0/](../tier0/)
+- Tier 1 (Design + Milestones Index): [../design.md](../design.md)
+- Tier 2 (Milestone): [../milestones/](../milestones/)
+- Tier 3 (Sprint): [../sprints/](../sprints/)
+- Tier 4 (Story): [../backlog/](../backlog/)
+- Tier 5 (Implementation Plan) and Tier 6 (Phases): `../implementation-plans/*/`
 
 ## Context as a Working Language
 

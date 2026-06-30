@@ -2,8 +2,8 @@
 name: agents
 description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.
 metadata:
-  version: "1.4"
-  agentic_rails_source_version: "1.4"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -20,21 +20,22 @@ Before making changes, load context in this order:
 ### 0.1: Repository Context Order
 
 1. Review `context/laws.md`. This is the constitutional authority for code quality, security, and architectural constraints. Laws defined there are inviolable and override any conflicting guidance in this file.
-2. Review `context/agenticworkflow.md`. This is the mandatory workflow standard for the five-tier context system.
-3. Review `context/design.md`. This is always required baseline context.
-4. Review `context/milestones.md` when the task touches roadmap, scope, or feature planning.
-5. Review the relevant goals file when the task maps to a milestone goal.
-6. Review the relevant Tier 4 plan in `context/implementation-plans/` when one exists.
-7. Review `context/tier0/` files only when the task involves raw intake, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
+2. Review `context/agenticworkflow.md`. This is the mandatory workflow standard for the seven-tier context system.
+3. Review `context/design.md`, including its embedded Milestones Index. This is always required baseline context.
+4. Review the relevant `context/milestones/*.md` and `context/sprints/*.md` when the task touches roadmap, scope, milestone, or sprint planning.
+5. Review the relevant `context/backlog/*.md` story when the task maps to a specific story.
+6. Review the relevant Tier 5 plan in `context/implementation-plans/` when one exists.
+7. Review `context/tier0/` files only when the task involves raw transcription, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
 8. If continuing phased work, review the relevant handover document in `context/implementation-plans/` first, as directed by `context/agenticworkflow.md`.
 9. When work involves drafting commit logs or preparing to commit, use the installed `commit-log` skill if available. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
 
 ## 0.2: Repository Expectations
 
-- Follow the five-tier workflow defined in `context/agenticworkflow.md`.
-- Treat `context/design.md` as always-required context.
-- Use `context/milestones.md` and the goals documents to anchor implementation scope and acceptance criteria.
-- Treat `context/tier0/` as raw source material that must be synthesized into maintained docs before it becomes authoritative.
+- Follow the seven-tier workflow defined in `context/agenticworkflow.md`.
+- Treat `context/design.md` (with its Milestones Index) as always-required context.
+- Use `context/milestones/`, `context/sprints/`, and `context/backlog/` to anchor implementation scope and acceptance criteria.
+- Never use `goal` as a tier name (it is retired) and never use `task` as a tier name. The work unit is a Story.
+- Treat `context/tier0/` as raw transcription that must be synthesized into maintained docs before it becomes authoritative.
 - Use relevant installed shared rules, skills, workflow-skills, and specialist agents when they are available and task-appropriate.
 - Repository-local instructions override reusable external tooling when they conflict.
 - Do not execute pull or push operations in any VCS.
@@ -50,11 +51,11 @@ Recommended context-driven version shape:
 | Part | Meaning |
 | --- | --- |
 | Major | Significant product release the organization treats as major. |
-| Milestone | Current milestone number from `context/milestones.md`, or the highest milestone actively in progress. |
-| Goal | Highest completed goal index within that milestone. Reset when a new milestone begins. |
+| Milestone | Current milestone number from `context/milestones/`, or the highest milestone actively in progress. |
+| Sprint | Current sprint ordinal within that milestone. Reset when a new milestone begins. |
 | Build or Reserved | Build ordinal, CI value, or `0` until automation exists. |
 
-If a project adopts this policy, document the exact files to update and keep every first-party version property aligned when goals or milestone scope change.
+If a project adopts this policy, document the exact files to update and keep every first-party version property aligned when sprint or milestone scope changes.
 
 ---
 

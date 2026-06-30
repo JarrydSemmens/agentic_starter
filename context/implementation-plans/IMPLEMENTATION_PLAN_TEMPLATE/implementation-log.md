@@ -1,9 +1,9 @@
 ---
 name: implementation-log-template
-description: Template execution log for recording what actually happened while implementing a Tier 4 plan.
+description: Template execution log for recording what actually happened while implementing a Tier 5 plan.
 metadata:
-  version: "0.2"
-  agentic_rails_source_version: "0.2"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---

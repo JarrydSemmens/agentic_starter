@@ -1,9 +1,9 @@
 ---
 name: design
-description: Tier 1 design specification template defining project architecture, principles, constraints, and the five-tier context hierarchy.
+description: Tier 1 design specification template defining project architecture, principles, constraints, the seven-tier context hierarchy, and the embedded milestones index.
 metadata:
-  version: "0.2"
-  agentic_rails_source_version: "0.2"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -13,21 +13,36 @@ metadata:
 
 This repository is an intentionally empty starter for future projects. Replace the placeholders in this file when you fork or copy the template into a real codebase.
 
-This file is Tier 1: the maintained design specification. It should synthesize relevant Tier 0 intake into stable project direction.
+This file is Tier 1: the maintained design specification covering the whole deliverable and how it breaks into its largest pieces. It should synthesize relevant Tier 0 transcription into stable project direction. The **Milestones Index** lives as a subsection of this file (see below); the actual Milestone documents are separate files under `milestones/`.
 
 ## Context Hierarchy
 
 | Tier | Document | Purpose |
 | --- | --- | --- |
-| 0 - Raw Intake and Addenda | [tier0/](tier0/) | Dictated notes, rough source material, and supplemental design changes |
-| 1 - Design | `design.md` | Project architecture, principles, and constraints |
-| 2 - Milestones | [milestones.md](milestones.md) | Roadmap structure and milestone summaries |
-| 3 - Goals | `goals*.md` | Specific deliverables and acceptance criteria |
-| 4 - Implementation Plans and Handovers | `implementation-plans/*.md` | Task-specific implementation plans and phase handovers |
+| 0 - Transcription | [tier0/](tier0/) | Raw dictation and supplemental design changes, before structure is imposed |
+| 1 - Design | `design.md` | The whole deliverable, its largest pieces, and the Milestones Index subsection |
+| 2 - Milestone | [milestones/](milestones/) | One doc per macro-feature; each indexes a grouped collection of sprints |
+| 3 - Sprint | [sprints/](sprints/) | Time-bounded chunks of work toward a milestone |
+| 4 - Story | [backlog/](backlog/) | Discrete work units (features, bugs, refactors), then scheduled into a sprint |
+| 5 - Implementation Plan | `implementation-plans/*/plan.md` | The normalized how-to for one story, with scoring and mitigation |
+| 6 - Phase *(optional)* | `implementation-plans/*/` | A safe slice of an over-large story |
 | Support | [laws.md](laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
+| Support | [model-resumes/](model-resumes/) | Cross-task empirical record of how each model performs on this workflow |
 | Support | [AgentThinking.md](AgentThinking.md) | Optional temporary scratchpad for long tasks |
 | Support | [wiki/home.md](wiki/home.md) | Operational reference notes and cheat sheets |
+
+---
+
+## Milestones Index
+
+> This index is the table of contents for the project's milestones. It lives inside Design because a standalone milestones table is the same tier as Design. Each entry links down to a separate Milestone document under `milestones/`, which in turn indexes that milestone's sprints.
+
+| Milestone | Document | Status | Why it matters | What it unlocks |
+| --- | --- | --- | --- | --- |
+| Milestone 1: *Name* | [milestones/milestone-1.md](milestones/milestone-1.md) | Not Started | *Why this milestone matters* | *What completing it unlocks* |
+
+Keep this index in sync as milestones are added, completed, reordered, or reclassified. When a backlog story scores as epic-sized, promote it into this index as a new milestone.
 
 ---
 
@@ -69,11 +84,14 @@ project-root/
 |-- context/
 |   |-- tier0/
 |   |-- design.md
-|   |-- milestones.md
-|   |-- goals1.md
+|   |-- milestones/
+|   |-- sprints/
+|   |-- backlog/
+|   |-- implementation-plans/
+|   |-- model-resumes/
+|   |-- laws.md
 |   |-- agenticworkflow.md
 |   |-- AgentThinking.md
-|   |-- implementation-plans/
 |   `-- wiki/
 |-- source/
 |-- tests/
@@ -173,7 +191,7 @@ If performance is not yet a concern, say so explicitly and revisit it later.
 
 ## Context Maintenance
 
-Use Tier 0 intake to revise this design when the project vision changes. Do not leave important decisions stranded in raw notes, chats, or addenda. Promote durable decisions into this file, milestones, goals, or implementation plans as appropriate.
+Use Tier 0 transcription to revise this design when the project vision changes. Do not leave important decisions stranded in raw notes, chats, or addenda. Promote durable decisions into this file, the Milestones Index, milestone docs, sprints, stories, or implementation plans as appropriate.
 
 When an older design statement is superseded, update it directly and preserve only the rationale needed for future agents to understand the decision.
 
@@ -183,15 +201,17 @@ When an older design statement is superseded, update it directly and preserve on
 
 ### Specification Hierarchy
 
-- [tier0/README.md](tier0/README.md) - Tier 0 raw intake and addenda
-- [design.md](design.md) - Tier 1 design overview
-- [milestones.md](milestones.md) - Tier 2 roadmap summary
-- `goals*.md` - Tier 3 goals and deliverables
-- `implementation-plans/*.md` - Tier 4 execution plans and handovers
+- [tier0/README.md](tier0/README.md) - Tier 0 raw transcription
+- [design.md](design.md) - Tier 1 design overview and Milestones Index
+- [milestones/](milestones/) - Tier 2 milestone documents (sprint indexes)
+- [sprints/](sprints/) - Tier 3 sprint documents
+- [backlog/](backlog/) - Tier 4 stories
+- `implementation-plans/*/` - Tier 5 plans, Tier 6 phases, and execution records
 
 ### Reference Documents
 
 - [agenticworkflow.md](agenticworkflow.md) - AI collaboration workflow
+- [model-resumes/](model-resumes/) - cross-task model performance records
 - [AgentThinking.md](AgentThinking.md) - optional temporary agent scratchpad
 
 ### Wiki

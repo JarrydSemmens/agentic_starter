@@ -2,8 +2,8 @@
 name: readme
 description: Minimal project README template for repositories created from the Agentic Rails context starter.
 metadata:
-  version: "0.3"
-  agentic_rails_source_version: "0.3"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -26,10 +26,11 @@ This repository was created from `agentic_rails_context_starter`, the context-te
 Project planning and AI-agent context live in [context/](context/). Start with:
 
 - [context/laws.md](context/laws.md)
-- [context/design.md](context/design.md)
-- [context/milestones.md](context/milestones.md)
-- [context/goals1.md](context/goals1.md)
-- [context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/](context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/)
+- [context/design.md](context/design.md) (Tier 1 design, includes the Milestones Index)
+- [context/milestones/](context/milestones/) (Tier 2 milestone docs)
+- [context/sprints/](context/sprints/) (Tier 3 sprints)
+- [context/backlog/](context/backlog/) (Tier 4 stories)
+- [context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/](context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/) (Tier 5 plans, Tier 6 phases)
 
 For the durable overview of the Agentic Rails system, keep and maintain [AGENTIC_RAILS_README.MD](AGENTIC_RAILS_README.MD).
 
@@ -44,10 +45,12 @@ project-root/
     |-- laws.md
     |-- agenticworkflow.md
     |-- design.md
-    |-- milestones.md
-    |-- goals1.md
     |-- tier0/
+    |-- milestones/
+    |-- sprints/
+    |-- backlog/
     |-- implementation-plans/
+    |-- model-resumes/
     `-- wiki/
 ```
 

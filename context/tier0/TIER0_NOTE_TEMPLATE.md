@@ -1,9 +1,9 @@
 ---
 name: tier0-note-template
-description: Copyable Tier 0 note template for raw intake and addendum documents.
+description: Copyable Tier 0 transcription template for raw dictation and addendum documents.
 metadata:
-  version: "0.2"
-  agentic_rails_source_version: "0.2"
+  version: "2.0"
+  agentic_rails_source_version: "2.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -12,7 +12,7 @@ metadata:
 ## Source
 
 - Captured from: `<voice notes, AI chat, meeting, personal notes, etc.>`
-- Related project area: `<milestone, goal, subsystem, or unknown>`
+- Related project area: `<milestone, sprint, story, subsystem, or unknown>`
 
 ## Raw Notes
 
@@ -24,11 +24,12 @@ Paste or summarize the raw dictated material here.
 - Changed assumption:
 - New risk:
 - Open question:
-- Possible milestone or goal impact:
+- Possible milestone or story impact:
 
 ## Integration Notes
 
-- Update `../design.md`:
-- Update `../milestones.md`:
-- Update `../goals*.md`:
+- Update `../design.md` (and its Milestones Index):
+- Update `../milestones/`:
+- Update `../sprints/`:
+- Update `../backlog/`:
 - Update `../implementation-plans/`:
