@@ -1,11 +1,11 @@
 ---
 name: agentic-rails-readme
-description: Durable framework overview for Agentic Rails, the opinionated IDE-agnostic system for AI-assisted software development.
+description: Durable framework overview for Agentic Rails, the opinionated IDE-agnostic system for AI-assisted software development, now spanning three rails - context, tooling, and memory.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
-  owner: "Your Name"
-  repo: "your-repo"
+  version: "2.1"
+  agentic_rails_source_version: "2.1"
+  owner: "Jarryd Adaens"
+  repo: "agentic-rails-memory"
 ---
 
 # Agentic Rails
@@ -21,24 +21,34 @@ Without rails, agentic coding can become generated code, scattered plans, half-r
 ```text
 Left rail  = context and provenance
 Right rail = tools, skills, agents, and workflows
+Third rail = memory: durable cross-project knowledge that powers data-driven decisions
 Carriage   = the project being built
 Driver     = the human
 ```
+
+A railway runs on two rails. A third, electrified rail supplies the power. Agentic Rails
+follows the same shape: the left and right rails keep the carriage on track, and the third
+rail — memory — energizes the system to route its own work from real, measured data
+instead of gut feel.
 
 The point is not to make agents autonomous. The point is to make agentic coding legible, inspectable, repeatable, and safe enough for real engineering work.
 
 ## Repository Model
 
-Agentic Rails is the framework name for projects that use the context starter and reusable tooling together. It is not a separate repository.
+Agentic Rails is the framework name for projects that use the context starter, reusable tooling, and the shared memory store together. It is not a single repository.
 
 | Layer | Role | Responsibility |
 | --- | --- | --- |
 | Agentic Rails | Framework name | Names the combined development system, terminology, and adoption model |
 | `agentic_rails_context_starter` | Left rail | Template repository for project-local context, plans, implementation logs, and handovers |
+| `agentic-rails-memory` | Center rail | Durable, git-revisioned store of cross-project artifacts (learnings and Resumes) that feeds data-driven routing |
 | `agentic_rails_tooling` | Right rail | Reusable skills, agents, rules, workflows, and references |
 | Target project repositories | Carriage | Actual software projects created from the starter and supported by tooling |
 
-This repository was created from, or is itself, the `agentic_rails_context_starter` template. It should carry the context structure and persistent framework overview, but it should not become the home for generic reusable skills, agents, or workflows. Those belong in `agentic_rails_tooling`.
+Each rail has a single responsibility and should not absorb another's. The context starter
+carries per-project structure; the tooling carries reusable behaviour and the logic that
+operates on memory; the memory repository carries cross-project *artifacts only*, not the
+logic that produces or consumes them.
 
 ## The Left Rail: Context And Provenance
 
@@ -76,6 +86,45 @@ It is provided by `agentic_rails_tooling` and may include reusable:
 - evidence and provenance behaviours
 
 Project-local context remains authoritative. Shared tooling supplements the project, but it does not override the project laws, design, milestones, sprints, stories, or implementation plans.
+
+## The Center Rail: Memory And Track Record
+
+The Center rail answers:
+
+> What did we learn by doing the work, and how should that change what we do next?
+
+It is provided by `agentic-rails-memory`: a durable, git-revisioned, **markdown-only**
+store that lives outside any single project. Skills and agents "memorize" things by writing
+files here. It is the place where cross-project knowledge accumulates so that the framework
+can make decisions from real, measured data rather than gut feel.
+
+The memory rail holds **artifacts only**. The logic that captures, ranks, curates, and
+rebuilds them is right-rail tooling.
+
+Two artifact families anchor the store:
+
+- **Learnings** — one markdown file per work session, captured at a natural checkpoint.
+  They flow through a `new -> archived -> golden` lifecycle so that only high-signal
+  learnings inform later decisions.
+- **Resumes** — one per model and one per agent persona, **rebuilt (never appended)** from
+  completion reviews and golden learnings. Picking a model or persona for work is treated
+  as *hiring for a team*: a Resume is its empirical, your-workflow-specific track record,
+  not a vendor benchmark or model card.
+
+The memory rail closes a feedback loop:
+
+```text
+work done -> capture learnings -> curate (archive + promote) -> rebuild Resumes -> orchestrator routes next task -> better work
+```
+
+Because the data and the routing logic are self-owned, the routing decision is
+**trustable**: it optimizes for measured performance on real work, not hidden vendor
+cost trade-offs. Over time the memory repository can analyze its own artifacts and push
+findings back into the left and right rails, making framework evolution data driven.
+
+> Depositing an artifact does not make it clean or ready to consume. It only means
+> something of value was stored outside the project where the work happened. Curation is a
+> separate, deliberate step.
 
 ## Seven-Tier Context System
 
@@ -289,7 +338,19 @@ It should not contain:
 - generic reusable agents
 - generic reusable workflows
 
-`agentic_rails_tooling` should contain reusable agentic machinery.
+`agentic_rails_tooling` should contain reusable agentic machinery, including the logic that captures, ranks, curates, and rebuilds memory artifacts.
+
+`agentic-rails-memory` should contain:
+
+- cross-project learning artifacts (`memories/learnings/`)
+- model and agent Resumes (`memories/model-resumes/`, `memories/agent-resumes/`)
+- its own context describing the memory system
+
+It should not contain:
+
+- the capture, curation, or rebuild logic (that is right-rail tooling)
+- secrets, credentials, customer data, or proprietary source pulled from projects
+- project-specific deliverables
 
 Target project repositories may contain project-specific agents, skills, tools, generated plans, logs, evidence, and handovers when they belong directly to that project.
 
@@ -305,6 +366,13 @@ into:
 
 ```text
 Context -> Backlog -> Plan -> Score -> Execute -> Log -> Review -> Handover -> Ownership
+                                                                  |
+                                                                  v
+                                              Memorize -> Curate -> Route next task
 ```
 
-The human remains responsible for direction, judgement, priorities, acceptance, taste, risk tolerance, and final ownership. Agents can execute, inspect, explain, complain, and hand over. They do not become the owner.
+Each completed cycle can deposit a learning into the third rail. Curation distills those
+learnings into Resumes, and the next cycle's model, persona, and reasoning level are routed
+from that record — so the loop gets smarter over time.
+
+The human remains responsible for direction, judgement, priorities, acceptance, taste, risk tolerance, and final ownership. Agents can execute, inspect, explain, complain, hand over, and memorize. They do not become the owner.
