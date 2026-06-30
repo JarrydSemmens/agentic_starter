@@ -19,7 +19,7 @@ This file is Tier 1: the maintained design specification covering the whole deli
 
 | Tier | Document | Purpose |
 | --- | --- | --- |
-| 0 - Transcription | [tier0/](tier0/) | Raw dictation and supplemental design changes, before structure is imposed |
+| 0 - Transcription | [dictations-tier-0/](dictations-tier-0/) | Raw dictation and supplemental design changes, before structure is imposed |
 | 1 - Design | `design.md` | The whole deliverable, its largest pieces, and the Milestones Index subsection |
 | 2 - Milestone | [milestones/](milestones/) | One doc per macro-feature; each indexes a grouped collection of sprints |
 | 3 - Sprint | [sprints/](sprints/) | Time-bounded chunks of work toward a milestone |
@@ -28,8 +28,7 @@ This file is Tier 1: the maintained design specification covering the whole deli
 | 6 - Phase *(optional)* | `implementation-plans/*/` | A safe slice of an over-large story |
 | Support | [laws.md](laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
-| Support | [model-resumes/](model-resumes/) | Cross-task empirical record of how each model performs on this workflow |
-| Support | [AgentThinking.md](AgentThinking.md) | Optional temporary scratchpad for long tasks |
+| Support | [agent-thinking.md](agent-thinking.md) | Optional temporary scratchpad for long tasks |
 | Support | [wiki/home.md](wiki/home.md) | Operational reference notes and cheat sheets |
 
 ---
@@ -82,16 +81,15 @@ Update this tree as the project takes shape.
 ```text
 project-root/
 |-- context/
-|   |-- tier0/
+|   |-- dictations-tier-0/
 |   |-- design.md
 |   |-- milestones/
 |   |-- sprints/
 |   |-- backlog/
 |   |-- implementation-plans/
-|   |-- model-resumes/
 |   |-- laws.md
 |   |-- agenticworkflow.md
-|   |-- AgentThinking.md
+|   |-- agent-thinking.md
 |   `-- wiki/
 |-- source/
 |-- tests/
@@ -201,7 +199,7 @@ When an older design statement is superseded, update it directly and preserve on
 
 ### Specification Hierarchy
 
-- [tier0/README.md](tier0/README.md) - Tier 0 raw transcription
+- [dictations-tier-0/README-DICTATIONS-TIER-0.md](dictations-tier-0/README-DICTATIONS-TIER-0.md) - Tier 0 raw transcription
 - [design.md](design.md) - Tier 1 design overview and Milestones Index
 - [milestones/](milestones/) - Tier 2 milestone documents (sprint indexes)
 - [sprints/](sprints/) - Tier 3 sprint documents
@@ -211,8 +209,7 @@ When an older design statement is superseded, update it directly and preserve on
 ### Reference Documents
 
 - [agenticworkflow.md](agenticworkflow.md) - AI collaboration workflow
-- [model-resumes/](model-resumes/) - cross-task model performance records
-- [AgentThinking.md](AgentThinking.md) - optional temporary agent scratchpad
+- [agent-thinking.md](agent-thinking.md) - optional temporary agent scratchpad
 
 ### Wiki
 

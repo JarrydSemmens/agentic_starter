@@ -1,5 +1,5 @@
 ---
-name: tier0-note-template
+name: dictations-tier-0-note-template
 description: Copyable Tier 0 transcription template for raw dictation and addendum documents.
 metadata:
   version: "2.0"

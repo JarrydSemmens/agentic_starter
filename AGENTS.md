@@ -25,7 +25,7 @@ Before making changes, load context in this order:
 4. Review the relevant `context/milestones/*.md` and `context/sprints/*.md` when the task touches roadmap, scope, milestone, or sprint planning.
 5. Review the relevant `context/backlog/*.md` story when the task maps to a specific story.
 6. Review the relevant Tier 5 plan in `context/implementation-plans/` when one exists.
-7. Review `context/tier0/` files only when the task involves raw transcription, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
+7. Review `context/dictations-tier-0/` files only when the task involves raw transcription, context enrichment, scope revision, rationale recovery, or regenerating maintained context.
 8. If continuing phased work, review the relevant handover document in `context/implementation-plans/` first, as directed by `context/agenticworkflow.md`.
 9. When work involves drafting commit logs or preparing to commit, use the installed `commit-log` skill if available. By default, output the commit log in chat for the user to copy. Only perform an actual commit when the user explicitly asks for one.
 
@@ -35,7 +35,7 @@ Before making changes, load context in this order:
 - Treat `context/design.md` (with its Milestones Index) as always-required context.
 - Use `context/milestones/`, `context/sprints/`, and `context/backlog/` to anchor implementation scope and acceptance criteria.
 - Never use `goal` as a tier name (it is retired) and never use `task` as a tier name. The work unit is a Story.
-- Treat `context/tier0/` as raw transcription that must be synthesized into maintained docs before it becomes authoritative.
+- Treat `context/dictations-tier-0/` as raw transcription that must be synthesized into maintained docs before it becomes authoritative.
 - Use relevant installed shared rules, skills, workflow-skills, and specialist agents when they are available and task-appropriate.
 - Repository-local instructions override reusable external tooling when they conflict.
 - Do not execute pull or push operations in any VCS.

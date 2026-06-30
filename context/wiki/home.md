@@ -16,7 +16,7 @@ This wiki folder is optional supporting documentation for operational notes that
 
 Authoritative project context lives in:
 
-- Tier 0 (Transcription): [../tier0/](../tier0/)
+- Tier 0 (Transcription): [../dictations-tier-0/](../dictations-tier-0/)
 - Tier 1 (Design + Milestones Index): [../design.md](../design.md)
 - Tier 2 (Milestone): [../milestones/](../milestones/)
 - Tier 3 (Sprint): [../sprints/](../sprints/)

@@ -51,9 +51,7 @@ It is provided by `agentic_rails_context_starter` and gives each project a durab
 - seven-tier context hierarchy
 - backlog, sprint, and milestone conventions
 - documentation conventions
-- implementation-plan folders
-- required plan, implementation-log, and completion-review templates
-- model-resume artifacts
+- implementation-plan folders that receive plan, implementation-log, and completion-review documents
 - optional skill-generated provenance artifacts
 - handover locations when a handover skill or workflow is used
 - persistent framework identity files
@@ -85,7 +83,7 @@ Agentic Rails uses a seven-tier, backlog-driven, Scrum-aligned context model. Ro
 
 | Tier | Layer | Location | Purpose | Scrum |
 | --- | --- | --- | --- | --- |
-| Tier 0 | Transcription | `context/tier0/` | Raw dictation — the rough shape of the project before structure is imposed | Pre-planning |
+| Tier 0 | Transcription | `context/dictations-tier-0/` | Raw dictation — the rough shape of the project before structure is imposed | Pre-planning |
 | Tier 1 | Design | `context/design.md` | The whole deliverable and its largest pieces; holds the Milestones Index subsection | Vision / roadmap |
 | Tier 2 | Milestone | `context/milestones/` | Macro-features; each doc indexes a grouped collection of sprints | Theme |
 | Tier 3 | Sprint | `context/sprints/` | Time-bounded chunks toward a milestone with a clear deliverable | Sprint |
@@ -101,7 +99,7 @@ The overloaded word **`goal`** is retired: the old goal-file container is gone (
 
 ### Scoring, Orchestration, and Observability
 
-Every story is scored on three orthogonal metrics — **Complexity** (reasoning demand), **Effort** (volume), and **Risk** (uncapped headline plus sub-scores) — before model assignment. Scores drive model routing and risk-driven mitigation (fragment into phases, add test/eval/provenance gates) at planning time. Execution is handed to an **Orchestrator** that chooses the model and reasoning level, runs the story, and produces a **Completion Review** (estimates vs. actuals, model used, and why things were unexpected). Completion reviews feed **Model Resumes** — one empirical, workflow-specific resume per model, rebuilt (never appended) from the corpus. The scoring, orchestration, and rebuild logic are right-rail tooling; this starter defines the artifacts they read and write.
+Every story is scored on three orthogonal metrics — **Complexity** (reasoning demand), **Effort** (volume), and **Risk** (uncapped headline plus sub-scores) — before model assignment. Scores drive model routing and risk-driven mitigation (fragment into phases, add test/eval/provenance gates) at planning time. Execution is handed to an **Orchestrator** that chooses the model and reasoning level, runs the story, and produces a **Completion Review** (estimates vs. actuals, model used, and why things were unexpected). The scoring and orchestration logic are right-rail tooling; this starter defines the artifacts they read and write.
 
 ## Provenance
 
@@ -159,7 +157,6 @@ The session-end postmortem, distinct from the implementation log:
 - model used and reasoning level
 - narrative review
 - why things were unexpected, split by root cause
-- signals that feed Model Resumes
 
 The following artifacts are optional. They are created only when the corresponding reusable skill or workflow is invoked for the task.
 

@@ -1,5 +1,5 @@
 ---
-name: tier0-readme
+name: dictations-tier-0-readme
 description: Tier 0 transcription guidance for raw dictation, rough project seeds, and recurring vision updates before any structure is imposed.
 metadata:
   version: "2.0"

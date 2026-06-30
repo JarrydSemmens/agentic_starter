@@ -20,7 +20,7 @@ metadata:
 The project uses a seven-tier context system that moves from raw human intent to concrete, executable work. It is **backlog-driven and Scrum-aligned**: rough design and milestones are set up front, then work is planned close to execution by pulling only what is needed right now. The backlog is allowed to be messy. You refine and execute what is next, and you move forward rather than perpetually re-planning the whole project.
 
 ```text
-Tier 0: Transcription (tier0/)
+Tier 0: Transcription (dictations-tier-0/)
   |  Raw dictation. A brain-dump of the rough shape of a project. No structure imposed yet.
   |
   +--> Tier 1: Design (design.md)
@@ -72,7 +72,7 @@ When this repository refers to "context files," it means this seven-tier system.
 
 | Old (5-tier) | New (7-tier) | Action |
 | --- | --- | --- |
-| Transcriptions | Transcription (T0) | Kept; folder is `tier0/` |
+| Transcriptions | Transcription (T0) | Kept; folder is `dictations-tier-0/` |
 | Design doc | Design (T1) | Kept; absorbs the milestones index as a subsection |
 | Master breakdown / `milestones.md` | Milestone (T2) | Reframed as grouped sprint indexes; multiple docs under `milestones/` |
 | — | Sprint (T3) | **New** time-bounded execution batch under `sprints/` |
@@ -184,21 +184,11 @@ A dedicated **Completion Review** (postmortem) is produced at session end, disti
 - **Narrative review** of how it went, what it struggled with, and what was unexpected.
 - **Why things were unexpected** — distinguishing root causes: "took twice as long because subsystem X had hidden dependencies" (tune the effort estimator) versus "took twice as long because the model kept hallucinating" (change model tier or improve context). Different root causes need different fixes.
 
-The Completion Review template lives beside the plan in the implementation-plan template folder. See [implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/completion-review.md](implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/completion-review.md).
+The Completion Review template is supplied by the implementation-plan skill (right-rail tooling), not by this starter. An executed plan folder under `implementation-plans/` ends up holding `plan.md`, `implementation-log.md`, and `completion-review.md`.
 
 ### The Oracle (interim staging)
 
 Estimate-vs-actual records are eventually ingested by a token/quota dashboard ("the Oracle") to answer questions like "when I estimate effort at X, how often am I right?" and feed routing. **Interim:** before that infrastructure exists, completion reviews stage as markdown files on disk so no time is wasted on premature infrastructure.
-
-### Model Resumes
-
-A central, **cross-task** artifact lives outside the tier hierarchy: one **Model Resume** per model. The framing is deliberate — *picking a model for work is hiring for a team*. A resume records empirical, your-workflow-specific data (not vendor benchmarks): complexity ranges the model is good or bad at, effort thresholds where it struggles, token efficiency, speed, and observed error patterns.
-
-- Resumes are **rebuilt from scratch, never appended** — appending over-weights the most recent job (recency bias).
-- Updates are **batched**: collect completion reviews over a few days, then rebuild.
-- Rebuilds use **compaction** to control cost (golden-set / stratified sampling of the juiciest logs, or incremental merge of partial resumes).
-
-Model Resumes live under [model-resumes/](model-resumes/). The rebuild logic is right-rail tooling.
 
 ---
 
@@ -243,13 +233,13 @@ When a story is too large or risky for a single pass, split it into sequential p
 
 Phase splitting exists to manage AI context limitations. A single conversation should not carry the entire history of a large story if a smaller, cleaner handoff can do the job.
 
-### AgentThinking.md
+### agent-thinking.md
 
-`AgentThinking.md` is an optional scratchpad for temporary working notes during a long or complex task.
+`agent-thinking.md` is an optional scratchpad for temporary working notes during a long or complex task.
 
 **Rules:**
 
-- Do not use `AgentThinking.md` unless explicitly instructed or genuinely needed for task continuity.
+- Do not use `agent-thinking.md` unless explicitly instructed or genuinely needed for task continuity.
 - Treat it as temporary working memory, not authoritative project documentation.
 - Reset or replace its contents when switching to a different story, sprint, or bug.
 - Avoid committing it unless preserving context across separate AI runs is important.
@@ -285,8 +275,8 @@ At the end of a phase, create a handover document so a fresh AI session can cont
    - `design.md`
    - the relevant `milestones/*.md` and `sprints/*.md` when scope or sequencing matters
    - the relevant `backlog/*.md` story
-   - `tier0/` files only when the task involves transcription synthesis or rationale recovery
-   - `AgentThinking.md` only if it was used and is still relevant
+   - `dictations-tier-0/` files only when the task involves transcription synthesis or rationale recovery
+   - `agent-thinking.md` only if it was used and is still relevant
 3. Continue from the documented repo state rather than reconstructing the full prior conversation.
 
 ---
@@ -338,7 +328,6 @@ The following capabilities are **right-rail tooling**. This repository defines t
 | Sprint planner (per-milestone / per-sprint) | backlog, milestones | `sprints/*.md`, scored `plan.md`, phases |
 | Orchestrator | normalized scored `plan.md` | execution, `completion-review.md` |
 | Completion-review / postmortem | git diff, conversation | `completion-review.md` |
-| Model-resume rebuild | corpus of completion reviews | `model-resumes/*.md` |
 
 Repository-local context wins when it conflicts with reusable tooling. Shared rules, skills, workflow-skills, and agents supplement the project; they do not replace its design, milestones, sprints, stories, or implementation plans.
 
@@ -346,11 +335,10 @@ Repository-local context wins when it conflicts with reusable tooling. Shared ru
 
 ## Context Lifecycle
 
-- `tier0/*.md` contains raw transcription that should be synthesized before implementation decisions rely on it.
+- `dictations-tier-0/*.md` contains raw transcription that should be synthesized before implementation decisions rely on it.
 - `design.md` (including its Milestones Index), `milestones/*.md`, `sprints/*.md`, and `backlog/*.md` are authoritative and maintained.
 - `implementation-plans/` contains story folders with `plan.md`, `implementation-log.md`, and `completion-review.md`. Optional skill-generated artifacts may live beside those files.
-- `model-resumes/*.md` is a cross-task artifact rebuilt (never appended) from completion reviews.
-- `AgentThinking.md` is temporary and should stay lightweight.
+- `agent-thinking.md` is temporary and should stay lightweight.
 - Wiki and reference material support the project but may become stale; check them against the source of truth before relying on them.
 
 ---
@@ -366,8 +354,8 @@ When assigned work in this repository:
    - the relevant `milestones/*.md` and `sprints/*.md` when scope or sequencing matters
    - the relevant `backlog/*.md` story
    - `implementation-plans/*` when a plan exists
-   - `tier0/*.md` only when the task involves transcription synthesis, enrichment, major scope revision, or rationale recovery
-   - `AgentThinking.md` only when explicitly needed
+   - `dictations-tier-0/*.md` only when the task involves transcription synthesis, enrichment, major scope revision, or rationale recovery
+   - `agent-thinking.md` only when explicitly needed
 3. If a Tier 5 implementation plan exists for the story, follow it closely.
 4. Keep repository structure, naming, and documentation conventions consistent.
 5. Update status fields in milestone, sprint, and backlog documents when the work requires it.

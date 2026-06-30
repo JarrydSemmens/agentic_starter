@@ -23,16 +23,25 @@ Add setup, build, test, and run instructions once the project stack is known.
 
 This repository was created from `agentic_rails_context_starter`, the context-template side of the Agentic Rails system.
 
-Project planning and AI-agent context live in [context/](context/). Start with:
+This README is the single entry point for the repository. Use the links below as a convenient nexus into the broader context layers — not every file, just the doorways into each part of the system.
 
-- [context/laws.md](context/laws.md)
-- [context/design.md](context/design.md) (Tier 1 design, includes the Milestones Index)
-- [context/milestones/](context/milestones/) (Tier 2 milestone docs)
-- [context/sprints/](context/sprints/) (Tier 3 sprints)
-- [context/backlog/](context/backlog/) (Tier 4 stories)
-- [context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/](context/implementation-plans/IMPLEMENTATION_PLAN_TEMPLATE/) (Tier 5 plans, Tier 6 phases)
+### Start here
 
-For the durable overview of the Agentic Rails system, keep and maintain [AGENTIC_RAILS_README.MD](AGENTIC_RAILS_README.MD).
+- [AGENTS.md](AGENTS.md) - mandatory agent startup workflow and working rules
+- [AGENTIC_RAILS_README.MD](AGENTIC_RAILS_README.MD) - durable overview of the Agentic Rails system
+- [context/laws.md](context/laws.md) - constitutional code-quality and security laws (loaded first)
+- [context/agenticworkflow.md](context/agenticworkflow.md) - the seven-tier workflow standard
+- [context/design.md](context/design.md) - Tier 1 design specification and Milestones Index
+
+### Context layers
+
+- [context/dictations-tier-0/](context/dictations-tier-0/) - Tier 0 raw dictation and transcription
+- [context/design.md](context/design.md) - Tier 1 design (includes the Milestones Index)
+- [context/milestones/](context/milestones/) - Tier 2 milestone documents
+- [context/sprints/](context/sprints/) - Tier 3 sprints
+- [context/backlog/](context/backlog/) - Tier 4 stories
+- [context/implementation-plans/](context/implementation-plans/) - Tier 5 plans and Tier 6 phases
+- [context/wiki/home.md](context/wiki/home.md) - operational reference notes and cheat sheets
 
 ## Repository Layout
 
@@ -40,17 +49,18 @@ For the durable overview of the Agentic Rails system, keep and maintain [AGENTIC
 project-root/
 |-- AGENTS.md
 |-- AGENTIC_RAILS_README.MD
+|-- CLAUDE.md
 |-- README.md
 `-- context/
     |-- laws.md
     |-- agenticworkflow.md
     |-- design.md
-    |-- tier0/
+    |-- agent-thinking.md
+    |-- dictations-tier-0/
     |-- milestones/
     |-- sprints/
     |-- backlog/
     |-- implementation-plans/
-    |-- model-resumes/
     `-- wiki/
 ```
 
