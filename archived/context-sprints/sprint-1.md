@@ -7,6 +7,8 @@ metadata:
   owner: "Your Name"
   repo: "your-repo"
 ---
+ARCHIVED — the sprint tier was retired by the six-tier reform (2 July 2026); see the six-tier addendum. Kept for migration reference only.
+
 # Sprint 1: *Name*
 
 > **Tier 3 - Sprint.** A time-bounded chunk of work toward a milestone with a clear deliverable.

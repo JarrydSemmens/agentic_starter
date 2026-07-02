@@ -1,15 +1,15 @@
 ---
 name: backlog-template
-description: Tier 4 backlog file template. Holds up to 30 stories, priority-sorted, ready for sprint planning to pull from.
+description: Backlog file template (story inventory / Milestone -1). Holds up to 30 stories, priority-sorted, ready for milestone planning to pull from.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
 # Backlog N
 
-> **Tier 4 - Stories.** A priority-sorted pool of discrete work units. Maximum **30 stories** per file; overflow spawns the next backlog file.
+> Story inventory / Milestone -1. This is an unscheduled pool of possible work, not a formal tier. Maximum **30 stories** per file; overflow spawns the next backlog file.
 >
 > Front files hold the most urgent, concrete, doable work. Back files hold wishful, experimental, least-concrete work. The backlog is evergreen and allowed to be messy.
 
@@ -17,14 +17,14 @@ metadata:
 
 ## Story Index
 
-<!-- Keep highest priority at the top. Status: Backlog, Scheduled, In Progress, Complete, Reclassified. -->
+<!-- Keep highest priority at the top. Status: Backlog, Pulled into milestone, In Progress, Complete, Reclassified. -->
 
-| # | Story | Type | Priority | Complexity | Effort | Risk | Sprint | Status |
+| # | Story | Type | Priority | Complexity | Effort | Risk | Milestone | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [Story name](#story-1) | Feature/Bug/Refactor | High | — | — | — | *unscheduled* | Backlog |
 | 2 | [Story name](#story-2) | Feature/Bug/Refactor | Medium | — | — | — | *unscheduled* | Backlog |
 
-Scores are filled in during sprint planning. An unscored story shows `—`.
+Scores are filled in during milestone planning. An unscored story shows `—`.
 
 ---
 

@@ -1,15 +1,17 @@
 ---
 name: backlog-readme
-description: Guidance for the Tier 4 story backlog, the evergreen, prioritized pool of discrete work units that sprint planning drains into sprints.
+description: Guidance for the story inventory / Milestone -1, the evergreen, prioritized pool of discrete work units that milestone planning pulls into milestone documents.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
-# Tier 4 - Story Backlog
+# Backlog
 
-A **Story** is one discrete work unit: a bug fix, a feature, or a refactor. The backlog is the pool of stories, built once from Design + Milestones and then refined continuously. Sprint planning pulls stories from here into sprints.
+> Story inventory / Milestone -1. This is an unscheduled pool of possible work, not a formal tier.
+
+A **Story** is one discrete work unit: a bug fix, a feature, or a refactor. The backlog is the pool of stories, built once from Design + Milestones and then refined continuously. Milestone planning pulls stories from here into milestone documents.
 
 ## Backlog rules
 
@@ -21,7 +23,7 @@ A **Story** is one discrete work unit: a bug fix, a feature, or a refactor. The 
 
 ## Scoring
 
-Stories are scored on three orthogonal metrics before model assignment: **Complexity** (reasoning demand), **Effort** (volume), and **Risk** (uncapped headline + sub-scores). Scoring is performed by right-rail tooling and recorded when a story is scheduled into a sprint or planned. See [agenticworkflow.md](../agenticworkflow.md#scoring-model-complexity-effort-risk).
+Stories are scored on three orthogonal metrics before model assignment: **Complexity** (reasoning demand), **Effort** (volume), and **Risk** (uncapped headline + sub-scores). Scoring is performed by right-rail tooling and recorded when a story is pulled into a milestone or planned. See [agenticworkflow.md](../agenticworkflow.md#scoring-model-complexity-effort-risk).
 
 ## Files
 
@@ -32,5 +34,6 @@ Stories are scored on three orthogonal metrics before model assignment: **Comple
 
 1. Build the backlog once from Design + Milestones.
 2. Sort it front-to-back by priority.
-3. Sprint planning searches the backlog by milestone theme, gathers stories, scores them, and schedules them into [../sprints/](../sprints/).
-4. A scheduled story ready to run gets a Tier 5 implementation plan under [../implementation-plans/](../implementation-plans/).
+3. Milestone planning searches the backlog by milestone theme, gathers stories, scores them, and pulls them into the relevant [../milestones/](../milestones/) document.
+4. A promoted story marks its original backlog entry as moved, scheduled, promoted, or superseded to avoid duplicating active truth.
+5. A story ready to run gets an Implementation Plan under [../implementation-plans/](../implementation-plans/).

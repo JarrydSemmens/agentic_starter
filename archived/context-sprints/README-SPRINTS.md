@@ -7,6 +7,8 @@ metadata:
   owner: "Your Name"
   repo: "your-repo"
 ---
+ARCHIVED — the sprint tier was retired by the six-tier reform (2 July 2026); see the six-tier addendum. Kept for migration reference only.
+
 # Tier 3 - Sprints
 
 A **Sprint** is a time-bounded chunk of work toward a milestone, with a clear deliverable outcome. A milestone may require several sprints. A sprint holds roughly a dozen stories pulled from the [backlog](../backlog/).

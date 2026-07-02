@@ -1,9 +1,9 @@
 ---
 name: design
-description: Tier 1 design specification template defining project architecture, principles, constraints, the seven-tier context hierarchy, and the embedded milestones index.
+description: Design specification template defining project architecture, principles, constraints, the context tier system, and the embedded milestones index.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -13,29 +13,32 @@ metadata:
 
 This repository is an intentionally empty starter for future projects. Replace the placeholders in this file when you fork or copy the template into a real codebase.
 
-This file is Tier 1: the maintained design specification covering the whole deliverable and how it breaks into its largest pieces. It should synthesize relevant Tier 0 transcription into stable project direction. The **Milestones Index** lives as a subsection of this file (see below); the actual Milestone documents are separate files under `milestones/`.
+This file is the Design tier: the maintained design specification covering the whole deliverable and how it breaks into its largest pieces. It should synthesize relevant Dictation into stable project direction. The **Milestones Index** lives as a subsection of this file (see below); the actual Milestone documents are separate files under `milestones/`.
 
 ## Context Hierarchy
 
+This is one of only two files in the framework allowed to state the numbered tier table (the other is [agenticworkflow.md](agenticworkflow.md)). Elsewhere, refer to tiers by name only.
+
 | Tier | Document | Purpose |
 | --- | --- | --- |
-| 0 - Transcription | [dictations-tier-0/](dictations-tier-0/) | Raw dictation and supplemental design changes, before structure is imposed |
+| 0 - Dictation | [dictations-tier-0/](dictations-tier-0/) | Raw dictation and supplemental design changes, before structure is imposed |
 | 1 - Design | `design.md` | The whole deliverable, its largest pieces, and the Milestones Index subsection |
-| 2 - Milestone | [milestones/](milestones/) | One doc per macro-feature; each indexes a grouped collection of sprints |
-| 3 - Sprint | [sprints/](sprints/) | Time-bounded chunks of work toward a milestone |
-| 4 - Story | [backlog/](backlog/) | Discrete work units (features, bugs, refactors), then scheduled into a sprint |
-| 5 - Implementation Plan | `implementation-plans/*/plan.md` | The normalized how-to for one story, with scoring and mitigation |
-| 6 - Phase *(optional)* | `implementation-plans/*/` | A safe slice of an over-large story |
+| 2 - Milestone | [milestones/](milestones/) | One coherent macro-feature or delivery outcome; contains the story list needed to deliver it |
+| 3 - Story | Inside milestone docs, optionally staged first in [backlog/](backlog/) | Discrete work units (features, bugs, refactors) |
+| 4 - Implementation Plan | `implementation-plans/<milestone-slug>/<story-slug>/plan.md` | The normalized how-to for one story, with scoring and mitigation |
+| 5 - Phase *(optional)* | `implementation-plans/<milestone-slug>/<story-slug>/` | A safe slice of an over-large story |
 | Support | [laws.md](laws.md) | Constitutional code quality and security laws — loaded first by all agents |
 | Support | [agenticworkflow.md](agenticworkflow.md) | Workflow for AI agent collaboration |
 | Support | [agent-thinking.md](agent-thinking.md) | Optional temporary scratchpad for long tasks |
 | Support | [wiki/home.md](wiki/home.md) | Operational reference notes and cheat sheets |
 
+The backlog (`backlog/`) is not a numbered tier. It is a staging pool — informally "Milestone -1" — of unscheduled stories before they are pulled into a milestone document. See the Milestones Index below and [agenticworkflow.md](agenticworkflow.md) for how milestone planning draws from it.
+
 ---
 
 ## Milestones Index
 
-> This index is the table of contents for the project's milestones. It lives inside Design because a standalone milestones table is the same tier as Design. Each entry links down to a separate Milestone document under `milestones/`, which in turn indexes that milestone's sprints.
+> This index is the table of contents for the project's milestones. It lives inside Design because a standalone milestones table is the same tier as Design. Each entry links down to a separate Milestone document under `milestones/`, which directly contains that milestone's story list.
 
 | Milestone | Document | Status | Why it matters | What it unlocks |
 | --- | --- | --- | --- | --- |
@@ -84,7 +87,6 @@ project-root/
 |   |-- dictations-tier-0/
 |   |-- design.md
 |   |-- milestones/
-|   |-- sprints/
 |   |-- backlog/
 |   |-- implementation-plans/
 |   |-- laws.md
@@ -189,7 +191,7 @@ If performance is not yet a concern, say so explicitly and revisit it later.
 
 ## Context Maintenance
 
-Use Tier 0 transcription to revise this design when the project vision changes. Do not leave important decisions stranded in raw notes, chats, or addenda. Promote durable decisions into this file, the Milestones Index, milestone docs, sprints, stories, or implementation plans as appropriate.
+Use Dictation to revise this design when the project vision changes. Do not leave important decisions stranded in raw notes, chats, or addenda. Promote durable decisions into this file, the Milestones Index, milestone docs, stories, or implementation plans as appropriate.
 
 When an older design statement is superseded, update it directly and preserve only the rationale needed for future agents to understand the decision.
 
@@ -199,12 +201,11 @@ When an older design statement is superseded, update it directly and preserve on
 
 ### Specification Hierarchy
 
-- [dictations-tier-0/README-DICTATIONS-TIER-0.md](dictations-tier-0/README-DICTATIONS-TIER-0.md) - Tier 0 raw transcription
-- [design.md](design.md) - Tier 1 design overview and Milestones Index
-- [milestones/](milestones/) - Tier 2 milestone documents (sprint indexes)
-- [sprints/](sprints/) - Tier 3 sprint documents
-- [backlog/](backlog/) - Tier 4 stories
-- `implementation-plans/*/` - Tier 5 plans, Tier 6 phases, and execution records
+- [dictations-tier-0/README-DICTATIONS-TIER-0.md](dictations-tier-0/README-DICTATIONS-TIER-0.md) - Dictation, raw and unstructured
+- [design.md](design.md) - Design overview and Milestones Index
+- [milestones/](milestones/) - Milestone documents, each directly containing its story list
+- [backlog/](backlog/) - Story inventory / Milestone -1, the unscheduled staging pool
+- `implementation-plans/*/` - Implementation Plans, optional Phases, and execution records
 
 ### Reference Documents
 

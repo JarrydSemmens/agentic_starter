@@ -1,60 +1,101 @@
 ---
 name: milestone-template
-description: Tier 2 milestone template. A milestone is a macro-feature or major delivery phase that indexes a grouped collection of sprints.
+description: Milestone template. A milestone is a coherent macro-feature or delivery outcome that directly contains the story list needed to deliver it.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
 # Milestone N: *Name*
 
-> **Tier 2 - Milestone.** A macro-feature or major delivery phase. This document indexes the sprints that deliver it.
+> Milestone. A coherent macro-feature or delivery outcome. (Tier numbers live only in `design.md` / `agenticworkflow.md`.)
 >
-> Related: [design.md (Milestones Index)](../design.md#milestones-index), [../sprints/](../sprints/), [../backlog/](../backlog/)
+> Related: [design.md (Milestones Index)](../design.md#milestones-index), [../backlog/](../backlog/)
 
 ---
 
 ## Intent
 
-One sentence describing the macro-feature or major phase this milestone delivers. The deliverable is the milestone as a whole, not any single sprint.
+One sentence describing what this milestone delivers.
 
 ## Why it matters
 
 - Reason 1
 - Reason 2
 
-## Impact
+## Outcome / Definition of Done
 
-- What completing this milestone unlocks
-- What it enables downstream
+What must be true for the milestone to be complete.
 
 ## Status
 
-`Not Started | In Progress | Blocked | Complete` — `<X>/<Y>` sprints complete.
+`Not Started | In Progress | Blocked | Complete`
 
 ---
 
-## Sprint Index
+## Story Index
 
-> The grouped collection of sprints that deliver this milestone, ordered by interdependency. A milestone may yield several sprints, sometimes planned all at once (per-milestone planning) or added later (per-sprint planning). Each sprint has a clear, concise deliverable.
-
-| Sprint | Document | Deliverable | Status |
-| --- | --- | --- | --- |
-| Sprint 1 | [../sprints/sprint-1.md](../sprints/sprint-1.md) | *What this sprint delivers* | Not Started |
+| # | Story | Type | Complexity | Effort | Risk | Plan | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | [Story name](#story-1) | Feature/Bug/Refactor | — | — | — | *link when generated* | Not Started |
 
 ---
 
-## Backlog Source
+## Stories
 
-The stories that feed this milestone's sprints are pulled from the [backlog](../backlog/). During per-milestone planning, search the backlog for everything related to this milestone, gather the relevant stories, compute cumulative effort/complexity/risk, and assemble the sprints above ordered by interdependency.
+<a id="story-1"></a>
 
-- Relevant backlog themes: *list the search themes used to drain the backlog for this milestone*
-- Known interdependencies: *e.g. "secrets sprint cannot start until the container sprint exists"*
+### Story 1: *Name*
+
+**Type:** Feature | Bug | Refactor | Research | Docs | Tooling
+
+**Summary:**
+Short summary — one to three short paragraphs.
+
+**Why / value:**
+Why this matters.
+
+**Rough scope:**
+What it touches. Enough to size it, not a full plan.
+
+**CER:**
+
+- Complexity: —
+- Effort: —
+- Risk: —
+
+**Plan:** `../implementation-plans/<milestone-slug>/<story-slug>/plan.md`
+
+**Status:** Not Started
+
+---
+
+## Interdependency Order
+
+Sequencing constraints between the stories above (what must be done before what, and why).
+
+1. *Story A before Story B because ...*
+
+---
+
+## Backlog Sources
+
+Links to backlog entries that fed this milestone.
+
+- Relevant backlog themes: *list the search themes used to pull stories from the backlog for this milestone*
+
+---
+
+## Deferred / Follow-up Work
+
+Stories deliberately left out of this milestone or moved to a later one.
+
+- *None yet.*
 
 ---
 
 ## Notes
 
-- Keep this index in sync with [../sprints/](../sprints/) and the [Milestones Index](../design.md#milestones-index) in Design.
-- If a story turns out to be milestone-sized, reclassify it into its own milestone rather than forcing it into a sprint here.
+- Keep this Story Index in sync with the [Milestones Index](../design.md#milestones-index) in Design.
+- If a story turns out to be milestone-sized, reclassify it into its own milestone rather than forcing it into this one.

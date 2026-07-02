@@ -12,16 +12,15 @@ metadata:
 
 [Back to Design Specification](../design.md)
 
-This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative seven-tier context system.
+This wiki folder is optional supporting documentation for operational notes that do not belong in the authoritative context tier system.
 
 Authoritative project context lives in:
 
-- Tier 0 (Transcription): [../dictations-tier-0/](../dictations-tier-0/)
-- Tier 1 (Design + Milestones Index): [../design.md](../design.md)
-- Tier 2 (Milestone): [../milestones/](../milestones/)
-- Tier 3 (Sprint): [../sprints/](../sprints/)
-- Tier 4 (Story): [../backlog/](../backlog/)
-- Tier 5 (Implementation Plan) and Tier 6 (Phases): `../implementation-plans/*/`
+- Dictation: [../dictations-tier-0/](../dictations-tier-0/)
+- Design (+ Milestones Index): [../design.md](../design.md)
+- Milestone: [../milestones/](../milestones/), each directly containing its story list
+- Backlog (story inventory / Milestone -1): [../backlog/](../backlog/)
+- Implementation Plan and optional Phases: `../implementation-plans/*/`
 
 ## Context as a Working Language
 

@@ -1,15 +1,15 @@
 ---
 name: backlog-1
-description: Starter front backlog file. Replace placeholder stories with the real story pool once Design and Milestones exist.
+description: Starter front backlog file (story inventory / Milestone -1). Replace placeholder stories with the real story pool once Design and Milestones exist.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
 # Backlog 1
 
-> **Tier 4 - Stories.** The front (highest-priority) backlog file. Maximum **30 stories**; overflow spawns `backlog-2.md`.
+> Story inventory / Milestone -1. The front (highest-priority) backlog file. Maximum **30 stories**; overflow spawns `backlog-2.md`.
 >
 > This is starter scaffolding. Replace placeholder stories with the real pool, or copy [BACKLOG_TEMPLATE.md](BACKLOG_TEMPLATE.md) for additional backlog files.
 
@@ -17,7 +17,7 @@ metadata:
 
 ## Story Index
 
-| # | Story | Type | Priority | Complexity | Effort | Risk | Sprint | Status |
+| # | Story | Type | Priority | Complexity | Effort | Risk | Milestone | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [Story name](#story-1) | Feature | High | — | — | — | *unscheduled* | Backlog |
 

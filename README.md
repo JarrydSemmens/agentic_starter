@@ -2,8 +2,8 @@
 name: readme
 description: Minimal project README template for repositories created from the Agentic Rails context starter.
 metadata:
-  version: "2.0"
-  agentic_rails_source_version: "2.0"
+  version: "3.0"
+  agentic_rails_source_version: "3.0"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -30,17 +30,16 @@ This README is the single entry point for the repository. Use the links below as
 - [AGENTS.md](AGENTS.md) - mandatory agent startup workflow and working rules
 - [AGENTIC_RAILS_README.MD](AGENTIC_RAILS_README.MD) - durable overview of the Agentic Rails system
 - [context/laws.md](context/laws.md) - constitutional code-quality and security laws (loaded first)
-- [context/agenticworkflow.md](context/agenticworkflow.md) - the seven-tier workflow standard
-- [context/design.md](context/design.md) - Tier 1 design specification and Milestones Index
+- [context/agenticworkflow.md](context/agenticworkflow.md) - the context tier system workflow standard
+- [context/design.md](context/design.md) - Design specification and Milestones Index
 
 ### Context layers
 
-- [context/dictations-tier-0/](context/dictations-tier-0/) - Tier 0 raw dictation and transcription
-- [context/design.md](context/design.md) - Tier 1 design (includes the Milestones Index)
-- [context/milestones/](context/milestones/) - Tier 2 milestone documents
-- [context/sprints/](context/sprints/) - Tier 3 sprints
-- [context/backlog/](context/backlog/) - Tier 4 stories
-- [context/implementation-plans/](context/implementation-plans/) - Tier 5 plans and Tier 6 phases
+- [context/dictations-tier-0/](context/dictations-tier-0/) - Dictation, raw and unstructured
+- [context/design.md](context/design.md) - Design (includes the Milestones Index)
+- [context/milestones/](context/milestones/) - Milestone documents, each directly containing its story list
+- [context/backlog/](context/backlog/) - Backlog / story inventory / Milestone -1
+- [context/implementation-plans/](context/implementation-plans/) - Implementation Plans and optional Phases
 - [context/wiki/home.md](context/wiki/home.md) - operational reference notes and cheat sheets
 
 ## Repository Layout
@@ -58,7 +57,6 @@ project-root/
     |-- agent-thinking.md
     |-- dictations-tier-0/
     |-- milestones/
-    |-- sprints/
     |-- backlog/
     |-- implementation-plans/
     `-- wiki/
