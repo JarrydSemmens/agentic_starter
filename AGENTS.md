@@ -2,8 +2,8 @@
 name: agents
 description: Mandatory repository-specific instructions that tell AI coding agents how to load context, work within scope, and follow project standards.
 metadata:
-  version: "3.0"
-  agentic_rails_source_version: "3.0"
+  version: "3.1"
+  agentic_rails_source_version: "3.1"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -37,6 +37,8 @@ Before making changes, load context in this order:
 - Use `context/milestones/` (each milestone directly containing its story list) and `context/backlog/` (the story inventory / Milestone -1) to anchor implementation scope and acceptance criteria.
 - Never use `goal` as a tier name (it is retired) and never use `task` as a tier name. The work unit is a Story.
 - Treat `context/dictations-tier-0/` as raw dictation that must be synthesized into maintained docs before it becomes authoritative.
+- Review `harness/README-HARNESS.md` and any module whose documented trigger matches the task; `harness/` holds the verifiers, gates, guardrail seams, sensors, and actuators for this project.
+- Run matching `harness/` gates and verifiers when task scope triggers them, using an independent evaluator sub-agent when available. A claim about visible or runtime behavior requires the matching harness check to pass, or a documented reason it could not run.
 - Use relevant installed shared rules, skills, workflow-skills, and specialist agents when they are available and task-appropriate.
 - Repository-local instructions override reusable external tooling when they conflict.
 - Do not execute pull or push operations in any VCS.
