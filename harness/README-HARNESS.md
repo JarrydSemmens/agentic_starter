@@ -17,6 +17,40 @@ sensors, and actuators. It is machinery, not narrative: per-story evidence and
 outcomes belong in the relevant implementation plan under `context/`, never
 here.
 
+## The shape
+
+One self-contained, kebab-case folder per module. A module is one verifier,
+gate, guardrail seam, sensor, or actuator — the unit of independent adoption
+and removal. Illustrated with typical modules:
+
+```text
+harness/
+├── README-HARNESS.md              # this file: layer rules, module contract, module index
+│
+├── jobs-done-guardrail/           # SEAM module — engine is a marketplace plugin
+│   ├── config.json                #   build/test commands + relevance filters
+│   ├── eval-mode.json             #   enabled | force | ask | plan | disabled
+│   ├── runs/                      #   git-ignored: per-run logs and results
+│   └── state/                     #   git-ignored: passing fingerprints
+│
+├── game-golden-screenshot/        # SEAM module — engine is a marketplace plugin
+│   ├── eval_config.json           #   the game-specific knobs
+│   ├── drivers/my_driver.py       #   deterministic-state route (replaces the shipped stub)
+│   ├── goldens/golden.png         #   committed, human-approved reference images
+│   └── last-run/                  #   git-ignored
+│
+├── my-runtime-check/              # LOCAL module — project-specific verifier, full engine here
+│   ├── README.md                  #   trigger, contract, setup, self-test, seam
+│   ├── config.json
+│   ├── scripts/
+│   ├── truth/                     #   committed golden data
+│   └── runs/                      #   git-ignored
+│
+└── my-device-sensor/              # LOCAL module — an instrument (sensor/actuator), not a check
+    ├── README.md
+    └── scripts/
+```
+
 ## The three-home rule
 
 Every piece of harness machinery has exactly one home:

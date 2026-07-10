@@ -2,8 +2,8 @@
 name: readme
 description: Minimal project README template for repositories created from the Agentic Rails context starter.
 metadata:
-  version: "3.0"
-  agentic_rails_source_version: "3.0"
+  version: "3.1"
+  agentic_rails_source_version: "3.1"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -42,6 +42,10 @@ This README is the single entry point for the repository. Use the links below as
 - [context/implementation-plans/](context/implementation-plans/) - Implementation Plans and optional Phases
 - [context/wiki/home.md](context/wiki/home.md) - operational reference notes and cheat sheets
 
+### Harness
+
+- [harness/README-HARNESS.md](harness/README-HARNESS.md) - the project's agentic machinery: verifiers, gates, guardrail seams, sensors, and actuators, one self-contained module per artifact
+
 ## Repository Layout
 
 ```text
@@ -50,16 +54,19 @@ project-root/
 |-- AGENTIC_RAILS_README.MD
 |-- CLAUDE.md
 |-- README.md
-`-- context/
-    |-- laws.md
-    |-- agenticworkflow.md
-    |-- design.md
-    |-- agent-thinking.md
-    |-- dictations-tier-0/
-    |-- milestones/
-    |-- backlog/
-    |-- implementation-plans/
-    `-- wiki/
+|-- context/
+|   |-- laws.md
+|   |-- agenticworkflow.md
+|   |-- design.md
+|   |-- agent-thinking.md
+|   |-- dictations-tier-0/
+|   |-- milestones/
+|   |-- backlog/
+|   |-- implementation-plans/
+|   `-- wiki/
+`-- harness/
+    |-- README-HARNESS.md
+    `-- <module-name>/          (one folder per verifier, gate, guardrail seam, sensor, or actuator)
 ```
 
 ## Notes
