@@ -2,11 +2,13 @@
 name: harness-module-template
 description: Copy into harness/<module-name>/README.md and fill in. The README is the module's entry point and contract.
 metadata:
-  version: "3.1"
-  agentic_rails_source_version: "3.1"
+  version: "3.2"
+  agentic_rails_source_version: "3.2"
   owner: "Your Name"
   repo: "your-repo"
 ---
+<!-- After copying: replace the frontmatter above with the module's own
+     name, one-line description, and metadata (version, owner, repo). -->
 # <Module Name>
 
 <One paragraph: what this module checks or does, and what kind of module it

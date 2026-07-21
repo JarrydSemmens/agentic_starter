@@ -2,8 +2,8 @@
 name: harness-readme
 description: Guidance for the project harness — one self-contained module per verifier, gate, guardrail seam, sensor, or actuator that lets agents operate, test, and validate this project's real behavior.
 metadata:
-  version: "3.1"
-  agentic_rails_source_version: "3.1"
+  version: "3.2"
+  agentic_rails_source_version: "3.2"
   owner: "Your Name"
   repo: "your-repo"
 ---
@@ -21,35 +21,55 @@ here.
 
 One self-contained, kebab-case folder per module. A module is one verifier,
 gate, guardrail seam, sensor, or actuator — the unit of independent adoption
-and removal. Illustrated with typical modules:
+and removal. The anatomy of a runnable module:
 
 ```text
 harness/
-├── README-HARNESS.md              # this file: layer rules, module contract, module index
+├── README-HARNESS.md              # this file: home rules, module contract, module index
+├── HARNESS_MODULE_TEMPLATE.md     # copy into <module-name>/README.md when starting a module
 │
-├── jobs-done-guardrail/           # SEAM module — engine is a marketplace plugin
-│   ├── config.json                #   build/test commands + relevance filters
-│   ├── eval-mode.json             #   enabled | force | ask | plan | disabled
-│   ├── runs/                      #   git-ignored: per-run logs and results
-│   └── state/                     #   git-ignored: passing fingerprints
-│
-├── game-golden-screenshot/        # SEAM module — engine is a marketplace plugin
-│   ├── eval_config.json           #   the game-specific knobs
-│   ├── drivers/my_driver.py       #   deterministic-state route (replaces the shipped stub)
-│   ├── goldens/golden.png         #   committed, human-approved reference images
-│   └── last-run/                  #   git-ignored
-│
-├── my-runtime-check/              # LOCAL module — project-specific verifier, full engine here
-│   ├── README.md                  #   trigger, contract, setup, self-test, seam
-│   ├── config.json
-│   ├── scripts/
-│   ├── truth/                     #   committed golden data
-│   └── runs/                      #   git-ignored
-│
-└── my-device-sensor/              # LOCAL module — an instrument (sensor/actuator), not a check
-    ├── README.md
-    └── scripts/
+└── <module-name>/                 # one folder per module, named for what it checks or does
+    ├── README.md                  # the module's entry point and contract, from the template
+    ├── config.json                # the tuning seam: thresholds, paths, patterns, commands
+    ├── run.ps1                    # the one entry script an agent runs (or scripts/ for a family)
+    ├── .gitignore                 # module-local: ignores the module's own runtime output
+    ├── truth/                     # committed reference data the module compares against,
+    │                              #   when it has any — also seen as goldens/ or fixtures/
+    └── runs/                      # git-ignored: one timestamped folder per run, each
+                                   #   holding report.json and any captured evidence
 ```
+
+Not every module has every piece. In practice the anatomy flexes at three
+points, and only these:
+
+- **Entry point.** A single `run.ps1` at the module root when one command
+  covers it; a `scripts/` folder when the module is a family of related
+  entry points (capture, normalize, gate, self-test). Either way the README's
+  Contract section names exactly one command per job.
+- **Committed truth.** Only comparison modules carry it. Name the folder for
+  what it holds — `truth/` (reference images), `goldens/` (approved
+  screenshots), `fixtures/` (recorded inputs).
+- **Instrument-only modules.** A sensor or actuator that takes readings or
+  drives a device rather than issuing a verdict can be as small as
+  `README.md` plus `scripts/` — no config, no runs.
+
+Runtime output stays inside the module and out of git: `runs/` (timestamped
+per-run folders, often with a `-latest` convenience copy), `last-run/`, or
+`captures/`, ignored by the module's own `.gitignore` so adopting or removing
+the module never touches the repository root ignore file.
+
+## Starting a module
+
+1. Create `harness/<module-name>/` — kebab-case, named for what it checks or
+   does.
+2. Copy `HARNESS_MODULE_TEMPLATE.md` to `<module-name>/README.md` and fill it
+   in: trigger, contract, setup, self-test, seam.
+3. Put the tunable values in `config.json` and the logic in the entry script;
+   agents tune the config, not the code.
+4. Add the module-local `.gitignore` for its output folders.
+5. Prove the self-test passes without the real app or hardware.
+6. Add the module to the index table at the bottom of this file, and wire its
+   trigger line into `AGENTS.md` §0.2 so agents know when they must run it.
 
 ## The three-home rule
 
